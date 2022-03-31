@@ -1410,9 +1410,12 @@ DataTable.ext.buttons.pdfFlash = $.extend( {}, flashButton, {
 
 	text: function ( dt ) {
 		return dt.i18n( 'buttons.pdf', 'PDF' );
+		
 	},
 
 	action: function ( e, dt, button, config ) {
+		
+		
 		this.processing( true );
 
 		// Set the text
@@ -1443,7 +1446,7 @@ DataTable.ext.buttons.pdfFlash = $.extend( {}, flashButton, {
 
 		this.processing( false );
 	},
-
+	
 	extension: '.pdf',
 
 	orientation: 'portrait',

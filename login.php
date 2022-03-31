@@ -18,70 +18,82 @@
     <link rel="stylesheet" href="assets/bootstrap/template/dist/css/adminlte.min.css">
     <!-- Bootstrap Color Picker -->
     <link rel="stylesheet" href="assets/bootstrap/template/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
-   
+
 </head>
 
 <style>
+    body{
+        background: linear-gradient(#05B2DC, #0497C7, #076B96, #065A84,#033860);
+        text-align: center;
+    }
     a {
         color: #449ED3;
     }
-    img{
+
+    img {
         width: 60%;
         height: 60%;
-        
+
+    }
+    .bg-login{
+        background: #000;
     }
 </style>
 
-<body class="hold-transition login-page">
+<body class="login-page">
     <!-- login -->
-    <div class="login-box">
-        <div class="card card-outline card-primary">
-            <div class="card-header text-center">
-                <!-- <a href="#" class="h1"><b>photo_icon_icit</b>LTE</a> -->
-               <img src="assets/images/kmutnb_logo.png" alt="">
-                <!-- <p>ล็อคอินบัญชีด้วย</p> -->
-               <img src="assets/images/icit.png" alt="">
-            </div>
-            <div class="card-body">
-                <!-- <p class="login-box-msg">LOGIN</p> -->
+    <div class="bg-login">
+        <div class="login-box">
+            <div class="card ">
+                <div class="card-header text-center">
+                    <!-- <a href="#" class="h1"><b>photo_icon_icit</b>LTE</a> -->
+                    <img src="assets/images/kmutnb_logo.png" alt="">
+                    <!-- <p>ล็อคอินบัญชีด้วย</p> -->
+                    <img src="assets/images/icit.png" alt="">
+                </div>
+                <div class="card-body">
+                    <!-- <p class="login-box-msg">LOGIN</p> -->
 
-                <form action="#" method="post">
-                    <div class="input-group mb-3">
-                        <input type="email" class="form-control" placeholder="ชื่อผู้ใช้งาน">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-user"></span>
+                    <form action="#" method="post">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="ชื่อผู้ใช้งาน">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-user"></span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="รหัสผ่าน">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-lock"></span>
+                        <div class="input-group mb-3">
+                            <input type="password" class="form-control" placeholder="รหัสผ่าน">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-lock"></span>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                </form>
+                    </form>
 
-                <div class=" social-auth-links text-center mt-2 ">
-                    <a href="#" class="btn btn-block btn-info btn-lg" style="background:#3D8DBD; color:white;">
+                    <div class=" social-auth-links text-center mt-2 ">
+                        <a href="#">
+                        <button class="btn btn-block btn-info btn-lg">
                         <i class="fas fa-door-open"></i> เข้าสู่ระบบ
-                    </a>
+                        </button>
+                            
+                        </a>
+
+                    </div>
+                    <!-- /.social-auth-links -->
+
+                    <p class="mb-1 text-center">
+                        <a href="https://account.kmutnb.ac.th/">ลืมรหัสผ่านหรือต้องการเปลี่ยนรหัสผ่าน</a>
+                    </p>
 
                 </div>
-                <!-- /.social-auth-links -->
-
-                <p class="mb-1 text-center">
-                    <a href="https://account.kmutnb.ac.th/">ลืมรหัสผ่านหรือต้องการเปลี่ยนรหัสผ่าน</a>
-                </p>
-
+                <!-- /.card-body -->
             </div>
-            <!-- /.card-body -->
         </div>
     </div>
-
     <!-- /login -->
 
 
@@ -92,7 +104,7 @@
     <script src="assets/bootstrap/template/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
     <script src="assets/bootstrap/template/dist/js/adminlte.min.js"></script>
-   
+
 </body>
 
 </html>

@@ -8,12 +8,12 @@
 
         <!-- Sidebar -->
         <div class="sidebar os-host os-theme-light os-host-overflow os-host-overflow-y os-host-resize-disabled os-host-transition os-host-scrollbar-horizontal-hidden">
-            <div class="os-resize-observer-host observed">
+            <!-- <div class="os-resize-observer-host observed">
                 <div class="os-resize-observer" style="left: 0px; right: auto;"></div>
             </div>
             <div class="os-size-auto-observer observed" style="height: calc(100% + 1px); float: left;">
                 <div class="os-resize-observer"></div>
-            </div>
+            </div> -->
             <div class="os-content-glue" style="margin: 0px -8px; width: 249px; height: 664px;"></div>
             <div class="os-padding">
                 <div class="os-viewport os-viewport-native-scrollbars-invisible" style="overflow-y: scroll;">
@@ -21,15 +21,17 @@
                         <!-- Sidebar user panel (optional) -->
                         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                             <div class="image">
-                                <!-- <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">  รูปภาพ -->
+                                <img src="../../assets/bootstrap/template/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                             </div>
                             <div class="info">
                                 <a href="#" class="d-block">Name Lastname</a>
+                                <span style="color: white;">(พนักงาน)</span>
+
                             </div>
                         </div>
 
                         <!-- SidebarSearch Form -->
-                        <div class="form-inline">
+                        <!-- <div class="form-inline">
                             <div class="input-group" data-widget="sidebar-search">
                                 <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
                                 <div class="input-group-append">
@@ -37,34 +39,8 @@
                                         <i class="fas fa-search fa-fw"></i>
                                     </button>
                                 </div>
-                            </div>
-                            <!-- <div class="sidebar-search-results">
-                                <div class="list-group"><a href="#" class="list-group-item">
-                                        <div class="search-title">
-                                            <strong class="text-light"></strong>N
-                                            <strong class="text-light"></strong>o
-                                            <strong class="text-light"></strong> 
-                                            <strong class="text-light"></strong>e
-                                            <strong class="text-light"></strong>l
-                                            <strong class="text-light"></strong>e
-                                            <strong class="text-light"></strong>m
-                                            <strong class="text-light"></strong>e
-                                            <strong class="text-light"></strong>n
-                                            <strong class="text-light"></strong>t
-                                            <strong class="text-light"></strong> 
-                                            <strong class="text-light"></strong>f
-                                            <strong class="text-light"></strong>o
-                                            <strong class="text-light"></strong>u
-                                            <strong class="text-light"></strong>n
-                                            <strong class="text-light"></strong>d
-                                            <strong class="text-light"></strong>!
-                                            <strong class="text-light"></strong>
-                                        </div>
-                                        <div class="search-path"></div>
-                                    </a>
-                                </div>
-                            </div> -->
-                        </div>
+                            </div>            
+                        </div> -->
 
                         <!-- Sidebar Menu -->
                         <nav class="mt-2">
@@ -82,17 +58,8 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="index.php" class="nav-link">
-                                        <i class="nav-icon fas fa-th"></i>
-                                        <p>
-                                            ข้อมูลปฎิบัติงานพนักงาน
-                                            <!-- <span class="right badge badge-danger">New</span> -->
-                                        </p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
                                     <a href="report.php" class="nav-link">
-                                        <i class="nav-icon fas fa-copy"></i>
+                                        <i class="nav-icon fas fa-chart-pie"></i>
                                         <p>
                                             รายงานผลการปฎิบัติงาน
                                             <!-- <i class="fas fa-angle-left right"></i> -->
@@ -102,20 +69,28 @@
 
                                 <li class="nav-item">
                                     <a href="estimate.php" class="nav-link">
-                                        <i class="nav-icon fas fa-chart-pie"></i>
+                                        <i class="nav-icon fas fa-edit"></i>
                                         <p>
-                                            แบบประเมิน
+                                            ผลการประเมิน
                                             <!-- <i class="right fas fa-angle-left"></i> -->
                                         </p>
                                     </a>
                                 </li>
 
-                                <li class="nav-item">
+                                <!-- <li class="nav-item">
                                     <a href="follow.php" class="nav-link">
-                                        <i class="nav-icon fas fa-edit"></i>
+                                        <i class="nav-icon fas fa-check-square"></i>
                                         <p>
                                             ติดตามสถานะ
-                                            <!-- <i class="fas fa-angle-left right"></i> -->
+                                           
+                                        </p>
+                                    </a>
+                                </li> -->
+                                <li class="nav-item">
+                                    <a href="chart.php" class="nav-link">                                     
+                                        <i class="nav-icon fas fa-chart-bar"></i>
+                                        <p>
+                                            กราฟประเมิน                                          
                                         </p>
                                     </a>
                                 </li>
@@ -124,25 +99,6 @@
                                         <i class="nav-icon fas fa-table"></i>
                                         <p>
                                             feedback
-                                            <!-- <i class="fas fa-angle-left right"></i> -->
-                                        </p>
-                                    </a>
-                                </li>
-                                <li class="nav-header">ฟังก์ชันเพิ่มเติม</li>
-                                <li class="nav-item">
-                                    <a href="pages/calendar.html" class="nav-link">
-                                        <i class="nav-icon far fa-calendar-alt"></i>
-                                        <p>
-                                            ปฎิทิน
-                                            <span class="badge badge-info right">2</span>
-                                        </p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="nav-icon far fa-envelope"></i>
-                                        <p>
-                                            Mailbox
                                             <!-- <i class="fas fa-angle-left right"></i> -->
                                         </p>
                                     </a>

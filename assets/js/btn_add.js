@@ -1,49 +1,67 @@
-// cache elements
-var clone = $(".clone");
-var addBtn = $("#clone-add");
-var removeBtn = $(".clone-remove");
-removeBtn.first().hide();
-var cloneContainer = $(".cloneContainer");
+$(document).ready(function() {
+   var buttonAdd = $("#add-button");
+   var buttonRemove = $("#remove-button");
+   var className = ".dynamic-field";
+   var count = 0;
+   var field = "";
+   var maxFields = 50;
 
+   function totalFields() {
+       return $(className).length;
+   }
 
+   function addNewField() {
+       count = totalFields() + 1;
+       field = $("#dynamic-field-1").clone();
+       field.attr("id", "dynamic-field-" + count);
+       field.children("label").text("Field " + count);
+       field.find("input").val("");
+       $(className + ":last").after($(field));
+   }
 
-// event to clone element // give unique id
-addBtn.on("click", function() {
-   var id = generateID();
+   function removeLastField() {
+       if (totalFields() > 1) {
+           $(className + ":last").remove();
+       }
+   }
 
-   clone
-      .clone()
-      .appendTo(cloneContainer)
-      .attr("data-id", id)
-      .find(".clone-remove")
-      .attr("data-id", id)
-      .show();
-   
-  
-    // alert(result);
-       
-   
-});755
+   function enableButtonRemove() {
+       if (totalFields() === 2) {
+           buttonRemove.removeAttr("disabled");
+           buttonRemove.addClass("shadow-sm");
+       }
+   }
 
-// event to remove element
-cloneContainer.on("click", "#.clone-remove", function() {
+   function disableButtonRemove() {
+       if (totalFields() === 1) {
+           buttonRemove.attr("disabled", "disabled");
+           buttonRemove.removeClass("shadow-sm");
+       }
+   }
 
-   var btnID = $(this).attr("data-id");
-    $(".clone[data-id=" + btnID + "]").remove();
+   function disableButtonAdd() {
+       if (totalFields() === maxFields) {
+           buttonAdd.attr("disabled", "disabled");
+           buttonAdd.removeClass("shadow-sm");
+       }
+   }
 
+   function enableButtonAdd() {
+       if (totalFields() === (maxFields - 1)) {
+           buttonAdd.removeAttr("disabled");
+           buttonAdd.addClass("shadow-sm");
+       }
+   }
+
+   buttonAdd.click(function() {
+       addNewField();
+       enableButtonRemove();
+       disableButtonAdd();
+   });
+
+   buttonRemove.click(function() {
+       removeLastField();
+       disableButtonRemove();
+       enableButtonAdd();
+   });
 });
-
-
-// Unique ID generator
-function generateID() {
-    // for(var i=0; i<=4 ; i++ ){
-    //     var result = i ;
-    // }
-   var numRand = Math.floor(Math.random() * 101);
-   var dateRand = Math.floor(Date.now() / numRand);
-   var result = dateRand.toString().substring(2, 8);
-   return result;
-}
-
-//TODO
-/* - drag and drop position or controls to move up/down */

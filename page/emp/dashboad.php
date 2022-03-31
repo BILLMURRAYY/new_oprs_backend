@@ -23,8 +23,7 @@
         .card-footer {
             text-align: center;
         }
-
-        table {
+        table{
             text-align: center;
         }
     </style>
@@ -33,7 +32,7 @@
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
         <?php include("../include/header.php"); ?>
-        <?php include("../include/sidebar_staff.php"); ?>
+        <?php include("../include/sidebar_emp.php"); ?>
 
         <div class="content-wrapper" style="min-height: 608px;">
             <div class="contain">
@@ -42,20 +41,7 @@
                         <div class="container-fluid">
                             <!-- Small boxes (Stat box) -->
                             <div class="row">
-                                <div class="col-lg col">
-                                    <!-- small box -->
-                                    <div class="small-box bg-info">
-                                        <div class="inner">
-                                            <h3>150</h3>
-
-                                            <p>รายงานพนักงานเข้าใหม่</p>
-                                        </div>
-                                        <div class="icon">
-                                            <i class="far fa-folder-open"></i>
-                                        </div>
-                                        <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
-                                    </div>
-                                </div>
+                                
                                 <!-- ./col -->
                                 <div class="col-lg col">
                                     <!-- small box -->
@@ -84,62 +70,12 @@
                                         <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
                                     </div>
                                 </div>
-
+                                
                             </div>
                             <!-- /.row -->
                         </div><!-- /.container-fluid -->
 
-                        <!-- peolpe success -->
-                        <div class="card">
-                            <div class="card-header border-0">
-                                <h3 class="card-title">ข้อมูลการปฎิบัติงานของพนัก</h3>
-                                <div class="card-tools">
-                                    <!-- <a href="#" class="btn btn-tool btn-sm">
-                                        <i class="fas fa-download"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-tool btn-sm">
-                                        <i class="fas fa-bars"></i>
-                                    </a> -->
-                                </div>
-                            </div>
-                            <div class="card-body table-responsive p-0">
-                                <table class="table table-striped table-valign-middle">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>วันที่ส่ง</th>
-                                            <th>ชื่อ-นามสกุล</th>
-                                            <th>แผนก</th>
-                                            <th>หัวข้อ</th>
-                                            <th>สถานะ</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>12/04/2565</td>
-                                            <td>เจษฎา นันติ</td>
-                                            <td>กลุ่มสาระการเรียนรู้</td>
-                                            <td><a href="form_feedback.php">รายงานเล่มที่ 1</a></td>
-                                            <td><span class="badge bg-success">สำเร็จ</span></td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>06/02/65</td>
-                                            <td>คน มนุษย์</td>
-                                            <td>กลุ่มสาระการเรียนรู้</td>
-                                            <td><a href="form_feedback.php">หัวข้อที่2</a> </td>
-                                            <td><span class="badge bg-warning">ดำเนินการ</span></td>
-
-                                        </tr>
-
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <!-- /.people -->
-
+                      
 
                         <!-- graph -->
                         <div class="card">

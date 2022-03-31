@@ -2,24 +2,29 @@
 
 
 <head>
-
+    <!-- เลือก js form_add เเละ delete   -->
+    <link rel="stylesheet" href="../../assets/js/add_form.js">
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
     <!-- daterange picker -->
-    <link rel="stylesheet" href="../../assets/bootstrap/template/plugins/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="../../assets/bootstrap/plugins/daterangepicker/daterangepicker.css">
     <!-- iCheck for checkboxes and radio inputs -->
-    <link rel="stylesheet" href="../../assets/bootstrap/template/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <link rel="stylesheet" href="../../assets/bootstrap/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
     <!-- Bootstrap Color Picker -->
-    <link rel="stylesheet" href="../../assets/bootstrap/template/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
+    <link rel="stylesheet" href="../../assets/bootstrap/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
     <!-- Tempusdominus Bootstrap 4 -->
-    <link rel="stylesheet" href="../../assets/bootstrap/template/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <link rel="stylesheet" href="../../assets/bootstrap/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
     <!-- Select2 -->
-    <link rel="stylesheet" href="../../assets/bootstrap/template/plugins/select2/css/select2.min.css">
-    <link rel="stylesheet" href="../../assets/bootstrap/template/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+    <link rel="stylesheet" href="../../assets/bootstrap/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="../../assets/bootstrap/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
     <!-- Bootstrap4 Duallistbox -->
-    <link rel="stylesheet" href="../../assets/bootstrap/template/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
+    <link rel="stylesheet" href="../../assets/bootstrap/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
     <!-- BS Stepper -->
-    <link rel="stylesheet" href="../../assets/bootstrap/template/plugins/bs-stepper/css/bs-stepper.min.css">
+    <link rel="stylesheet" href="../../assets/bootstrap/plugins/bs-stepper/css/bs-stepper.min.css">
     <!-- dropzonejs -->
-    <link rel="stylesheet" href="../../assets/bootstrap/template/plugins/dropzone/min/dropzone.min.css">
+    <link rel="stylesheet" href="../../assets/bootstrap/plugins/dropzone/min/dropzone.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="../../assets/bootstrap/template/dist/css/adminlte.min.css">
     <!-- Select2 -->
@@ -75,7 +80,7 @@
                 <div class=" card-default">
                     <div class="card card-primary " data-duplicate="Exclusions" id="dynamic-field-1">
                         <!-- <div class="dynamic-field" > -->
-                        <div class="card-header" style="background:#004385; color:white;">
+                        <div class="card-header">
                             <?php $c = 1; ?>
                             <h3 class="card-title">แบบฟอร์มการปฎิบัติงาน <?php echo $c++; ?> </h3>
 
@@ -138,20 +143,68 @@
                                         </div>
 
                                         <!-- แบบที่ 1 เลือกวันเเละเวลาทำงานได้ทีเดียว -->
-                                        
-                                       
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">วันที่และเวลาทำงาน:</label>
                                             <div class="input-group col-sm-10">
-                                            <div class="input-group">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text"><i class="far fa-clock"></i></span>
                                                 </div>
                                                 <input type="text" class="form-control float-right" id="reservationtime">
                                             </div>
-                                            </div>
                                         </div>
+                                        <!-- เเบบที่2 เลือกวัน เเละ เวลาแยกกัน -->
+                                        <!-- <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">วันที่ทำงาน :</label>
+                                            <div class="input-group date col-sm-4" id="reservationdate" data-target-input="nearest">
+                                                <input type="text" class="form-control " data-target="#reservationdate">
+                                                <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                                </div>
 
+                                                <input type="text" class="form-control " data-target="#reservationdate">
+                                                <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                                </div>
+                                            </div>
+
+                                            <label class="col-sm-2 col-form-label">เวลา :</label>
+                                            <div class="input-group date col-sm-4" id="timepicker" data-target-input="nearest">
+                                                <input type="text" class="form-control datetimepicker-input" data-target="#timepicker" />
+                                                <div class="input-group-append" data-target="#timepicker" data-toggle="datetimepicker">
+                                                    <div class="input-group-text"><i class="far fa-clock"></i></div>
+                                                </div>
+
+
+                                                <input type="text" class="form-control datetimepicker-input" data-target="#timepicker" />
+                                                <div class="input-group-append" data-target="#timepicker" data-toggle="datetimepicker">
+                                                    <div class="input-group-text"><i class="far fa-clock"></i></div>
+                                                </div>
+                                            </div>
+                                        </div> -->
+
+                                        <!-- <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">เลือกผู้ส่ง :</label>
+                                            <div class="col-sm-10">
+                                                <select class="select2" multiple="multiple" style="width: 100%;">
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                </select>
+                                            </div>
+                                        </div> -->
+
+
+                                        <!-- แบบที่ 1  -->
+                                        <!-- <div class="form-group">
+                                            <label class="col-sm-2 col-form-label">อัปโหลดไฟล์ (ใส่รูปการทำงานเป็นไฟล์ .pdf)</label>
+                                            <div class="input-group">
+                                                <div class="custom-file">
+                                                    <input type="file" name="s_photo" class="custom-file-input" accept="image/*">
+                                                    <label class="custom-file-label">Choose file</label>
+                                                </div>
+                                            </div>
+                                        </div> -->
+                                        <!-- แบบที่ 2 -->
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">แนบหลักฐาน :</label>
                                             <div class="col-sm-10">
@@ -208,18 +261,7 @@
                     <!-- /card body -->
                 </div>
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> บันทึกรายงาน</button>
-                    <div class="btn btn-info " id="add-button">
-                        <!-- btn btn-block btn-info btn-lg -->
-                        <i class="fas fa-plus-circle"></i>
-                        เพิ่มรายงาน
-                    </div>
-
-                    <div class="btn btn-danger " id="remove-button">
-                        <!-- btn btn-block btn-info btn-lg -->
-                        <i class="fas fa-trash"></i>
-                        ลบรายงาน
-                    </div>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> อัพเดตรายงาน</button>          
                 </div>
             </div>
         </div>
@@ -357,7 +399,17 @@
         });
 
 
-       
+        //Datemask dd/mm/yyyy
+        $('#datemask').inputmask('dd/mm/yyyy', {
+            'placeholder': 'dd/mm/yyyy'
+        });
+        //Datemask2 mm/dd/yyyy
+        $('#datemask2').inputmask('mm/dd/yyyy', {
+            'placeholder': 'mm/dd/yyyy'
+        });
+        //Money Euro
+        $('[data-mask]').inputmask()
+
         //Date picker
         $('#reservationdate').datetimepicker({
             format: 'L'
@@ -374,12 +426,12 @@
         $('#reservation').daterangepicker()
         //Date range picker with time picker
         $('#reservationtime').daterangepicker({
-        timePicker: true,
-        timePickerIncrement: 30,
-        locale: {
-          format: 'MM/DD/YYYY hh:mm A'
-        }
-      })
+            timePicker: true,
+            timePickerIncrement: 30,
+            locale: {
+                format: 'MM/DD/YYYY hh:mm A'
+            }
+        });
         //Date range as a button
 
         //Timepicker
@@ -387,11 +439,7 @@
             format: 'LT'
         });
     </script>
-
-
-
-    <!-- report -->
-
+    
     <!-- jQuery -->
     <script src="../../assets/bootstrap/template/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
@@ -426,6 +474,5 @@
     <script src="../../assets/bootstrap/template/plugins/codemirror/mode/css/css.js"></script>
     <script src="../../assets/bootstrap/template/plugins/codemirror/mode/xml/xml.js"></script>
     <script src="../../assets/bootstrap/template/plugins/codemirror/mode/htmlmixed/htmlmixed.js"></script>
-
 
 </body>

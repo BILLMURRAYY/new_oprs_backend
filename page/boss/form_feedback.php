@@ -48,27 +48,19 @@
             padding: 15px;
         }
 
-        .show{
-            border: 2px solid #C30404;
-            padding: 20px;
-            outline: none;
-            border-radius: 30px;
-            color: black;
-        }
-       
     </style>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
         <?php include("../include/header.php"); ?>
-        <?php include("../include/sidebar_emp.php"); ?>
+        <?php include("../include/sidebar_boss.php"); ?>
 
         <div class="content-wrapper" style="min-height: 608px;">
             <div class="contain">
                 <div class="content">
                     <div class="card">
-                        <div class="card-header ">
+                        <div class="card-header " style="background:#004385 ;color:white;">
                             <div>
                                 <h3 class="card-title">ไทม์ไลน์การปฎิบัติงาน</h3>
                             </div>
@@ -93,8 +85,8 @@
                                         <div style="height: auto;">
                                             <i class="fas fa-user bg-green"></i>
                                             <div class="timeline-item">
-                                                <span class="time"><i class="fas fa-clock"></i> 27 mins ago</span>
-                                                <h3 class="timeline-header"><a href="#">Jay White</a> <label for="">หัวข้อ</label></h3>
+                                                <!-- <span class="time"><i class="fas fa-clock"></i> 27 mins ago</span> -->
+                                                <h1 class="timeline-header"> <label for="">หัวข้อ</label></h1>
                                                 <div class="timeline-body">
 
                                                     <div class="form-group row">
@@ -104,7 +96,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="form-group row">
+                                                    <!-- <div class="form-group row">
 
                                                         <label class="col-sm-2 col-form-label">วันที่ทำงาน :</label>
                                                         <div class="input-group date col-sm-4" id="reservationdate">
@@ -132,7 +124,7 @@
                                                                 <div class="input-group-text"><i class="far fa-clock"></i></div>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </div> -->
 
                                                     <div class="form-group row">
                                                         <label class="col-sm-2 col-form-label">สถานที่ปฎิบัติงาน :</label>
@@ -167,12 +159,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="form-group row">
-                                                        <label for="" class="col-sm-2 col-form-label">ส่งให้กับ :</label>
-                                                        <div class="col-sm-10">
-                                                            <!-- <textarea class="form-control" name="" id="" cols="30" rows="10" placeholder=""></textarea> -->
-                                                        </div>
-                                                    </div>
+                                            
 
                                                     <div class="form-group row">
                                                         <label for="" class="col-sm-2 col-form-label">ปัญหาที่พบ :</label>
@@ -181,25 +168,20 @@
                                                         </div>
                                                     </div>
 
-
-                                                    <div class="show" >
-                                                        <p>ชื่อผู้ส่ง :</p>
-                                                        <p>ข้อความรายละเอียดจากหัวหน้า :</p>
-
-                                                        <div class="timeline-footer" data-toggle="modal" data-target="#exampleModalCenter">
-                                                            <a class="btn11 btn-danger btn-sm"><i class="fas fa-paper-plane"></i> ตอบกลับ</a>
-                                                        </div>
-                                                    </div>
+                                                    <!-- สร้างเงื่อนไขคือ ถ้างานครบ ขึ้นตัวหนังสือว่าสำเร็จ  ปุ่มอัปเดตจะขึ้นแค่ของคนนั้น -->
 
                                                 </div>
-
+                                                <div class="timeline-footer" data-toggle="modal" data-target="#exampleModalCenter">
+                                                    <a class="btn11 btn-danger btn-sm"><i class="fas fa-paper-plane"></i> ส่งfeedback</a>
+                                                </div>
                                             </div>
+
                                             <!-- popup -->
                                             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                                     <div class="modal-content">
-                                                        <div class="modal-header" style="">
-                                                            <h5 class="modal-title" id="exampleModalLongTitle">ตอบข้อความกลับ</h5>
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLongTitle">ส่งfeedbackให้กับพนักงาน</h5>
                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
                                                             </button>
@@ -208,23 +190,22 @@
                                                             <form action="" method="post">
                                                                 <div>
                                                                     <div class="card-body">
-                                                                        <div class="form-group ">
+                                                                        <!-- <div class="form-group ">
                                                                             <label for="" class=" col-form-label">หัวข้อ :</label>
                                                                             <div class="col">
                                                                                 <input type="text" class="form-control" id="" placeholder="">
                                                                             </div>
-                                                                        </div>
+                                                                        </div> -->
 
-                                                                        <div class="form-group ">
-                                                                            <label for="" class=" col-form-label">รายละเอียด:</label>
-                                                                            <div class="col">
-                                                                                <!-- note -->
-                                                                                <textarea id="summernote" style="display: none;"></textarea>
-                                                                            </div>
+                                                                    <div class="form-group ">
+                                                                        <label for="" class=" col-form-label">รายละเอียด:</label>
+                                                                        <div class="col">
                                                                             <!-- note -->
+                                                                            <textarea id="summernote" style="display: none;"></textarea>
                                                                         </div>
-
+                                                                        <!-- note -->
                                                                     </div>
+                                                                </div>
 
                                                             </form>
 
@@ -238,6 +219,7 @@
                                                 </div>
                                             </div>
                                             <!-- //popup -->
+
                                         </div>
                                         <!-- END timeline item -->
 
@@ -317,7 +299,7 @@
     <script src="../../assets/bootstrap/template/plugins/bs-stepper/js/bs-stepper.min.js"></script>
     <!-- dropzonejs -->
     <script src="../../assets/bootstrap/template/plugins/dropzone/min/dropzone.min.js"></script>
-
+   
     <!-- AdminLTE for demo purposes -->
     <script src="../../assets/bootstrap/template/dist/js/demo.js"></script>
 

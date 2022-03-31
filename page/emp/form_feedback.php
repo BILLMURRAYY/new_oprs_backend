@@ -47,20 +47,19 @@
         .btn11 {
             padding: 15px;
         }
-
     </style>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
         <?php include("../include/header.php"); ?>
-        <?php include("../include/sidebar_staff.php"); ?>
+        <?php include("../include/sidebar_emp.php"); ?>
 
         <div class="content-wrapper" style="min-height: 608px;">
             <div class="contain">
                 <div class="content">
                     <div class="card">
-                        <div class="card-header " style="background:#004385 ;color:white;">
+                        <div class="card-header ">
                             <div>
                                 <h3 class="card-title">ไทม์ไลน์การปฎิบัติงาน</h3>
                             </div>
@@ -85,8 +84,8 @@
                                         <div style="height: auto;">
                                             <i class="fas fa-user bg-green"></i>
                                             <div class="timeline-item">
-                                                <!-- <span class="time"><i class="fas fa-clock"></i> 27 mins ago</span> -->
-                                                <h1 class="timeline-header"> <label for="">หัวข้อ</label></h1>
+                                                <span class="time"><i class="fas fa-clock"></i> 27 mins ago</span>
+                                                <h3 class="timeline-header"><a href="#">Jay White</a> <label for="">หัวข้อ</label></h3>
                                                 <div class="timeline-body">
 
                                                     <div class="form-group row">
@@ -96,7 +95,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <!-- <div class="form-group row">
+                                                    <div class="form-group row">
 
                                                         <label class="col-sm-2 col-form-label">วันที่ทำงาน :</label>
                                                         <div class="input-group date col-sm-4" id="reservationdate">
@@ -124,7 +123,7 @@
                                                                 <div class="input-group-text"><i class="far fa-clock"></i></div>
                                                             </div>
                                                         </div>
-                                                    </div> -->
+                                                    </div>
 
                                                     <div class="form-group row">
                                                         <label class="col-sm-2 col-form-label">สถานที่ปฎิบัติงาน :</label>
@@ -159,7 +158,12 @@
                                                         </div>
                                                     </div>
 
-                                            
+                                                    <div class="form-group row">
+                                                        <label for="" class="col-sm-2 col-form-label">ส่งให้กับ :</label>
+                                                        <div class="col-sm-10">
+                                                            <!-- <textarea class="form-control" name="" id="" cols="30" rows="10" placeholder=""></textarea> -->
+                                                        </div>
+                                                    </div>
 
                                                     <div class="form-group row">
                                                         <label for="" class="col-sm-2 col-form-label">ปัญหาที่พบ :</label>
@@ -190,12 +194,12 @@
                                                             <form action="" method="post">
                                                                 <div>
                                                                     <div class="card-body">
-                                                                        <!-- <div class="form-group ">
+                                                                        <div class="form-group ">
                                                                             <label for="" class=" col-form-label">หัวข้อ :</label>
                                                                             <div class="col">
                                                                                 <input type="text" class="form-control" id="" placeholder="">
                                                                             </div>
-                                                                        </div> -->
+                                                                        </div>
 
                                                                     <div class="form-group ">
                                                                         <label for="" class=" col-form-label">รายละเอียด:</label>
@@ -205,7 +209,20 @@
                                                                         </div>
                                                                         <!-- note -->
                                                                     </div>
+
+
+
+                                                                    <!-- <div class="form-group ">
+                                                                            <label for="" class="col-form-label">ปัญหาที่พบ :</label>
+                                                                            <div class="col">
+                                                                                <textarea class="form-control" name="" id="" cols="30" rows="10" placeholder=""></textarea>
+                                                                            </div>
+                                                                        </div> -->
+
+
                                                                 </div>
+
+
 
                                                             </form>
 

@@ -11,7 +11,7 @@
         }
 
         a {
-            color: white;
+            color: black;
         }
 
         table {
@@ -20,12 +20,19 @@
     </style>
 </head>
 
+        <h1>
+                                                                ทำเผื่อไว
+
+
+</h1>
+
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
 
         <?php include("../include/header.php"); ?>
 
-        <?php include("../include/sidebar_emp.php"); ?>
+        <?php include("../include/sidebar_staff.php"); ?>
+
 
         <div class="content-wrapper" style="min-height: 608px;">
             <div class="contain">
@@ -56,6 +63,7 @@
                                 <tr>
                                     <th>ลำดับ</th>
                                     <th>วันที่ส่ง</th>
+                                    <th>ชื่อ-นามสกุล</th>
                                     <th>หัวข้อ</th>
                                     <th>สถานะ</th>
                                     <th>ลบ</th>
@@ -66,18 +74,20 @@
                                 <tr>
                                     <td>1</td>
                                     <td>12/04/2565</td>
+                                    <td>เจษฎา นันติ</td>
                                     <td>รายงานเล่มที่ 1 </td>
                                     <td><span class="badge bg-success">สำเร็จ</span></td>
-                                   
+
                                     <!-- <td> <a href="#" class="btn btn-info"><i class="far fa-edit"></i></a></td> -->
                                     <td><a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a></td>
                                 </tr>
                                 <tr>
                                     <td>2</td>
                                     <td>12/04/2565</td>
-                                    <td>รายงานเล่มที่ 1 </td>
+                                    <td>เจษฎา นันติ</td>
+                                    <td>รายงานเล่มที่ 2 </td>
                                     <td><span class="badge bg-warning">ดำเนินการ</span></td>
-                             
+
                                     <!-- <td> <a href="#" class="btn btn-info"><i class="far fa-edit"></i></a></td> -->
                                     <td><a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a></td>
                                 </tr>
@@ -87,9 +97,9 @@
                                 <tr>
                                     <th>ลำดับ</th>
                                     <th>วันที่ส่ง</th>
+                                    <th>ชื่อ-นามสกุล</th>
                                     <th>หัวข้อ</th>
                                     <th>สถานะ</th>
-                                   
                                     <th>ลบ</th>
                                 </tr>
                             </tfoot>
@@ -110,7 +120,7 @@
                 "searching": true,
                 "paging": false,
                 "info": false,
-                "buttons": ["copy", "csv", "excel", "pdf", "print"]
+
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
             $('#example2').DataTable({
                 "responsive": true,

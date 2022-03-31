@@ -23,7 +23,8 @@
         a {
             color: white;
         }
-        table{
+
+        table {
             text-align: center;
         }
         .card-header {
@@ -56,6 +57,7 @@
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
+
     <div class="wrapper">
 
         <?php include("../include/header.php"); ?>
@@ -67,35 +69,36 @@
                 <div class="card">
                     <div class="card-header ">
                         <div>
-                            <h3 class="card-title">ข้อมูลสมาชิก</h3>
+                            <h3 class="card-title">จัดการรายงานผล</h3>
                         </div>
                         <div style="text-align: right;">
-                            <button type="button" class="btn b_add text-right "><a href="form_add_member.php"><span class="fas fa-plus-circle"></span> เพิ่มสมาชิก</a></button>
+                            <button type="button" class="btn b_add text-right "><a href="form_send_report.php"><span class="fas fa-plus-circle"></span> เพิ่มการจัดส่งรายงาน</a></button>
+
+                            </a>
                         </div>
                     </div>
-
+                    <div class="card-body  ">
+                        <div class="card-tools">
+                            <div class="input-group input-group">
+                                <input type="text" class="form-control" placeholder="ค้นหาข้อมูล">
+                                <div class="input-group-append">
+                                    <div class="btn btn-primary">
+                                        <i class="fas fa-search"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                     <!-- /.card-header -->
                     <div class="card-body">
 
                         <table id="example1" class="table table-bordered table-striped">
-                            <!-- <div class="row">
-                                <div class="col-sm-12 col-md-6">
-                                    <div  id="example1" class="dt-buttons btn-group flex-wrap"> <button class="btn btn-secondary buttons-copy buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>Copy</span></button> <button class="btn btn-secondary buttons-csv buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>CSV</span></button> <button class="btn btn-secondary buttons-excel buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>Excel</span></button> <button class="btn btn-secondary buttons-pdf buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>PDF</span></button> <button class="btn btn-secondary buttons-print" tabindex="0" aria-controls="example1" type="button"><span>Print</span></button> </div>
-                                </div>
-                                <div class="col-sm-12 col-md-6">
-                                    <div id="example1" class="dataTables_filter"><label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="example1"></label></div>
-                                </div>
-                            </div> -->
                             <thead>
                                 <tr>
                                     <th>ลำดับ</th>
-                                    <th>รูปภาพ</th>
-                                    <th>ชื่อ</th>
-                                    <th>นามสกุล</th>
                                     <th>แผนก</th>
-                                    <th>สิทธิ์การเข้าถึง</th>
-                                    <!-- <th>เบอร์โทร</th> -->
+                                    <th>ส่งถึง</th>
                                     <th>แก้ไข</th>
                                     <th>ลบ</th>
                                 </tr>
@@ -104,23 +107,15 @@
                             <tbody>
                                 <tr>
                                     <td>1</td>
-                                    <td>รูป</td>
-                                    <td>อรุณสวัสดิ์</td>
-                                    <td>สงข์สริน</td>
                                     <td>ไอที</td>
-                                    <td>แอดมิน</td>
-                                    <!-- <td>0817016548</td> -->
+                                    <td>คณบดี , หน่วยงานการเงิน ,</td>
                                     <td> <a href="#" class="btn btn-info"><i class="far fa-edit"></i></a></td>
                                     <td><a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a></td>
                                 </tr>
                                 <tr>
                                     <td>2</td>
-                                    <td>รูป</td>
-                                    <td>อรุณสวัสดิ์</td>
-                                    <td>สงข์สริน</td>
-                                    <td>ไอที</td>
-                                    <td>แอดมิน</td>
-                                    <!-- <td>0817016548</td> -->
+                                    <td>การเงิน</td>
+                                    <td>คณบดี , สำนักงานวิจัย ,</td>
                                     <td> <a href="#" class="btn btn-info"><i class="far fa-edit"></i></a></td>
                                     <td><a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a></td>
                                 </tr>
@@ -129,12 +124,8 @@
                             <tfoot>
                                 <tr>
                                     <th>ลำดับ</th>
-                                    <th>รูปภาพ</th>
-                                    <th>ชื่อ</th>
-                                    <th>นามสกุล</th>
                                     <th>แผนก</th>
-                                    <th>สิทธิ์การเข้าถึง</th>
-                                    <!-- <th>เบอร์โทร</th> -->
+                                    <th>ส่งถึง</th>
                                     <th>แก้ไข</th>
                                     <th>ลบ</th>
                                 </tr>
@@ -176,21 +167,18 @@
     <script src="../../assets/bootstrap/template/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
     <script src="../../assets/bootstrap/template/plugins/datatables-buttons/js/buttons.print.min.js"></script>
     <script src="../../assets/bootstrap/template/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-    <!-- AdminLTE App -->
-    <!-- <script src="../../assets/bootstrap/template/dist/js/adminlte.min.js"></script> -->
-    <!-- AdminLTE for demo purposes -->
     <script src="../../assets/bootstrap/template/dist/js/demo.js"></script>
     <script>
         $(function() {
             $("#example1").DataTable({
                 "responsive": true,
-                "lengthChange": true,
-                "autoWidth": true,
-                "paging": false,
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
                 "ordering": true,
                 "info": false,
-                "buttons": ["copy", "csv", "excel", "pdf", "print"]
-            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+                "autoWidth": false
+            })
             $('#example2').DataTable({
                 "responsive": true,
                 "paging": true,

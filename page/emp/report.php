@@ -55,7 +55,7 @@
 
         <?php include("../include/header.php"); ?>
 
-        <?php include("../include/sidebar_staff.php"); ?>
+        <?php include("../include/sidebar_emp.php"); ?>
 
 
         <div class="content-wrapper" style="min-height: 608px;">

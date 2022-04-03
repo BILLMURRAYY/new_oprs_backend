@@ -31,11 +31,11 @@
             justify-content: center;
             overflow: hidden;
             transition: 0.35s;
-            z-index: 1;       
+            z-index: 1;
             border-radius: 50px;
             box-shadow: 0 17px 26px -9px rgba();
             transition: all 0.3s ease;
-           
+
 
         }
 
@@ -46,7 +46,6 @@
             box-shadow: 0 13px 26px -9px rgba(0.2, 0.7);
             transform: translateY(3px);
         }
-        
     </style>
 </head>
 
@@ -100,7 +99,7 @@
                                     <td>12/04/2565</td>
                                     <td>รายงานเล่มที่ 1 </td>
                                     <td> <a href="edit_report.php" class="btn btn-info"><i class="far fa-edit"></i></a></td>
-                                    <td> <a href="report_timeline.php" class="btn btn-warning"><i class="fas fa-eye"></i></a></td>
+                                    <td> <a href="view_report.php" class="btn btn-warning"><i class="fas fa-eye"></i></a></td>
                                     <td><a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a></td>
                                 </tr>
                                 <tr>
@@ -108,7 +107,7 @@
                                     <td>12/04/2565</td>
                                     <td>ไอที</td>
                                     <td> <a href="edit_report.php" class="btn btn-info"><i class="far fa-edit"></i></a></td>
-                                    <td> <a href="report_timeline.php" class="btn btn-warning"><i class="fas fa-eye"></i></a></td>
+                                    <td> <a href="view_report.php" class="btn btn-warning"><i class="fas fa-eye"></i></a></td>
                                     <td><a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a></td>
                                 </tr>
                             </tbody>

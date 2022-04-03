@@ -91,6 +91,16 @@
                   </li>
 
                   <li class="nav-item">
+                    <a href="form_add_depart.php" class="nav-link">
+                      <i class="nav-icon fas fa-list"></i>
+                      <p>
+                        จัดการแผนก
+                        <!-- <i class="fas fa-angle-left right"></i> -->
+                      </p>
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
                     <a href="contact.php" class="nav-link">
                       <i class="nav-icon fas fa-table"></i>
                       <p>

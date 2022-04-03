@@ -100,7 +100,7 @@
                                     <td>12/04/2565</td>
                                     <td>รายงานเล่มที่ 1 </td>
                                     <td> <a href="edit_report.php" class="btn btn-info"><i class="far fa-edit"></i></a></td>
-                                    <td> <a href="report_timeline.php" class="btn btn-warning"><i class="fas fa-eye"></i></a></td>
+                                    <td> <a href="view_report.php" class="btn btn-warning"><i class="fas fa-eye"></i></a></td>
                                     <td><a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a></td>
                                 </tr>
                                 <tr>
@@ -108,7 +108,7 @@
                                     <td>12/04/2565</td>
                                     <td>ไอที</td>
                                     <td> <a href="edit_report.php" class="btn btn-info"><i class="far fa-edit"></i></a></td>
-                                    <td> <a href="report_timeline.php" class="btn btn-warning"><i class="fas fa-eye"></i></a></td>
+                                    <td> <a href="view_report.php" class="btn btn-warning"><i class="fas fa-eye"></i></a></td>
                                     <td><a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a></td>
                                 </tr>
                             </tbody>

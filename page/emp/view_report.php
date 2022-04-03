@@ -20,6 +20,9 @@
     <!-- CodeMirror -->
     <link rel="stylesheet" href="../../assets/bootstrap/template/plugins/codemirror/codemirror.css">
     <link rel="stylesheet" href="../../assets/bootstrap/template/plugins/codemirror/theme/monokai.css">
+
+    <!-- Ekko Lightbox -->
+    <link rel="stylesheet" href="../../assets/bootstrap/template/plugins/ekko-lightbox/ekko-lightbox.css">
     <style>
         .contain {
             padding: 25px;
@@ -47,14 +50,6 @@
         .btn11 {
             padding: 15px;
         }
-
-        .show {
-            border: 2px solid #C30404;
-            padding: 20px;
-            outline: none;
-            border-radius: 30px;
-            color: black;
-        }
     </style>
 </head>
 
@@ -62,7 +57,6 @@
     <div class="wrapper">
         <?php include("../include/header.php"); ?>
         <?php include("../include/sidebar_emp.php"); ?>
-
 
         <div class="content-wrapper" style="min-height: 608px;">
             <div class="contain">
@@ -253,149 +247,207 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="show">
-                                                        <p>ชื่อผู้ส่ง :</p>
-                                                        <p>ข้อความรายละเอียดจากหัวหน้า :</p>
-                                                        <div class="timeline-footer" data-toggle="modal" data-target="#exampleModalCenter">
-                                                            <a class="btn11 btn-danger btn-sm"><i class="fas fa-paper-plane"></i> ตอบกลับ</a>
-                                                        </div>
-                                                    </div>
-
+                                                    <!-- <div class="timeline-footer" data-toggle="modal" data-target="#exampleModalCenter">
+                                                        <a class="btn11 btn-danger btn-sm"><i class="fas fa-paper-plane"></i> ส่งfeedback</a>
+                                                    </div> -->
                                                 </div>
-                                                <!-- /timeline-body -->
-                                            </div>
-                                            <!-- popup -->
-                                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="border:none; outline:none">
-                                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header" style="">
-                                                            <h5 class="modal-title" id="exampleModalLongTitle">ตอบข้อความกลับ</h5>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <form action="" method="post">
-                                                                <div>
-                                                                    <div class="card-body">
-                                                                        <!-- <div class="form-group ">
+                                                <!-- /.timeline-body -->
+
+                                                <!-- popup -->
+                                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLongTitle">ส่งfeedbackให้กับพนักงาน</h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form action="" method="post">
+                                                                    <div>
+                                                                        <div class="card-body">
+                                                                            <!-- <div class="form-group ">
                                                                             <label for="" class=" col-form-label">หัวข้อ :</label>
                                                                             <div class="col">
                                                                                 <input type="text" class="form-control" id="" placeholder="">
                                                                             </div>
                                                                         </div> -->
 
-                                                                        <div class="form-group ">
-                                                                            <label for="" class=" col-form-label">รายละเอียด:</label>
-                                                                            <div class="col">
+                                                                            <div class="form-group ">
+                                                                                <label for="" class=" col-form-label">รายละเอียด:</label>
+                                                                                <div class="col">
+                                                                                    <!-- note -->
+                                                                                    <textarea id="summernote" style="display: none;"></textarea>
+                                                                                </div>
                                                                                 <!-- note -->
-                                                                                <textarea id="summernote" style="display: none;"></textarea>
                                                                             </div>
-                                                                            <!-- note -->
                                                                         </div>
 
-                                                                    </div>
+                                                                </form>
 
-                                                            </form>
-
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="submit" class="btn btn-primary">ส่ง</button>
-                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">ปิด</button>
-                                                            <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="submit" class="btn btn-primary">ส่ง</button>
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">ปิด</button>
+                                                                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <!-- //popup -->
                                             </div>
-                                            <!-- //popup -->
+                                            <!-- END timeline item -->
                                         </div>
-                                        <!-- END timeline item -->
-
-
                                     </div>
+                                    <!-- /.col -->
                                 </div>
-                                <!-- /.col -->
                             </div>
                         </div>
-                    </div>
-                    <!-- /.timeline -->
+                        <!-- /.timeline -->
 
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <script>
-        $(function() {
-            // Summernote
-            $('#summernote').summernote()
-
-            // CodeMirror
-            CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
-                mode: "htmlmixed",
-                theme: "monokai"
+        <script>
+            const ctx = document.getElementById('myChart').getContext('2d');
+            const myChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                    datasets: [{
+                        label: 'success  work',
+                        data: [12, 19, 3, 5, 2, 3],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
             });
-        })
+        </script>
+        <script>
+            $(function() {
+                // Summernote
+                $('#summernote').summernote()
 
-        $(function() {
-            $('.select2').select2()
-        });
-    </script>
-    <script>
-        $(function() {
-            $("#example1").DataTable({
-                "responsive": true,
-                "lengthChange": false,
-                "autoWidth": true,
-                "searching": false,
-                "paging": false,
-                // "ordering": true,
-                // "info": true,
-                // "buttons": ["copy", "csv", "excel", "pdf", "print"]
-            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-            $('#example2').DataTable({
-                "responsive": true,
-                "paging": true,
-                "lengthChange": false,
-                "searching": false,
-                "ordering": true,
-                "info": true,
-                "autoWidth": false
+                // CodeMirror
+                CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
+                    mode: "htmlmixed",
+                    theme: "monokai"
+                });
+            })
+
+            $(function() {
+                $('.select2').select2()
             });
-        });
-    </script>
-    <!-- jQuery -->
-    <script src="../../assets/bootstrap/template/plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="../../assets/bootstrap/template/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- Select2 -->
-    <script src="../../assets/bootstrap/template/plugins/select2/js/select2.full.min.js"></script>
-    <!-- Bootstrap4 Duallistbox -->
-    <script src="../../assets/bootstrap/template/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
-    <!-- InputMask -->
-    <script src="../../assets/bootstrap/template/plugins/moment/moment.min.js"></script>
-    <script src="../../assets/bootstrap/template/plugins/inputmask/jquery.inputmask.min.js"></script>
-    <!-- date-range-picker -->
-    <script src="../../assets/bootstrap/template/plugins/daterangepicker/daterangepicker.js"></script>
-    <!-- bootstrap color picker -->
-    <script src="../../assets/bootstrap/template/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
-    <!-- Tempusdominus Bootstrap 4 -->
-    <script src="../../assets/bootstrap/template/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-    <!-- Bootstrap Switch -->
-    <script src="../../assets/bootstrap/template/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
-    <!-- BS-Stepper -->
-    <script src="../../assets/bootstrap/template/plugins/bs-stepper/js/bs-stepper.min.js"></script>
-    <!-- dropzonejs -->
-    <script src="../../assets/bootstrap/template/plugins/dropzone/min/dropzone.min.js"></script>
+        </script>
+        <script>
+            $(function() {
+                $("#example1").DataTable({
+                    "responsive": true,
+                    "lengthChange": false,
+                    "autoWidth": true,
+                    "searching": false,
+                    "paging": false,
+                    // "ordering": true,
+                    // "info": true,
+                    // "buttons": ["copy", "csv", "excel", "pdf", "print"]
+                }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+                $('#example2').DataTable({
+                    "responsive": true,
+                    "paging": true,
+                    "lengthChange": false,
+                    "searching": false,
+                    "ordering": true,
+                    "info": true,
+                    "autoWidth": false
+                });
+            });
+            $(function() {
+                $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+                    event.preventDefault();
+                    $(this).ekkoLightbox({
+                        alwaysShowClose: true
+                    });
+                });
 
-    <!-- AdminLTE for demo purposes -->
-    <script src="../../assets/bootstrap/template/dist/js/demo.js"></script>
+                $('.filter-container').filterizr({
+                    gutterPixels: 3
+                });
+                $('.btn[data-filter]').on('click', function() {
+                    $('.btn[data-filter]').removeClass('active');
+                    $(this).addClass('active');
+                });
+            })
+        </script>
+        <!-- jQuery -->
+        <script src="../../assets/bootstrap/template/plugins/jquery/jquery.min.js"></script>
+        <!-- Bootstrap 4 -->
+        <script src="../../assets/bootstrap/template/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- Select2 -->
+        <script src="../../assets/bootstrap/template/plugins/select2/js/select2.full.min.js"></script>
+        <!-- Bootstrap4 Duallistbox -->
+        <script src="../../assets/bootstrap/template/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+        <!-- InputMask -->
+        <script src="../../assets/bootstrap/template/plugins/moment/moment.min.js"></script>
+        <script src="../../assets/bootstrap/template/plugins/inputmask/jquery.inputmask.min.js"></script>
+        <!-- date-range-picker -->
+        <script src="../../assets/bootstrap/template/plugins/daterangepicker/daterangepicker.js"></script>
+        <!-- bootstrap color picker -->
+        <script src="../../assets/bootstrap/template/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
+        <!-- Tempusdominus Bootstrap 4 -->
+        <script src="../../assets/bootstrap/template/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+        <!-- Bootstrap Switch -->
+        <script src="../../assets/bootstrap/template/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+        <!-- BS-Stepper -->
+        <script src="../../assets/bootstrap/template/plugins/bs-stepper/js/bs-stepper.min.js"></script>
+        <!-- dropzonejs -->
+        <script src="../../assets/bootstrap/template/plugins/dropzone/min/dropzone.min.js"></script>
 
-    <!-- Summernote -->
-    <script src="../../assets/bootstrap/template/plugins/summernote/summernote-bs4.min.js"></script>
-    <!-- CodeMirror -->
-    <script src="../../assets/bootstrap/template/plugins/codemirror/codemirror.js"></script>
-    <script src="../../assets/bootstrap/template/plugins/codemirror/mode/css/css.js"></script>
-    <script src="../../assets/bootstrap/template/plugins/codemirror/mode/xml/xml.js"></script>
-    <script src="../../assets/bootstrap/template/plugins/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="../../assets/bootstrap/template/dist/js/demo.js"></script>
+
+        <!-- Summernote -->
+        <script src="../../assets/bootstrap/template/plugins/summernote/summernote-bs4.min.js"></script>
+        <!-- CodeMirror -->
+        <script src="../../assets/bootstrap/template/plugins/codemirror/codemirror.js"></script>
+        <script src="../../assets/bootstrap/template/plugins/codemirror/mode/css/css.js"></script>
+        <script src="../../assets/bootstrap/template/plugins/codemirror/mode/xml/xml.js"></script>
+        <script src="../../assets/bootstrap/template/plugins/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+        <!-- ChartJS -->
+        <script src="../../assets/bootstrap/template/plugins/chart.js/Chart.min.js"></script>
+
+        <!-- js photo -->
+        <!-- Ekko Lightbox -->
+        <script src="../../assets/bootstrap/template/plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
+        <!-- AdminLTE App -->
+        <script src="../../assets/bootstrap/template/dist/js/adminlte.min.js"></script>
+        <!-- Filterizr-->
+        <script src="../../assets/bootstrap/template/plugins/filterizr/jquery.filterizr.min.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="../../assets/bootstrap/template/dist/js/demo.js"></script>
+
 </body>

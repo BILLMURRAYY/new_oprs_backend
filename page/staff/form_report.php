@@ -73,7 +73,7 @@
             <!--  -->
             <div class="contain ">
                 <div class=" card-default">
-                    <div class="card card-primary " data-duplicate="Exclusions" id="dynamic-field-1">
+                    <div class="card card-primary " id="dynamic-field">
                         <!-- <div class="dynamic-field" > -->
                         <div class="card-header" style="background:#004385; color:white;">
                             <?php $c = 1; ?>
@@ -138,17 +138,17 @@
                                         </div>
 
                                         <!-- แบบที่ 1 เลือกวันเเละเวลาทำงานได้ทีเดียว -->
-                                        
-                                       
+
+
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">วันที่และเวลาทำงาน:</label>
                                             <div class="input-group col-sm-10">
-                                            <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text"><i class="far fa-clock"></i></span>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="far fa-clock"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control float-right" id="reservationtime">
                                                 </div>
-                                                <input type="text" class="form-control float-right" id="reservationtime">
-                                            </div>
                                             </div>
                                         </div>
 
@@ -232,6 +232,15 @@
 
 
     <script>
+        $(".container").on("click", "#add_attribute", function(e){
+        e.stopPropagation();
+        e.preventDefault();
+
+        alert("ok");
+        var append_att = $(".clone-field").html();
+
+        $(".field").append(append_att);
+    });
         // add input photo
         $(document).ready(function() {
             var max_fields = 5; //maximum input boxes allowed
@@ -271,73 +280,19 @@
     </script>
 
     <script>
-        $(document).ready(function() {
-            var buttonAdd = $("#add-button");
-            var buttonRemove = $("#remove-button");
-            var className = ".card-primary";
-            var count = 0;
-            var field = "";
-            var maxFields = 50;
+         $(document).ready(function() {
+            let i = 1;
+            $('#add-button').click(function() {
+                i++;
+                $('#dynamic-field').append('<tr id="row'+i+'"><td><input type="text" name="skill[]" placeholder="Enter your skill" class="form-control name_list"></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>')
+            })
+            $(document).on('click', '.btn_remove', function() {
+                let button_id = $(this).attr('id');
+                $('#row'+button_id+'').remove();
+            })
+        })
 
-            function totalFields() {
-                return $(className).length;
-            }
-
-            function addNewField() {
-                count = totalFields() + 1;
-                field = $("#dynamic-field-1").clone();
-                field.attr("id", "dynamic-field-" + count);
-                field.children("label").text("Field " + count);
-                field.find("input").val("");
-                $(className + ":last").after($(field));
-            }
-
-            function removeLastField() {
-                if (totalFields() > 1) {
-                    $(className + ":last").remove();
-                }
-            }
-
-            function enableButtonRemove() {
-                if (totalFields() === 2) {
-                    buttonRemove.removeAttr("disabled");
-                    buttonRemove.addClass("shadow-sm");
-                }
-            }
-
-            function disableButtonRemove() {
-                if (totalFields() === 1) {
-                    buttonRemove.attr("disabled", "disabled");
-                    buttonRemove.removeClass("shadow-sm");
-                }
-            }
-
-            function disableButtonAdd() {
-                if (totalFields() === maxFields) {
-                    buttonAdd.attr("disabled", "disabled");
-                    buttonAdd.removeClass("shadow-sm");
-                }
-            }
-
-            function enableButtonAdd() {
-                if (totalFields() === (maxFields - 1)) {
-                    buttonAdd.removeAttr("disabled");
-                    buttonAdd.addClass("shadow-sm");
-                }
-            }
-
-            buttonAdd.click(function() {
-                addNewField();
-                enableButtonRemove();
-                disableButtonAdd();
-            });
-
-            buttonRemove.click(function() {
-                removeLastField();
-                disableButtonRemove();
-                enableButtonAdd();
-            });
-        });
+      
     </script>
 
     <script>
@@ -357,7 +312,7 @@
         });
 
 
-       
+
         //Date picker
         $('#reservationdate').datetimepicker({
             format: 'L'
@@ -374,12 +329,12 @@
         $('#reservation').daterangepicker()
         //Date range picker with time picker
         $('#reservationtime').daterangepicker({
-        timePicker: true,
-        timePickerIncrement: 30,
-        locale: {
-          format: 'MM/DD/YYYY hh:mm A'
-        }
-      })
+            timePicker: true,
+            timePickerIncrement: 30,
+            locale: {
+                format: 'MM/DD/YYYY hh:mm A'
+            }
+        })
         //Date range as a button
 
         //Timepicker
@@ -416,8 +371,6 @@
     <!-- dropzonejs -->
     <script src="../../assets/bootstrap/template/plugins/dropzone/min/dropzone.min.js"></script>
 
-    <!-- AdminLTE for demo purposes -->
-    <script src="../../assets/bootstrap/template/dist/js/demo.js"></script>
 
     <!-- Summernote -->
     <script src="../../assets/bootstrap/template/plugins/summernote/summernote-bs4.min.js"></script>

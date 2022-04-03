@@ -94,7 +94,7 @@
                                             <i class="fas fa-user bg-green"></i>
                                             <div class="timeline-item">
                                                 <!-- <span class="time"><i class="fas fa-clock"></i> 27 mins ago</span> -->
-                                                <h2 class="timeline-header"> <label for="">หัวข้อ</label></h2>
+                                                <h1 class="timeline-header"> <label for="">หัวข้อ</label></h1>
                                                 <div class="timeline-body">
 
                                                     <div class="form-group row">
@@ -104,95 +104,165 @@
                                                         </div>
                                                     </div>
 
-                                                    <!-- <div class="form-group row">
-
-                                                        <label class="col-sm-2 col-form-label">วันที่ทำงาน :</label>
-                                                        <div class="input-group date col-sm-4" id="reservationdate">
-                                                            <input type="text" class="form-control ">
-                                                            <div class="input-group-append">
-                                                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                                            </div>
-
-                                                            <input type="text" class="form-control ">
-                                                            <div class="input-group-append">
-                                                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                                            </div>
-                                                        </div>
-
-                                                        <label class="col-sm-2 col-form-label">เวลา :</label>
-                                                        <div class="input-group date col-sm-4" id="timepicker">
-                                                            <input type="text" class="form-control datetimepicker-input" />
-                                                            <div class="input-group-append">
-                                                                <div class="input-group-text"><i class="far fa-clock"></i></div>
-                                                            </div>
-
-
-                                                            <input type="text" class="form-control datetimepicker-input" />
-                                                            <div class="input-group-append">
-                                                                <div class="input-group-text"><i class="far fa-clock"></i></div>
-                                                            </div>
-                                                        </div>
-                                                    </div> -->
 
                                                     <div class="form-group row">
                                                         <label class="col-sm-2 col-form-label">สถานที่ปฎิบัติงาน :</label>
+                                                        <div class="col-sm-3">
+                                                            <label class="col-form-label">บ้าน</label>
+                                                        </div>
+                                                        <label class="col-sm-2 col-form-label">วันที่และเวลาทำงาน:</label>
                                                         <div class="col-sm-4">
-                                                            <!-- <select class="select2" style="width: 100%;">
-                                                                <option value="บ้าน">บ้าน</option>
-                                                                <option value="สำนักงาน">สำนักงาน</option>
-                                                            </select> -->
-                                                        </div>
-
-                                                        <label class="col-sm-2 col-form-label">ความสำเร็จงาน :</label>
-                                                        <div class="col-sm-4" style="">
-                                                            <!-- <select class="select2" style="width: 100%;">
-                                                                <option value="10">10 %</option>
-                                                                <option value="20">20 %</option>
-                                                                <option value="30">30 %</option>
-                                                                <option value="40">40 %</option>
-                                                                <option value="50">50 %</option>
-                                                                <option value="60">60 %</option>
-                                                                <option value="70">70 %</option>
-                                                                <option value="80">80 %</option>
-                                                                <option value="90">90 %</option>
-                                                                <option value="100">100 %</option>
-                                                            </select> -->
+                                                            <label class="col-form-label">04/03/2021-05/03/2021</label>
                                                         </div>
                                                     </div>
 
-                                                    <div class="form-group row">
-                                                        <label for="" class="col-sm-2 col-form-label">ไฟล์เอกสาร :</label>
-                                                        <div class="col-sm-10">
-                                                            <!-- <textarea class="form-control" name="" id="" cols="30" rows="10" placeholder=""></textarea> -->
+                                                    <!-- <div class="row">
+                                                        <div class="col-sm-6">
+                                                         
+                                                            <div class="form-group">
+                                                                <label class="col-sm-2 col-form-label">สถานที่ปฎิบัติงาน :</label>
+                                                                <div class="col-sm-3">
+                                                                    <label class="col-form-label">บ้าน</label>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                    </div>
-
-                                                    <!-- <div class="form-group row">
-                                                        <label for="" class="col-sm-2 col-form-label">ส่งให้กับ :</label>
-                                                        <div class="col-sm-10">
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group">
+                                                                <label class="col-sm-2 col-form-label">วันที่และเวลาทำงาน:</label>
+                                                                <div class="col-sm-4">
+                                                                    <label class="col-form-label">04/03/2021-05/03/2021</label>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div> -->
 
-                                                    <div class="form-group row">
-                                                        <label for="" class="col-sm-2 col-form-label">ปัญหาที่พบ :</label>
-                                                        <div class="col-sm-10">
-                                                            <!-- <textarea class="form-control" name="" id="" cols="30" rows="10" placeholder=""></textarea> -->
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group">
+                                                                <label></label>
+                                                                <div class="card card-danger">
+                                                                    <div class="card-header">
+                                                                        <h3 class="card-title">ความสำเร็จ</h3>
+
+                                                                        <div class="card-tools">
+                                                                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                                                                <i class="fas fa-minus"></i>
+                                                                            </button>
+
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="card-body">
+
+                                                                        <canvas id="myChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+
+                                                                    </div>
+                                                                    <!-- /.card-body -->
+                                                                </div>
+                                                                <!-- /.card -->
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group">
+                                                                <label></label>
+                                                                <div class="card card-danger">
+                                                                    <div class="card-header">
+                                                                        <h3 class="card-title">ปัญหาที่พบ</h3>
+                                                                        <div class="card-tools">
+                                                                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                                                                <i class="fas fa-minus"></i>
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="card-body">
+                                                                        <canvas id="myChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                                                                    </div>
+                                                                    <!-- /.card-body -->
+                                                                </div>
+                                                                <!-- /.card -->
+                                                            </div>
                                                         </div>
                                                     </div>
+                                                    <!-- สร้างเงื่อนไข ถ้าพบว่ามีไฟล์ให้แแสดงหน้า ifame ถ้าไม่เจอให้เเสดงหน้ารูป ถ้าเจอทั้งสองแบ่งเป็ฯ 2 ฝั่ง -->
+                                                    <div class="">
+                                                        <div class="form-group ">
+                                                            <label>ไฟล์เเละรูปภาพ</label>
+                                                            <div class="" style="text-align: center;">
+                                                                <iframe src="" width="80%" height="650px">
+                                                                </iframe>
+                                                            </div>
 
+                                                        </div>
 
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-12">
+                                                                    <div class="card card-primary">
+                                                                        <div class="card-header">
+                                                                            <h4 class="card-title">รูปภาพ</h4>
+                                                                        </div>
+                                                                        <div class="card-body">
+                                                                            <div>
+                                                                                <div class="filter-container p-0 row">
+                                                                                    <div class="filtr-item col-sm-2" data-category="1">
+                                                                                        <a href="https://via.placeholder.com/1200/FFFFFF.png?text=1" data-toggle="lightbox" data-title="ชื่อรูปที่ 1">
+                                                                                            <img src="https://via.placeholder.com/300/FFFFFF?text=1" class="img-fluid mb-2" alt="white sample" />
+                                                                                        </a>
+                                                                                    </div>
+                                                                                    <div class="filtr-item col-sm-2" data-category="1">
+                                                                                        <a href="https://via.placeholder.com/1200/FFFFFF.png?text=6" data-toggle="lightbox" data-title="ชื่อรูปที่ 2">
+                                                                                            <img src="https://via.placeholder.com/300/FFFFFF?text=6" class="img-fluid mb-2" alt="white sample" />
+                                                                                        </a>
+                                                                                    </div>
+                                                                                    <div class="filtr-item col-sm-2" data-category="1">
+                                                                                        <a href="https://via.placeholder.com/1200/FFFFFF.png?text=7" data-toggle="lightbox" data-title="ชื่อรูปที่ 3">
+                                                                                            <img src="https://via.placeholder.com/300/FFFFFF?text=7" class="img-fluid mb-2" alt="white sample" />
+                                                                                        </a>
+                                                                                    </div>
+
+                                                                                    <div class="filtr-item col-sm-2" data-category="1">
+                                                                                        <a href="https://via.placeholder.com/1200/FFFFFF.png?text=10" data-toggle="lightbox" data-title="ชื่อรูปที่ 4">
+                                                                                            <img src="https://via.placeholder.com/300/FFFFFF?text=10" class="img-fluid mb-2" alt="white sample" />
+                                                                                        </a>
+                                                                                    </div>
+                                                                                    <div class="filtr-item col-sm-2" data-category="1">
+                                                                                        <a href="https://via.placeholder.com/1200/FFFFFF.png?text=11" data-toggle="lightbox" data-title="ชื่อรูปที่ 5">
+                                                                                            <img src="https://via.placeholder.com/300/FFFFFF?text=11" class="img-fluid mb-2" alt="white sample" />
+                                                                                        </a>
+                                                                                    </div>
+
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /div photo -->
+                                                    <!-- กรณีลงไว้ทั้งคู่ -->
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group">
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                     <div class="show">
                                                         <p>ชื่อผู้ส่ง :</p>
                                                         <p>ข้อความรายละเอียดจากหัวหน้า :</p>
                                                         <div class="timeline-footer" data-toggle="modal" data-target="#exampleModalCenter">
-                                                        <a class="btn11 btn-danger btn-sm"><i class="fas fa-paper-plane"></i> ตอบกลับ</a>
+                                                            <a class="btn11 btn-danger btn-sm"><i class="fas fa-paper-plane"></i> ตอบกลับ</a>
+                                                        </div>
                                                     </div>
-                                                    </div>
-                                                    
-
 
                                                 </div>
-
+                                                <!-- /timeline-body -->
                                             </div>
                                             <!-- popup -->
                                             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="border:none; outline:none">

@@ -29,7 +29,7 @@
                     <!-- form start -->
                     <form action="" method="post">
                         <div class="card-body">
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label>สิทธิ์การเข้าถึง</label>
                                 <select id="m_role" class="form-control select2bs4" style="width: 100%;" required>
                                     <option value="">-เลือกข้อมูล-</option>
@@ -38,7 +38,7 @@
                                     <option value="staff">staff</option>
                                     <option value="employee">Employee</option>
                                 </select>
-                            </div>
+                            </div> -->
                             <div class="form-group">
                                 <label>แผนก</label>
                                 <select id="m_position" class="form-control select2bs4" style="width: 100%;" required>
@@ -107,48 +107,7 @@
                                         <span class="input-group-text">อัปโหลด</span>
                                     </div> -->
                                 </div>
-                            </div>
-
-                            <div class="form-group" data-select2-id="10">
-                                <section class="content">
-                                    <div class="col-3">
-                                        <div class="form-group">
-                                            <label>Sort Order:</label>
-                                            <select class="select2" style="width: 100%;">
-                                                <option selected>ASC</option>
-                                                <option>Text only</option>
-                                                <option>Images</option>
-                                                <option>Video</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </section>
-                            </div>
-                            <!-- <div class="form-group">
-                                <label>Disabled Result</label>
-                                <select class="form-control select2bs4" style="width: 100%;">
-                                    <option selected="selected">Alabama</option>
-                                    <option>Alaska</option>
-                                    <option disabled="disabled">California (disabled)</option>
-                                    <option>Delaware</option>
-                                    <option>Tennessee</option>
-                                    <option>Texas</option>
-                                    <option>Washington</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>สมาชิก</label>
-                                <select class="form-control select2bs4" style="width: 100%;">
-
-                                    <option selected="selected">Alabama</option>
-                                    <option>Alaska</option>
-                                    <option disabled="disabled">แผนก</option>
-                                    <option>Delaware</option>
-                                    <option>Tennessee</option>
-                                    <option>Texas</option>
-                                    <option>Washington</option>
-                                </select>
-                            </div> -->
+                            </div>                       
                         </div>
                         <!-- /.card-body -->
 

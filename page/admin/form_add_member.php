@@ -1,17 +1,31 @@
 <?php include("../include/head.php"); ?>
-<style>
-    .contain {
-        padding: 25px;
-    }
+<?php include("sql_select.php"); ?>
 
-    .card-title {
-        font-size: 20px;
-    }
+<head>
+    <!-- Select2 -->
+    <link rel="stylesheet" href="../../assets/bootstrap/template/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="../../assets/bootstrap/template/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../assets/bootstrap/template/dist/css/adminlte.min.css">
 
-    .card-footer {
-        text-align: center;
-    }
-</style>
+
+    <style>
+        .contain {
+            padding: 25px;
+        }
+
+        .card-title {
+            font-size: 20px;
+        }
+
+        .card-footer {
+            text-align: center;
+        }
+        input[type="file"]{
+           
+        }
+    </style>
+</head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
 
@@ -27,7 +41,7 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form action="" method="post">
+                    <form action="sql_add_member.php" id="" method="post" onSubmit="return chkpsw(this)" enctype="multipart/form-data">
                         <div class="card-body">
                             <!-- <div class="form-group">
                                 <label>สิทธิ์การเข้าถึง</label>
@@ -41,13 +55,13 @@
                             </div> -->
                             <div class="form-group">
                                 <label>แผนก</label>
-                                <select id="m_position" class="form-control select2bs4" style="width: 100%;" required>
-                                    <option value="">-เลือกข้อมูล-</option>
-                                    <option value="แอดมิน">แอดมิน</option>
-                                    <option value="ฝ่ายบริหาร">ฝ่ายบริหาร</option>
-                                    <option value="ฝ่ายบริการศึกษา">ฝ่ายบริการศึกษา</option>
-                                    <option value="งานคลังและพัสดุ">งานคลังและพัสดุ</option>
-                                    <option value="กลุ่มงานประกัน">กลุ่มงานประกัน</option>
+                                <select id="m_position" name="depart" class="select2" style="width: 100%;" required>
+                                    <?php foreach ($result as $row) {
+                                        if ($row['departmentName'] != "admin") { ?>
+                                            <option value="<?php echo $row["departmentName"] ?>"><?php echo $row["departmentName"] ?></option>
+
+                                    <?php }
+                                    } ?>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -55,7 +69,7 @@
                                     <div class="col-md-2" data-select2-id="83">
                                         <div class="form-group" data-select2-id="82">
                                             <label>คำนำหน้า</label>
-                                            <select id="m_prefix" class="form-control select2bs4 select2-hidden-accessible" style="width: 100%;" data-select2-id="17" tabindex="-1" aria-hidden="true">
+                                            <select id="m_prefix" name="mr" class="select2" style="width: 100%;" data-select2-id="17" tabindex="-1" aria-hidden="true">
                                                 <option value="">-เลือกข้อมูล-</option>
                                                 <option value="นาย">นาย</option>
                                                 <option value="นางสาว">นางสาว</option>
@@ -67,14 +81,14 @@
                                     <div class="col-md-5" data-select2-id="56">
                                         <div class="form-group" data-select2-id="55">
                                             <label>ชื่อ</label>
-                                            <input type="text" name="m_FName" class="form-control" required placeholder="กรอกชื่อจริง" value="" minlength="2">
+                                            <input type="text" name="f_name" class="form-control" required placeholder="กรอกชื่อจริง" value="" minlength="2">
                                         </div>
                                     </div>
 
                                     <div class="col-md-5" data-select2-id="56">
                                         <div class="form-group" data-select2-id="55">
                                             <label>นามสกุล</label>
-                                            <input type="text" name="m_LName" class="form-control" required placeholder="กรอกนามสกุล" value="" minlength="2">
+                                            <input type="text" name="l_name" class="form-control" required placeholder="กรอกนามสกุล" value="" minlength="2">
 
                                         </div>
                                     </div>
@@ -82,32 +96,33 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">เบอร์โทรศัพท์</label>
-                                <input type="email" class="form-control" id="m_tell" placeholder="กรอกเบอร์โทรศัพท์" required>
+                                <input type="text" class="form-control" name="phone" id="m_tell" placeholder="กรอกเบอร์โทรศัพท์" required>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">อีเมล</label>
-                                <input type="email" class="form-control" id="m_email" placeholder="กรอกอีเมล" required>
+                                <input type="email" class="form-control" name="email" id="m_email" placeholder="กรอกอีเมล" required>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">รหัสผ่าน</label>
-                                <input type="password" class="form-control" id="m_pass" placeholder="กรอกรหัสผ่าน" required>
+                                <input type="password" class="form-control" name="pass1" id="m_pass" placeholder="กรอกรหัสผ่าน" required>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">ยืนยันรหัสรหัสผ่านอีกครั้ง</label>
-                                <input type="password" class="form-control" id="m_pass2" placeholder="กรอกรหัสผ่านอีกครั้ง" required>
+                                <input type="password" class="form-control" name="pass2" id="m_pass2" placeholder="กรอกรหัสผ่านอีกครั้ง" required>
                             </div>
+
                             <div class="form-group">
-                                <label for="InputFile">ไฟล์รูปภาพ</label>
+                                <label >ไฟล์รูปภาพ</label>
                                 <div class="input-group">
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="m_file">
-                                        <label class="custom-file-label" for="exampleInputFile">ใส่รูปภาพ (นามสกุลไฟล์รูปภาพ .jpg และ .png)</label>
-                                    </div>
+                                    <!-- <div class="custom-file"> -->
+                                        <input type="file" name="m_Img" class="form-control" id="m_Img"  accept="image/*">
+                                        <!-- <label class="" for="exampleInputFile">ใส่รูปภาพ (นามสกุลไฟล์รูปภาพ .jpg และ .png)</label> -->
+                                    <!-- </div> -->
                                     <!-- <div class="input-group-append">
                                         <span class="input-group-text">อัปโหลด</span>
                                     </div> -->
                                 </div>
-                            </div>                       
+                            </div>
                         </div>
                         <!-- /.card-body -->
 
@@ -119,9 +134,44 @@
             </div>
         </div>
     </div>
+    <script language="Javascript">
+        function chkpsw(form) {
+            password1 = form.pass1.value;
+            password2 = form.pass2.value;
 
-    <!-- script -->
+            // ถ้าช่่องรหัสผ่านไม่ถูกกรอก
+            if (password1 == '')
+                alert("กรุณากรอกรหัสยืนยันอีกครั้ง");
 
+            // ถ้าช่่องยืนยันรหัสผ่านไม่ถูกกรอก
+            else if (password2 == '')
+                alert("กรุณากรอกรหัสยืนยันอีกครั้ง");
+
+            //ถ้าทั้งสองช่องไม่ตรงกัน   ให้แจ้งผู้ใช้  และ  return false
+            else if (password1 != password2) {
+                alert("\n รหัสผ่านของคุณไม่ตรงกัน")
+                return false;
+            }
+
+            //ถ้าทั้งสองช่องตรงกัน  return true
+            else {
+
+                alert("เพิ่มสมาชิกเรียบร้อย")
+                return true;
+            }
+        }
+    </script>
+
+    <script>
+        $(function() {
+            $('.select2').select2()
+        });
+    </script>
+
+    <!-- jQuery -->
+    <script src="../../assets/bootstrap/template/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="../../assets/bootstrap/template/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Select2 -->
     <script src="../../assets/bootstrap/template/plugins/select2/js/select2.full.min.js"></script>
     <!-- dropzonejs -->

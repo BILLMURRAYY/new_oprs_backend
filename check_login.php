@@ -1,36 +1,50 @@
+<?php
+session_start();
 
-<!-- function select to page options -->
+//! ปิดแสดง Error   
+error_reporting(0);
 
-เลือกรายการ
-                <select class="select2" style="width: 100%;" onchange="displayForm(this)">
-                    <option value="n1">1</option>
-                    <option value="n2">2</option>
-                    <option value="n3">3</option>
-                </select>
+require_once("condb.php");
 
-                <div id="c99" style="display: none" class="form-group  " data-cid="c99">
-                    goodmornig
-                    <input type="text">
-                </div>
 
-                <div id="c92" style="display: none" class="form-group  " data-cid="c92">
-                    hi
-                </div>
+$email = $_POST['email'];
+$pass = $_POST['password'];
 
-                <script>
-        function displayForm(elem) {
-            if (elem.value == "n1") {
-                document.getElementById('c99').style.display = "block";
-            } else {
-                document.getElementById('c99').style.display = "none";
-            }
-            if (elem.value == "n2") {
-                document.getElementById('c92').style.display = "block";
-            } else {
-                document.getElementById('c92').style.display = "none";
-            }
-         
-        }
-        </script>
+// echo "<pre>";
+// print_r($_POST);
+// echo "</pre>";
 
-        <!-- /option -->
+$sql = "SELECT * FROM member 
+        INNER JOIN department  ON department.id = member.id_department 
+        WHERE email = '" . $email . "' AND password = '" . $pass . "'  ";
+
+$result = mysqli_query($condb, $sql) or die("Error in query: $sql ");
+$row = mysqli_fetch_array($result);
+
+
+if ($email == $row["email"] and $pass == $row["password"]) {
+
+    $_SESSION["email"] = $row["email"];
+    $_SESSION["name"] = $row["name"];
+    ($_SESSION["role"] = $row["level"]);
+    $_SESSION["department"] = $row["id_department"];
+
+    if ($_SESSION["role"] == "admin") {
+        header ("Location: page/admin/");
+    } elseif ($_SESSION["role"] == "boss") {
+        header ("Location: page/boss/");
+    } elseif ($_SESSION["role"] == "staff") {
+        header ("Location: page/staff/");
+    } elseif ($_SESSION["role"] == "emp") {
+        header ("Location: page/emp/");
+    }
+} else {
+
+    echo "<script>";
+    echo "alert('email หรือ Password ไม่ถูกต้อง !!!');";
+    echo "window.location = 'login.php'; ";
+    echo "</script>";
+    header("Location: login.php");
+}
+    // echo "out";
+    // echo $row["m_Email"];

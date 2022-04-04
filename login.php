@@ -22,10 +22,11 @@
 </head>
 
 <style>
-    body{
-        background: linear-gradient(#05B2DC, #0497C7, #076B96, #065A84,#033860);
+    body {
+        background: linear-gradient(#05B2DC, #0497C7, #076B96, #065A84, #033860);
         text-align: center;
     }
+
     a {
         color: #449ED3;
     }
@@ -35,7 +36,8 @@
         height: 60%;
 
     }
-    .bg-login{
+
+    .bg-login {
         background: #000;
     }
 </style>
@@ -54,9 +56,9 @@
                 <div class="card-body">
                     <!-- <p class="login-box-msg">LOGIN</p> -->
 
-                    <form action="#" method="post">
+                    <form action="check_login.php" method="post">
                         <div class="input-group mb-3">
-                            <input type="email" class="form-control" placeholder="ชื่อผู้ใช้งาน">
+                            <input type="email" name="email" class="form-control" placeholder="ชื่อผู้ใช้งาน">
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-user"></span>
@@ -64,7 +66,7 @@
                             </div>
                         </div>
                         <div class="input-group mb-3">
-                            <input type="password" class="form-control" placeholder="รหัสผ่าน">
+                            <input type="password" name="password" class="form-control" placeholder="รหัสผ่าน">
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-lock"></span>
@@ -72,17 +74,12 @@
                             </div>
                         </div>
 
+                        <div class="social-auth-links text-center mt-2 ">
+                            <button type="submit" class="btn btn-block btn-info btn-lg">
+                                <i class="fas fa-door-open"></i> เข้าสู่ระบบ
+                            </button>
+                        </div>
                     </form>
-
-                    <div class=" social-auth-links text-center mt-2 ">
-                        <a href="#">
-                        <button class="btn btn-block btn-info btn-lg">
-                        <i class="fas fa-door-open"></i> เข้าสู่ระบบ
-                        </button>
-                            
-                        </a>
-
-                    </div>
                     <!-- /.social-auth-links -->
 
                     <p class="mb-1 text-center">

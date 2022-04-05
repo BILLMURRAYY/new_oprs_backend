@@ -4,8 +4,6 @@
         padding: 25px;
     }
 
-
-
     input {
         margin-left: 20px;
     }

@@ -2,11 +2,6 @@
 <?php include("sql_select.php"); ?>
 
 <head>
-    <!-- Select2 -->
-    <link rel="stylesheet" href="../../assets/bootstrap/template/plugins/select2/css/select2.min.css">
-    <link rel="stylesheet" href="../../assets/bootstrap/template/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="../../assets/bootstrap/template/dist/css/adminlte.min.css">
 
 
     <style>
@@ -168,12 +163,4 @@
         });
     </script>
 
-    <!-- jQuery -->
-    <script src="../../assets/bootstrap/template/plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="../../assets/bootstrap/template/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- Select2 -->
-    <script src="../../assets/bootstrap/template/plugins/select2/js/select2.full.min.js"></script>
-    <!-- dropzonejs -->
-    <script src="../../assets/bootstrap/template/plugins/dropzone/min/dropzone.min.js"></script>
 </body>

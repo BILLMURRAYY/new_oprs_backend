@@ -67,15 +67,15 @@
                                         </p>
                                     </a>
 
-                                <li class="nav-item">
+                                <!-- <li class="nav-item">
                                     <a href="estimate.php" class="nav-link">
                                         <i class="nav-icon fas fa-edit"></i>
                                         <p>
                                             ผลการประเมิน
-                                            <!-- <i class="right fas fa-angle-left"></i> -->
+                                            <i class="right fas fa-angle-left"></i>
                                         </p>
                                     </a>
-                                </li>
+                                </li> -->
 
                                 <!-- <li class="nav-item">
                                     <a href="follow.php" class="nav-link">
@@ -90,7 +90,7 @@
                                     <a href="chart.php" class="nav-link">                                     
                                         <i class="nav-icon fas fa-chart-bar"></i>
                                         <p>
-                                            กราฟประเมิน                                          
+                                        ผลการประเมิน                                         
                                         </p>
                                     </a>
                                 </li>

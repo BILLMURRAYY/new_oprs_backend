@@ -1,20 +1,7 @@
 <?php include("../include/head.php"); ?>
 
 <head>
-    <link rel="stylesheet" href="../../assets/js/add_form.js">
-    <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="../../assets/bootstrap/template/plugins/fontawesome-free/css/all.min.css">
-
-    <!-- Select2 -->
-    <link rel="stylesheet" href="../../assets/bootstrap/template/plugins/select2/css/select2.min.css">
-    <link rel="stylesheet" href="../../assets/bootstrap/template/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
-    <!-- Select2 -->
-    <link rel="stylesheet" href="../../assets/bootstrap/template/plugins/select2/css/select2.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="../../assets/bootstrap/template/dist/css/adminlte.min.css">
-
+   
     <style>
         .contain {
             padding: 25px;
@@ -33,12 +20,13 @@
             font-size: 20px;
         }
 
-        .table td, .table  {
+        .table td,
+        .table {
             padding: 10px;
             border: 1px solid #828487;
         }
 
-        .head1 td  {
+        .head1 td {
             background: #17a2b8;
             color: white;
             border: none;
@@ -52,11 +40,6 @@
         h3 {
             color: white;
         }
-        
-
-
-
-        
     </style>
 </head>
 
@@ -76,9 +59,9 @@
 
                     <div class="card-body">
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">แผนก :</label>
+                            <label class="col-2 col-form-label">แผนก :</label>
                             <div class="col-sm-4" style="">
-                                <select class="select2" style="width: 100%;">
+                                <select class="select2 form-control" style="width: 100%;">
                                     <option value="10">ไอที</option>
                                     <option value="20">การเงิน</option>
                                     <option value="30">บริหาร</option>
@@ -86,21 +69,22 @@
                                 </select>
                             </div>
 
-                            <label class="col-sm-2 col-form-label">ชื่อพนักงาน :</label>
+                            <label class="col-2 col-form-label">ชื่อพนักงาน :</label>
                             <div class="col-sm-4">
-                                <select class="select2" style="width: 100%;">
+                                <select class="select2 form-control" style="width: 100%;">
                                     <option value="สำนักงาน">เจษฎา นันติ</option>
                                     <option value="บ้าน">นิธิภัทร กิจสำเร็จ</option>
                                 </select>
                             </div>
                         </div>
                         <div>
-                           <span> <p style="  font-size: 18px;"><u>คำชี้แจง </u> โปรดทำการคลิ๊กเลือกสัญลักษณ์ ○ ในช่องว่างที่ตรงกับความคิดเห็นของท่าน  
-                                เรียงลำดับคะเเนนความพึงพอใจ 5 = ดีเยี่ยม ,4 = ดีมาก ,3 = ดี ,2 = พอใช้ และ 1 = ควรพัฒนา</p>
-                           </span>                          
+                            <span>
+                                <!-- <p style="  font-size: 18px;"><u>คำชี้แจง </u> โปรดทำการคลิ๊กเลือกสัญลักษณ์ ○ ในช่องว่างที่ตรงกับความคิดเห็นของท่าน</p> -->
+                                  <p style="  font-size: 18px; color:#004385;">เรียงลำดับคะเเนนความพึงพอใจ 5 = ดีเยี่ยม ,4 = ดีมาก ,3 = ดี ,2 = พอใช้ และ 1 = ควรพัฒนา</p>
+                            </span>
                         </div>
                         <form action="" method="POST">
-                            
+
                             <table class="table table-bordered">
                                 <div class="custom-control custom-checkbox">
                                     <!-- <thead class="head_es">
@@ -370,21 +354,6 @@
         </div>
     </div>
     </div>
-
-    <!-- jQuery -->
-    <script src="../../assets/bootstrap/template/plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="../../assets/bootstrap/template/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- Select2 -->
-    <script src="../../assets/bootstrap/template/plugins/select2/js/select2.full.min.js"></script>
-    <!-- InputMask -->
-    <script src="../../assets/bootstrap/template/plugins/moment/moment.min.js"></script>
-    <script src="../../assets/bootstrap/template/plugins/inputmask/jquery.inputmask.min.js"></script>
-    <!-- Tempusdominus Bootstrap 4 -->
-    <script src="../../assets/bootstrap/template/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-
-    <!-- AdminLTE for demo purposes -->
-    <script src="../../assets/bootstrap/template/dist/js/demo.js"></script>
     <!-- bs-custom-file-input -->
     <script src="../../assets/bootstrap/template/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 

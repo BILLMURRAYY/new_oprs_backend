@@ -1,16 +1,7 @@
 <?php include("../include/head.php"); ?>
 
 <head>
-    <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="../../assets/bootstrap/template/plugins/fontawesome-free/css/all.min.css">
-    <!-- DataTables -->
-    <link rel="stylesheet" href="../../assets/bootstrap/template/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="../../assets/bootstrap/template/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-    <link rel="stylesheet" href="../../assets/bootstrap/template/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="../../assets/bootstrap/template/dist/css/adminlte.min.css">
+   
     <style>
         .contain {
             padding: 25px;
@@ -20,7 +11,7 @@
             font-size: 25px;
         }
 
-        a {
+        a ,a:hover {
             color: white;
         }
 
@@ -72,7 +63,7 @@
                             <h3 class="card-title">จัดการรายงานผล</h3>
                         </div>
                         <div style="text-align: right;">
-                            <button type="button" class="btn b_add text-right "><a href="form_send_report.php"><span class="fas fa-plus-circle"></span> เพิ่มการจัดส่งรายงาน</a></button>
+                            <button type="button" class="btn b_add text-right "><a  href="form_add_depart.php"><span class="fas fa-plus-circle"></span> เพิ่มการจัดส่งรายงาน</a></button>
 
                             </a>
                         </div>
@@ -150,24 +141,6 @@
 
     </footer>
 
-    <!-- jQuery -->
-    <script src="../../assets/bootstrap/template/plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="../../assets/bootstrap/template/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- DataTables  & Plugins -->
-    <script src="../../assets/bootstrap/template/plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="../../assets/bootstrap/template/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-    <script src="../../assets/bootstrap/template/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="../../assets/bootstrap/template/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-    <script src="../../assets/bootstrap/template/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="../../assets/bootstrap/template/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-    <script src="../../assets/bootstrap/template/plugins/jszip/jszip.min.js"></script>
-    <script src="../../assets/bootstrap/template/plugins/pdfmake/pdfmake.min.js"></script>
-    <script src="../../assets/bootstrap/template/plugins/pdfmake/vfs_fonts.js"></script>
-    <script src="../../assets/bootstrap/template/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-    <script src="../../assets/bootstrap/template/plugins/datatables-buttons/js/buttons.print.min.js"></script>
-    <script src="../../assets/bootstrap/template/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-    <script src="../../assets/bootstrap/template/dist/js/demo.js"></script>
     <script>
         $(function() {
             $("#example1").DataTable({

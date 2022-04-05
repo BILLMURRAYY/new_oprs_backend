@@ -31,11 +31,11 @@
             justify-content: center;
             overflow: hidden;
             transition: 0.35s;
-            z-index: 1;
+            z-index: 1;       
             border-radius: 50px;
             box-shadow: 0 17px 26px -9px rgba();
             transition: all 0.3s ease;
-
+           
 
         }
 
@@ -46,6 +46,7 @@
             box-shadow: 0 13px 26px -9px rgba(0.2, 0.7);
             transform: translateY(3px);
         }
+        
     </style>
 </head>
 

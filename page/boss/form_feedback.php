@@ -1,25 +1,6 @@
 <?php include("../include/head.php"); ?>
 
 <head>
-    <link rel="stylesheet" href="../../assets/js/add_form.js">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="../../assets/bootstrap/template/dist/css/adminlte.min.css">
-    <!-- Bootstrap Color Picker -->
-    <link rel="stylesheet" href="../../assets/bootstrap/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
-    <!-- Tempusdominus Bootstrap 4 -->
-    <link rel="stylesheet" href="../../assets/bootstrap/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
-    <!-- Select2 -->
-    <link rel="stylesheet" href="../../assets/bootstrap/template/plugins/select2/css/select2.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="../../assets/bootstrap/template/dist/css/adminlte.min.css">
-
-    <!-- summernote -->
-    <link rel="stylesheet" href="../../assets/bootstrap/template/plugins/summernote/summernote-bs4.min.css">
-    <!-- SimpleMDE -->
-    <link rel="stylesheet" href="../../assets/bootstrap/template/plugins/simplemde/simplemde.min.css">
-    <!-- CodeMirror -->
-    <link rel="stylesheet" href="../../assets/bootstrap/template/plugins/codemirror/codemirror.css">
-    <link rel="stylesheet" href="../../assets/bootstrap/template/plugins/codemirror/theme/monokai.css">
 
     <!-- Ekko Lightbox -->
     <link rel="stylesheet" href="../../assets/bootstrap/template/plugins/ekko-lightbox/ekko-lightbox.css">
@@ -187,7 +168,7 @@
 
                                                         </div>
 
-                                                        <div class="form-group">
+                                                        <!-- <div class="form-group">
                                                             <div class="row">
                                                                 <div class="col-12">
                                                                     <div class="card card-primary">
@@ -231,7 +212,8 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
+                                                        </div> -->
+
                                                     </div>
                                                     <!-- /div photo -->
                                                     <!-- กรณีลงไว้ทั้งคู่ -->
@@ -403,51 +385,13 @@
                 });
             })
         </script>
-        <!-- jQuery -->
-        <script src="../../assets/bootstrap/template/plugins/jquery/jquery.min.js"></script>
-        <!-- Bootstrap 4 -->
-        <script src="../../assets/bootstrap/template/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <!-- Select2 -->
-        <script src="../../assets/bootstrap/template/plugins/select2/js/select2.full.min.js"></script>
-        <!-- Bootstrap4 Duallistbox -->
-        <script src="../../assets/bootstrap/template/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
-        <!-- InputMask -->
-        <script src="../../assets/bootstrap/template/plugins/moment/moment.min.js"></script>
-        <script src="../../assets/bootstrap/template/plugins/inputmask/jquery.inputmask.min.js"></script>
-        <!-- date-range-picker -->
-        <script src="../../assets/bootstrap/template/plugins/daterangepicker/daterangepicker.js"></script>
-        <!-- bootstrap color picker -->
-        <script src="../../assets/bootstrap/template/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
-        <!-- Tempusdominus Bootstrap 4 -->
-        <script src="../../assets/bootstrap/template/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-        <!-- Bootstrap Switch -->
-        <script src="../../assets/bootstrap/template/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
-        <!-- BS-Stepper -->
-        <script src="../../assets/bootstrap/template/plugins/bs-stepper/js/bs-stepper.min.js"></script>
-        <!-- dropzonejs -->
-        <script src="../../assets/bootstrap/template/plugins/dropzone/min/dropzone.min.js"></script>
-
-        <!-- AdminLTE for demo purposes -->
-        <script src="../../assets/bootstrap/template/dist/js/demo.js"></script>
-
-        <!-- Summernote -->
-        <script src="../../assets/bootstrap/template/plugins/summernote/summernote-bs4.min.js"></script>
-        <!-- CodeMirror -->
-        <script src="../../assets/bootstrap/template/plugins/codemirror/codemirror.js"></script>
-        <script src="../../assets/bootstrap/template/plugins/codemirror/mode/css/css.js"></script>
-        <script src="../../assets/bootstrap/template/plugins/codemirror/mode/xml/xml.js"></script>
-        <script src="../../assets/bootstrap/template/plugins/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+       
         <!-- ChartJS -->
         <script src="../../assets/bootstrap/template/plugins/chart.js/Chart.min.js"></script>
 
-        <!-- js photo -->
         <!-- Ekko Lightbox -->
         <script src="../../assets/bootstrap/template/plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
-        <!-- AdminLTE App -->
-        <script src="../../assets/bootstrap/template/dist/js/adminlte.min.js"></script>
         <!-- Filterizr-->
         <script src="../../assets/bootstrap/template/plugins/filterizr/jquery.filterizr.min.js"></script>
-        <!-- AdminLTE for demo purposes -->
-        <script src="../../assets/bootstrap/template/dist/js/demo.js"></script>
-
+       
 </body>

@@ -1,14 +1,6 @@
 <?php include("../include/head.php"); ?>
 
 <head>
-
-
-    <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="../../assets/bootstrap/template/plugins/fontawesome-free/css/all.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="../../assets/bootstrap/template/dist/css/adminlte.min.css">
     <style>
         .contain {
             padding: 25px;
@@ -385,14 +377,8 @@
             })
         })
     </script>
-    <!-- jQuery -->
-    <script src="../../assets/bootstrap/template/plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="../../assets/bootstrap/template/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  
     <!-- ChartJS -->
     <script src="../../assets/bootstrap/template/plugins/chart.js/Chart.min.js"></script>
 
-    <!-- AdminLTE for demo purposes -->
-    <script src="../../assets/bootstrap/template/dist/js/demo.js"></script>
-    <!-- Page specific script -->
 </body>

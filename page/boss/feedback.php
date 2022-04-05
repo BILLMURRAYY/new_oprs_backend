@@ -3,9 +3,7 @@
 <head>
     <!-- icheck bootstrap -->
     <link rel="stylesheet" href="../../assets/bootstrap/template/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="../../assets/bootstrap/template/dist/css/adminlte.min.css">
-
+   
     <style>
         .contain {
             padding: 25px;
@@ -63,7 +61,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
 
                     <div class="table-responsive mailbox-messages">

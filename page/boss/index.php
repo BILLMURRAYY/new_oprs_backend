@@ -29,7 +29,7 @@
 
         <?php include("../include/header.php"); ?>
 
-        <?php include("../include/sidebar_boss.php"); ?>
+        <?php include("../include/sidebar_emp.php"); ?>
 
         <div class="content-wrapper" style="min-height: 608px;">
             <div class="contain">

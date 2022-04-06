@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,7 +52,7 @@
                     <!-- <a href="#" class="h1"><b>photo_icon_icit</b>LTE</a> -->
                     <img src="assets/images/kmutnb_logo.png" alt="">
                     <!-- <p>ล็อคอินบัญชีด้วย</p> -->
-                    <img src="assets/images/icit.png" alt="">
+                    <!-- <img src="assets/images/icit.png" alt=""> -->
                 </div>
                 <div class="card-body">
                     <!-- <p class="login-box-msg">LOGIN</p> -->

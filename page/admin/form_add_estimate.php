@@ -36,7 +36,7 @@
 
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
-        <?php include("../include/header.php"); ?>
+    <?php include("nav.php"); ?>
         <?php include("../include/sidebar_admin.php"); ?>
 
         <div class="content-wrapper" style="min-height: 608px;">

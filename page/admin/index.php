@@ -1,8 +1,21 @@
 <?php include("../include/head.php"); ?>
+<?php
+require_once("../../condb.php");
+
+$count = 1;
+$result = "SELECT * FROM member 
+           inner join department
+           on department.department_id = member.department_id";
+$query = mysqli_query($condb, $result);
+$rows = mysqli_fetch_all($query, MYSQLI_ASSOC);
+
+$count = 1;
+
+?>
 
 <head>
-    
-  
+
+
     <style>
         .contain {
             padding: 25px;
@@ -12,16 +25,20 @@
             font-size: 25px;
         }
 
-        a , a:hover{
+        a,
+        a:hover {
             color: white;
         }
-        table{
+
+        table {
             text-align: center;
         }
+
         .card-header {
             background: #004385;
             color: white;
         }
+
         .b_add {
             background: #05B2DC;
             color: white;
@@ -29,11 +46,11 @@
             justify-content: center;
             overflow: hidden;
             transition: 0.35s;
-            z-index: 1;       
+            z-index: 1;
             border-radius: 50px;
             box-shadow: 0 17px 26px -9px rgba();
             transition: all 0.3s ease;
-           
+
 
         }
 
@@ -50,7 +67,7 @@
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
 
-        <?php include("../include/header.php"); ?>
+        <?php include("nav.php"); ?>
 
         <?php include("../include/sidebar_admin.php"); ?>
 
@@ -87,35 +104,28 @@
                                     <th>นามสกุล</th>
                                     <th>แผนก</th>
                                     <th>สิทธิ์การเข้าถึง</th>
-                                    <!-- <th>เบอร์โทร</th> -->
+                                    <th>รีเซต</th>
                                     <th>แก้ไข</th>
                                     <th>ลบ</th>
                                 </tr>
                             </thead>
-
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>รูป</td>
-                                    <td>อรุณสวัสดิ์</td>
-                                    <td>สงข์สริน</td>
-                                    <td>ไอที</td>
-                                    <td>แอดมิน</td>
-                                    <!-- <td>0817016548</td> -->
-                                    <td> <a href="#" class="btn btn-info"><i class="far fa-edit"></i></a></td>
-                                    <td><a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a></td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>รูป</td>
-                                    <td>อรุณสวัสดิ์</td>
-                                    <td>สงข์สริน</td>
-                                    <td>ไอที</td>
-                                    <td>แอดมิน</td>
-                                    <!-- <td>0817016548</td> -->
-                                    <td> <a href="#" class="btn btn-info"><i class="far fa-edit"></i></a></td>
-                                    <td><a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a></td>
-                                </tr>
+                                <?php
+                                foreach ($rows as $value) {
+                                ?>
+                                    <tr>
+                                        <td><?php echo $count++ ?></td>
+                                        <td><?php echo $value['first_name'] . " " . $value['last_name'] ?></td>
+                                        <td><?php echo $value['email'] ?></td>
+                                        <td><?php echo $value['tel'] ?></td>
+                                        <td><?php echo $value['department_name'] ?></td>
+                                        <td><?php echo $value['level'] ?></td>
+                                        <td><a href="repass.php?id_member=<?php echo $value['member_id'] ?>" class="btn btn-warning"><i class="far fa-edit"></i>เปลี่ยนรหัสผ่าน</a></td>
+                                        <td> <a href="edit_member.php?id_member=<?php echo $value['member_id'] ?>" class="btn btn-info"><i class="far fa-edit"></i>แก้ไข</a></td>
+                                        <td><a href="back_del_member.php?id_member=<?php echo $value['member_id'] ?>" class="btn btn-danger"><i class="fas fa-trash"></i>ลบ</a></td>
+                                    </tr>
+                                <?php } ?>
+
                             </tbody>
 
                             <tfoot>
@@ -126,7 +136,7 @@
                                     <th>นามสกุล</th>
                                     <th>แผนก</th>
                                     <th>สิทธิ์การเข้าถึง</th>
-                                    <!-- <th>เบอร์โทร</th> -->
+                                    <th>รีเซต</th>
                                     <th>แก้ไข</th>
                                     <th>ลบ</th>
                                 </tr>
@@ -160,7 +170,7 @@
                 "paging": false,
                 "ordering": true,
                 "info": false,
-                "buttons": ["copy","excel",  "print"]
+                "buttons": ["copy", "excel", "print"]
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
             $('#example2').DataTable({
                 "responsive": true,

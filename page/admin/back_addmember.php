@@ -2,20 +2,20 @@
 
 //1. เชื่อมต่อ database: 
 require_once("../../condb.php");  //ไฟล์เชื่อมต่อกับ database ที่เราได้สร้างไว้ก่อนหน้าน้ี
-$depart = $_POST['depart']; //รับค่าไฟล์จากฟอร์ม	
-$mr = $_POST['mr']; //รับค่าไฟล์จากฟอร์ม	
+$depart = $_POST['id_depart']; //รับค่าไฟล์จากฟอร์ม	
+$mr = $_POST['prefix']; //รับค่าไฟล์จากฟอร์ม	
 $f_name = $_POST['f_name']; //รับค่าไฟล์จากฟอร์ม	
 $l_name = $_POST['l_name']; //รับค่าไฟล์จากฟอร์ม	
 $phone = $_POST['phone']; //รับค่าไฟล์จากฟอร์ม	
 $email = $_POST['email']; //รับค่าไฟล์จากฟอร์ม	
 $pass1 = $_POST['pass1']; //รับค่าไฟล์จากฟอร์ม	
 $pass2 = $_POST['pass2']; //รับค่าไฟล์จากฟอร์ม
-$fileupload = $_FILES['m_Img']; //รับค่าไฟล์จากฟอร์ม	
+// $fileupload = $_FILES['m_Img']; //รับค่าไฟล์จากฟอร์ม	
 
  //รับค่าไฟล์จากฟอร์ม	
 
 
-print_r($_FILES);
+// print_r($_FILES);
 //ฟังก์ชั่นวันที่
 date_default_timezone_set('Asia/Bangkok');
 $date = date("Ymd");
@@ -45,14 +45,13 @@ if ($upload != '') {   //not select file
 $sql = "INSERT INTO member
     (
     
-    mr,
-    f_name,
-    l_name,
-    phone,
+    prefix,
+    first_name,
+    last_name,
+    tel,
     email,
-    pass1,
-    pass2,
-    -- m_Img,
+    password,
+    department_id
     ) 
     VALUES
     (
@@ -62,9 +61,8 @@ $sql = "INSERT INTO member
     '$l_name',
     '$phone',
     '$email',
-    '$pass1',
     '$pass2',
-    -- '$newname'
+    '$depart'
     )";
 
 $result = mysqli_query($condb, $sql) or die("Error in query: $sql ");

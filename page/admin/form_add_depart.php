@@ -1,4 +1,12 @@
 <?php include("../include/head.php"); ?>
+<?php
+require_once("../../condb.php");
+
+$sql = "SELECT * FROM department ORDER BY department_id asc";
+$result = mysqli_query($condb, $sql);
+
+$count = 1;
+?>
 
 <head>
 
@@ -48,7 +56,7 @@
 <body class="hold-transition sidebar-mini layout-fixed">
 
     <div class="wrapper">
-        <?php include("../include/header.php"); ?>
+    <?php include("nav.php"); ?>
         <?php include("../include/sidebar_admin.php"); ?>
 
         <div class="content-wrapper" style="min-height: 608px;">
@@ -59,19 +67,19 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form action="" method="post">
+                    <form action="back_add_depart.php" method="post">
                         <div class="card-body">
 
                             <div class="form-group">
                                 <label for="exampleInputEmail1">ชื่อแผนก</label>
-                                <input type="input" class="form-control" id="depart" placeholder=" " required>
+                                <input type="input" name="department" class="form-control" id="depart" placeholder=" " required>
                             </div>
 
                             <div class="form-group ">
 
                                 <label class="col-sm-2 col-form-label">สิทธิ์การเข้าถึง</label>
                                 <div class="col">
-                                    <select class="select2 form-control" style="width: 100%;" required>
+                                    <select class="select2 form-control" name="level" style="width: 100%;" required>
                                         <option value="admin">admin</option>
                                         <option value="boss">Boss</option>
                                         <option value="staff">staff</option>
@@ -84,18 +92,14 @@
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>ส่งข้อมูลรายงาน</label>
-                                        <select class="form-control select2" multiple="multiple" data-placeholder="" style="width: 100%;">
-                                            <optgroup label="Condiments">
+                                        <select class="form-control select2" name="flow_report[]" multiple="multiple" data-placeholder="" style="width: 100%;">
 
-                                                <option>Mustard</option>
-                                                <option>Ketchup</option>
-                                                <option>Relish</option>
-                                            </optgroup>
-                                            <optgroup label="Breads">
-                                                <option>Plain</option>
-                                                <option>Steamed</option>
-                                                <option>Toasted</option>
-                                            </optgroup>
+                                            <?php foreach ($result as $row) {
+                                                if ($row['department_name'] != "admin") { ?>
+                                                    <option value="<?php echo $row["department_name"] ?>"><?php echo $row["department_name"] ?></option>
+
+                                            <?php }
+                                            } ?>
                                         </select>
                                     </div>
                                 </div>
@@ -103,18 +107,13 @@
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>ส่งข้อมูลประเมิน </label>
-                                        <select class="form-control select2" id="all" data-select="false" multiple="multiple" style="width: 100%;">
-                                            <optgroup label="Condiments">
-                                                <option>เลือกทั้งหมด</option>
-                                                <option>Mustard</option>
-                                                <option>Ketchup</option>
-                                                <option>Relish</option>
-                                            </optgroup>
-                                            <optgroup label="Breads">
-                                                <option>Plain</option>
-                                                <option>Steamed</option>
-                                                <option>Toasted</option>
-                                            </optgroup>
+                                        <select class="form-control select2" name="flow_estimate[]" id="all" data-select="false" multiple="multiple" style="width: 100%;">
+                                            <?php foreach ($result as $row) {
+                                                if ($row['department_name'] != "admin") { ?>
+                                                    <option value="<?php echo $row["department_name"] ?>"><?php echo $row["department_name"] ?></option>
+
+                                            <?php }
+                                            } ?>
                                         </select>
                                     </div>
                                 </div>
@@ -125,6 +124,7 @@
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> บันทึกข้อมูล</button>
                         </div>
+                        
                     </form>
                 </div>
             </div>

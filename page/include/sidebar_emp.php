@@ -24,7 +24,7 @@
                                 <img src="../../assets/bootstrap/template/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                             </div>
                             <div class="info">
-                                <a href="#" class="d-block">Name Lastname</a>
+                                <a href="#" class="d-block"><?php echo  $_SESSION["Name"] ?></a>
                                 <span style="color: white;">(พนักงาน)</span>
 
                             </div>
@@ -105,7 +105,7 @@
                                 </li>
 
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                <a href="../../logout.php" class="nav-link">
                                         <i class="nav-icon far fa-circle text-info"></i>
                                         <p>ออกจากระบบ</p>
                                     </a>

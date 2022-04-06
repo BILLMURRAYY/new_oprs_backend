@@ -1,5 +1,13 @@
 <?php include("../include/head.php"); ?>
-<?php include("sql_select.php"); ?>
+<!-- <?php include("sql_select.php"); ?> -->
+<?php
+require_once("../../condb.php");
+
+$sql = "SELECT * FROM department ORDER BY department_id asc";
+$result = mysqli_query($condb, $sql);
+
+$count = 1;
+?>
 
 <head>
 
@@ -16,44 +24,37 @@
         .card-footer {
             text-align: center;
         }
-        input[type="file"]{
-           
+        .card-header {
+            background: #004385;
+            color: white;
         }
+
     </style>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
 
     <div class="wrapper">
-        <?php include("../include/header.php"); ?>
+    <?php include("nav.php"); ?>
         <?php include("../include/sidebar_admin.php"); ?>
 
         <div class="content-wrapper" style="min-height: 608px;">
             <div class="contain">
                 <div class="card card-primary">
-                    <div class="card-header">
+                    <div class="card-header"  style="background: #004385;color: white;">
                         <h3 class="card-title">เพิ่มสมาชิก</h3>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form action="sql_add_member.php" id="" method="post" onSubmit="return chkpsw(this)" enctype="multipart/form-data">
+                    <form action="back_addmember.php" id="" method="post" onSubmit="return chkpsw(this)" enctype="multipart/form-data">
                         <div class="card-body">
-                            <!-- <div class="form-group">
-                                <label>สิทธิ์การเข้าถึง</label>
-                                <select id="m_role" class="form-control select2bs4" style="width: 100%;" required>
-                                    <option value="">-เลือกข้อมูล-</option>
-                                    <option value="admin">admin</option>
-                                    <option value="boss">Boss</option>
-                                    <option value="staff">staff</option>
-                                    <option value="employee">Employee</option>
-                                </select>
-                            </div> -->
+
                             <div class="form-group">
                                 <label>แผนก</label>
-                                <select id="m_position" name="depart" class="select2" style="width: 100%;" required>
-                                    <?php foreach ($result as $row) {
-                                        if ($row['departmentName'] != "admin") { ?>
-                                            <option value="<?php echo $row["departmentName"] ?>"><?php echo $row["departmentName"] ?></option>
+                                <select id="m_position" name="id_depart" class="select2" style="width: 100%;" required>
+                                <?php foreach ($result as $row) {
+                                        if ($row['department_name']) { ?>
+                                            <option value="<?php echo $row["department_id"] ?>"><?php echo $row["department_name"] ?></option>
 
                                     <?php }
                                     } ?>
@@ -64,8 +65,8 @@
                                     <div class="col-md-2" data-select2-id="83">
                                         <div class="form-group" data-select2-id="82">
                                             <label>คำนำหน้า</label>
-                                            <select id="m_prefix" name="mr" class="select2" style="width: 100%;" data-select2-id="17" tabindex="-1" aria-hidden="true">
-                                                <option value="">-เลือกข้อมูล-</option>
+                                            <select id="m_prefix" name="prefix" class="select2 form-control" style="width: 100%;" data-select2-id="17" tabindex="-1" aria-hidden="true">
+                                                <option value="">-เลือกคำนำหน้า-</option>
                                                 <option value="นาย">นาย</option>
                                                 <option value="นางสาว">นางสาว</option>
                                                 <option value="นาง">นาง</option>
@@ -107,11 +108,11 @@
                             </div>
 
                             <div class="form-group">
-                                <label >ไฟล์รูปภาพ</label>
+                                <label>ไฟล์รูปภาพ</label>
                                 <div class="input-group">
                                     <!-- <div class="custom-file"> -->
-                                        <input type="file" name="m_Img" class="form-control" id="m_Img"  accept="image/*">
-                                        <!-- <label class="" for="exampleInputFile">ใส่รูปภาพ (นามสกุลไฟล์รูปภาพ .jpg และ .png)</label> -->
+                                    <input type="file" name="m_Img" class="form-control" id="m_Img" accept="image/*">
+                                    <!-- <label class="" for="exampleInputFile">ใส่รูปภาพ (นามสกุลไฟล์รูปภาพ .jpg และ .png)</label> -->
                                     <!-- </div> -->
                                     <!-- <div class="input-group-append">
                                         <span class="input-group-text">อัปโหลด</span>

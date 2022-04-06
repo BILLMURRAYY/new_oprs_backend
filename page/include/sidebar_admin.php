@@ -25,7 +25,8 @@
                 <img src="../../assets/bootstrap/template/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
               </div>
               <div class="info" style="text-align: center;">
-                <a href="#" class="d-block">Name Lastname</a>
+                <a href="#" class="d-block"><?php echo $_SESSION["Name"] ?>
+                </a>
                 <span style="color: white;">(admin)</span>
               </div>
             </div>
@@ -48,15 +49,15 @@
                     </a>
                   </li>
 
-                  <li class="nav-item">
+                  <!-- <li class="nav-item">
                     <a href="form_add_estimate.php" class="nav-link">
                       <i class="nav-icon fas fa-edit"></i>
                       <p>
                         สร้างแบบประเมิน
-                        <!-- <i class="fas fa-angle-left right"></i> -->
+                        <i class="fas fa-angle-left right"></i>
                       </p>
                     </a>
-                  </li>
+                  </li> -->
 
                   <li class="nav-item">
                     <a href="send_report.php" class="nav-link">
@@ -98,7 +99,7 @@
                   </li> -->
 
                   <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="../../logout.php" class="nav-link">
                       <i class="nav-icon far fa-circle text-info"></i>
                       <p>ออกจากระบบ</p>
                     </a>

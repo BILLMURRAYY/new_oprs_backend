@@ -1,7 +1,20 @@
 <?php include("../include/head.php"); ?>
+<?php
+require_once("../../condb.php");
+
+$count = 1;
+$result = "SELECT * FROM member 
+           inner join department
+           on department.department_id = member.department_id";
+$query = mysqli_query($condb, $result);
+$rows = mysqli_fetch_all($query, MYSQLI_ASSOC);
+
+$count = 1;
+
+?>
 
 <head>
-   
+
     <style>
         .contain {
             padding: 25px;
@@ -11,17 +24,20 @@
             font-size: 25px;
         }
 
-        a ,a:hover {
+        a,
+        a:hover {
             color: white;
         }
 
         table {
             text-align: center;
         }
+
         .card-header {
             background: #004385;
             color: white;
         }
+
         .b_add {
             background: #05B2DC;
             color: white;
@@ -29,11 +45,11 @@
             justify-content: center;
             overflow: hidden;
             transition: 0.35s;
-            z-index: 1;       
+            z-index: 1;
             border-radius: 50px;
             box-shadow: 0 17px 26px -9px rgba();
             transition: all 0.3s ease;
-           
+
 
         }
 
@@ -48,13 +64,10 @@
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
-
     <div class="wrapper">
-
-        <?php include("../include/header.php"); ?>
+    <?php include("nav.php"); ?>
 
         <?php include("../include/sidebar_admin.php"); ?>
-
         <div class="content-wrapper" style="min-height: 608px;">
             <div class="contain">
                 <div class="card">
@@ -63,7 +76,7 @@
                             <h3 class="card-title">จัดการรายงานผล</h3>
                         </div>
                         <div style="text-align: right;">
-                            <button type="button" class="btn b_add text-right "><a  href="form_add_depart.php"><span class="fas fa-plus-circle"></span> เพิ่มการจัดส่งรายงาน</a></button>
+                            <button type="button" class="btn b_add text-right "><a href="form_add_depart.php"><span class="fas fa-plus-circle"></span> เพิ่มการจัดส่งรายงาน</a></button>
 
                             </a>
                         </div>
@@ -89,34 +102,38 @@
                                 <tr>
                                     <th>ลำดับ</th>
                                     <th>แผนก</th>
-                                    <th>ส่งถึง</th>
+                                    <th>สิทธิ์การเข้าถึง</th>
+                                    <th>ส่งรายงาน</th>
+                                    <th>ส่งประเมิน</th>
                                     <th>แก้ไข</th>
                                     <th>ลบ</th>
                                 </tr>
                             </thead>
 
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>ไอที</td>
-                                    <td>คณบดี , หน่วยงานการเงิน ,</td>
-                                    <td> <a href="#" class="btn btn-info"><i class="far fa-edit"></i></a></td>
-                                    <td><a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a></td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>การเงิน</td>
-                                    <td>คณบดี , สำนักงานวิจัย ,</td>
-                                    <td> <a href="#" class="btn btn-info"><i class="far fa-edit"></i></a></td>
-                                    <td><a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a></td>
-                                </tr>
+                                <?php
+                                foreach ($rows as $value) {
+                                ?>
+                                    <tr>
+                                        <td><?php echo $count++ ?></td>
+                                        <td><?php echo $value['department_name'] ?></td>
+                                        <td><?php echo $value['level'] ?></td>
+                                        <td><?php echo $value['flow_report'] ?></td>
+                                        <td><?php echo $value['flow_estimate'] ?></td>
+                                        <td> <a href="edit_depart.php?id_depart=<?php echo $value['department_id'] ?>" class="btn btn-info"><i class="far fa-edit"></i>แก้ไข</a></td>
+                                        <td><a href="back_del_depart.php?id_depart=<?php echo $value['department_id'] ?>" class="btn btn-danger"><i class="fas fa-trash"></i>ลบ</a></td>
+                                    </tr>
+                                <?php } ?>
+
                             </tbody>
 
                             <tfoot>
                                 <tr>
                                     <th>ลำดับ</th>
                                     <th>แผนก</th>
-                                    <th>ส่งถึง</th>
+                                    <th>สิทธิ์การเข้าถึง</th>
+                                    <th>ส่งรายงาน</th>
+                                    <th>ส่งประเมิน</th>
                                     <th>แก้ไข</th>
                                     <th>ลบ</th>
                                 </tr>

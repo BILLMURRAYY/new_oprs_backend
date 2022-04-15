@@ -1,9 +1,16 @@
+<?php session_start(); ?>
+
 <?php include("../include/head.php"); ?>
+<?php require_once("../service/condb.php"); ?>
 
 <head>
     <!-- icheck bootstrap -->
     <link rel="stylesheet" href="../../assets/bootstrap/template/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-   
+    <!-- link search www -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script> -->
     <style>
         .contain {
             padding: 25px;
@@ -31,7 +38,7 @@
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
 
-        <?php include("../include/header.php"); ?>
+        <?php include("nav.php"); ?>
 
         <?php include("../include/sidebar_boss.php"); ?>
 
@@ -52,103 +59,109 @@
                     <!-- /.card-header -->
                     <div class="card-body  ">
                         <div class="card-tools">
-                            <div class="input-group input-group">
-                                <input type="text" class="form-control" placeholder="ค้นหาข้อมูล">
+                            <div class="input-group">
+                                <input type="search" class="form-control form-control-lg" id="myInput" placeholder="ค้นหาข้อมูล">
                                 <div class="input-group-append">
-                                    <div class="btn btn-primary">
-                                        <i class="fas fa-search"></i>
-                                    </div>
+                                    <button type="submit" class="btn btn-lg btn-default">
+                                        <i class="fa fa-search"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="table-responsive mailbox-messages">
-                        <table class="table table-hover table-striped">
+                        <table class="table table-hover table-striped" id="myTable">
                             <thead>
                                 <tr>
-                                    <th><button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="far fa-square"></i></button></th>
+                                    <!-- <th><button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="far fa-square"></i></button></th> -->
                                     <th>ลำดับ</th>
+                                    <th>วันที่ส่ง</th>
                                     <th>ชื่อผู้ส่ง</th>
-                                    <th>ตำแหน่ง</th>
-                                    <th>หัวเรื่อง</th>
-                                    <th></th>
-
-
+                                    <th>แผนก</th>
+                                    <th>หัวข้อ</th>
+                                    <th>ดู</th>
                                 </tr>
                             </thead>
                             <tbody>
 
-                                <tr>
-                                    <td>
-                                        <div class="icheck-primary">
-                                            <input type="checkbox" value="" id="check1">
-                                            <label for="check1"></label>
-                                        </div>
-                                    </td>
-                                    <td class="mailbox-star">1</td>
-                                    <td class="mailbox-star">เจษฎา นันติ</td>
-                                    <td class="mailbox-star">ผู้บริหาร</td>
-                                    <td class="mailbox-name"><a href="reply_feedback.php">ชี้เเจงรายละเอียดเพิ่ม 1</a></td>
-                                    <td class="mailbox-date">28 วินาที</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="icheck-primary">
-                                            <input type="checkbox" value="" id="check2">
-                                            <label for="check2"></label>
-                                        </div>
-                                    </td>
-                                    <td class="mailbox-star">2</td>
-                                    <td class="mailbox-star">เจษฎา นันติ</td>
-                                    <td class="mailbox-star">ผู้บริหาร</td>
-                                    <td class="mailbox-name"><a href="reply_feedback.php">ชี้เเจงรายละเอียดเพิ่ม 2</a></td>
-                                    <td class="mailbox-date">28 วินาที</td>
-                                </tr>
+                                <?php
 
+                                // $result = $conn->prepare("SELECT * FROM department");
+                                // $result->execute(); //
+                                // $row = $result->fetch(PDO::FETCH_BOTH);
+                                // !!!!!!!!!!! กำหนดค่า session
+                                // $department = 'หัวหน้าคณบดี';
+                                // $_SESSION["member_id"] = 1;
+
+                                $department = 'รองคณบดีฝ่ายบริหาร';
+                                $department_id = 3;
+                                $_SESSION["member_id"] = 3;
+
+                                //? Select FROM send_feedback  , member , departmen 
+                                $result = "SELECT * FROM `send_feedback`
+                                        -- inner JOIN member
+                                        -- on member.member_id = send_feedback.member_receive_id
+                                        -- INNER JOIN department
+                                        -- ON member.department_id = department.department_id
+                                        inner JOIN feedback
+                                        ON send_feedback.feedback_id = feedback.feedback_id
+                                        WHERE member_receive_id = $department_id
+                                        ORDER BY send_feedback_id DESC";
+
+                                $query = mysqli_query($condb, $result);
+
+                                $rows = mysqli_fetch_all($query, MYSQLI_ASSOC);
+                                // echo "<pre>";
+                                // print_R($rows);
+                                // echo "</pre>";
+                                // exit();
+
+                                $count = 1;
+                                foreach ($rows as $value) {
+
+                                ?>
+                                    <tr>
+
+                                        <td><?php echo $count++ ?></td>
+                                        <td><?php echo $value['date'] ?></td>
+                                        <?php
+                                        $member_send_id = $value['member_send_id'];
+                                        $result2 = "SELECT * FROM member 
+                                                    INNER JOIN department
+                                                    ON department.department_id = member.member_id
+                                                    WHERE member_id = $member_send_id";
+
+                                        $query2 = mysqli_query($condb, $result2);
+                                        $rows2 = mysqli_fetch_all($query2, MYSQLI_ASSOC);
+                                        foreach ($rows2 as $value2) {
+                                        ?>
+                                            <td><?php echo $value2['first_name'] . " " . $value2['last_name'] ?></td>
+                                            <td><?php echo $value2['department_name'] ?></td>
+                                            <td><?php echo $value['header'] ?></td>
+                                            
+                                            <td align="center"><button class="btn btn-warning"><a href="read_feedback.php?feedback_id=<?php echo $value['feedback_id'] ?>&member_send_name=<?php echo $value2['first_name'] . " " . $value2['last_name'] ?>&member_send_id=<?php echo $value['member_send_id'] ?>"><i class="fas fa-eye"></i></a></button></td>
+                                        <?php
+                                        }
+                                        ?>
+                                    </tr>
+                                <?php } ?>
                             </tbody>
+                            <tfoot>
+                                <!-- <th><button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="far fa-square"></i></button></th> -->
+                                <th>ลำดับ</th>
+                                <th>วันที่ส่ง</th>
+                                <th>ชื่อผู้ส่ง</th>
+                                <th>แผนก</th>
+                                <th>หัวข้อ</th>
+                                <th>ดู</th>
+                            </tfoot>
                         </table>
 
                     </div>
 
 
 
-                    <div class="card-footer p-0">
-                        <div class="mailbox-controls">
-
-                            <button type="button" class="btn btn-default btn-sm checkbox-toggle">
-                                <i class="far fa-square"></i>
-                            </button>
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default btn-sm">
-                                    <i class="far fa-trash-alt"></i>
-                                </button>
-                                <!-- <button type="button" class="btn btn-default btn-sm">
-                                        <i class="fas fa-reply"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-default btn-sm">
-                                        <i class="fas fa-share"></i>
-                                    </button> -->
-                            </div>
-
-                            <!-- <button type="button" class="btn btn-default btn-sm">
-                                    <i class="fas fa-sync-alt"></i>
-                                </button> -->
-                            <div class="float-right">
-                                <!-- 1-50/200
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-default btn-sm">
-                                            <i class="fas fa-chevron-left"></i>
-                                        </button>
-                                        <button type="button" class="btn btn-default btn-sm">
-                                            <i class="fas fa-chevron-right"></i>
-                                        </button>
-                                    </div> -->
-
-                            </div>
-
-                        </div>
-                    </div>
                     <!-- </div> -->
                 </div>
                 <!-- /.card-body -->
@@ -221,5 +234,14 @@
                 }
             })
         })
+
+        $(document).ready(function() {
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
     </script>
 </body>

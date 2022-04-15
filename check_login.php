@@ -1,44 +1,56 @@
 <?php
 session_start();
-
+echo "<pre>";
+print_r($_POST);
+echo "</pre>";
+exit();
 //! ปิดแสดง Error   
 error_reporting(0);
 
-require_once("condb.php");
+require_once("service/condb.php");
 
 
 $email = $_POST['email'];
 $pass = $_POST['password'];
 
+// echo "<pre>";
+// print_r($_POST);
+// echo "</pre>";
 
-
+$email = $_POST['email'];
+$password = $_POST['password'];
+$password = md5($password);
 $sql = "SELECT * FROM member 
-        inner join department
-        on department.department_id = member.department_id
-        WHERE email = '" . $email . "' AND password = '" . $pass . "'  ";
+    INNER JOIN department
+    ON member.member_id = department.department_id
+    WHERE  email = '" . $email . "' AND password = '" . $password . "' ";
 
 $result = mysqli_query($condb, $sql) or die("Error in query: $sql ");
 $row = mysqli_fetch_array($result);
 
-foreach ($result as $row) {
-    echo  $row['level']."".$row[''];
-}
 
+if ($email == $row["email"] and $password == $row["password"]) {
 
-if ($email == $row['email'] and $pass == $row['password']) {
+    $_SESSION["level"] = $row["level"];
+    $_SESSION["member_id"] = $row["member_id"];
+    $_SESSION["member_name"] = $row["first_name"] . " " . $row["last_name"];
+    $_SESSION["department_id"] = $row["department_id"];
+    $_SESSION["department_name"] = $row["department_name"];
+    // $_SESSION["m_Img"] = $row["m_Img"];
+    //! Check $_SESSION
+    // print_r($_SESSION);
+    // echo $_SESSION["Email"];
+    // echo $_SESSION["Name"];
+    // echo $_SESSION["Department"];
+    // exit();
 
-    $_SESSION["email"] = $row['email'];
-    $_SESSION["Name"] = $row['first_name']." ".$row['last_name'];
-    ($_SESSION["role"] = $row['level']);
-    $_SESSION["department"] = $row['department_id'];
-
-    if ($_SESSION["role"] == "admin") {
+    if ($_SESSION["level"] == "admin") {
         header("Location: page/admin/");
-    } elseif ($_SESSION["role"] == "boss") {
-        header("Location: page/boss/");
-    } elseif ($_SESSION["role"] == "staff") {
+    } elseif ($_SESSION["level"] == "boss") {
+        header("Location:page/boss/");
+    } elseif ($_SESSION["level"] == "staff") {
         header("Location: page/staff/");
-    } elseif ($_SESSION["role"] == "emp") {
+    } elseif ($_SESSION["level"] == "employee") {
         header("Location: page/emp/");
     }
 } else {
@@ -49,5 +61,3 @@ if ($email == $row['email'] and $pass == $row['password']) {
     echo "</script>";
     header("Location: login.php");
 }
-    // echo "out";
-    // echo $row["m_Email"];

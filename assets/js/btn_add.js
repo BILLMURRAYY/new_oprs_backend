@@ -2,9 +2,9 @@ $(document).ready(function() {
    var buttonAdd = $("#add-button");
    var buttonRemove = $("#remove-button");
    var className = ".dynamic-field";
-   var count = 0;
+   var count =1;
    var field = "";
-   var maxFields = 50;
+   var maxFields = 5;
 
    function totalFields() {
        return $(className).length;

@@ -25,7 +25,7 @@
                 <img src="../../assets/bootstrap/template/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
               </div>
               <div class="info" style="text-align: center;">
-                <a href="#" class="d-block"><?php echo $_SESSION["Name"] ?>
+                <a href="#" class="d-block"><?php echo $_SESSION["member_name"] ?>
                 </a>
                 <span style="color: white;">(admin)</span>
               </div>

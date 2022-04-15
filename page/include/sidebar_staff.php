@@ -1,3 +1,17 @@
+
+<?php
+require_once("../service/condb.php");
+
+$count = 1;
+$result = "SELECT * FROM member 
+           inner join department
+           on department.department_id = member.department_id";
+$query = mysqli_query($condb, $result);
+$rows = mysqli_fetch_all($query, MYSQLI_ASSOC);
+
+$count = 1;
+
+?>
 <body class="sidebar-mani layout-fixed sidebar-closed sidebar-collapse " style="height: auto;">
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
@@ -24,7 +38,7 @@
                                 <img src="../../assets/bootstrap/template/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                             </div>
                             <div class="info">
-                                <a href="#" class="d-block"><?php echo  $_SESSION["Name"] ?></a>
+                                <a href="#" class="d-block"><?php echo  $_SESSION["member_name"] ;?></a>
                                 <span style="color: white;">(หัวหน้า)</span>
                             </div>
                         </div>
@@ -44,15 +58,14 @@
                         <!-- Sidebar Menu -->
                         <nav class="mt-2">
                             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                                <li class="nav-item">
+                                <!-- <li class="nav-item">
                                     <a href="dashboad.php" class="nav-link">
                                         <i class="nav-icon fas fa-th"></i>
                                         <p>
                                             Dashboad
-                                            <!-- <span class="right badge badge-danger">New</span> -->
                                         </p>
                                     </a>
-                                </li>
+                                </li> -->
                                 <li class="nav-item">
                                     <a href="index.php" class="nav-link">
                                         <i class="nav-icon fas fa-copy"></i>
@@ -75,40 +88,60 @@
 
                                 <li class="nav-item">
                                     <a href="estimate.php" class="nav-link">
-                                        <i class="nav-icon fas fa-edit"></i>
+                                        <i class="nav-icon fas fal fa-table"></i>
+                                       
                                         <p>
                                             ประเมินผล
                                             <!-- <i class="right fas fa-angle-left"></i> -->
                                         </p>
                                     </a>
                                 </li>
-
-                                <!-- <li class="nav-item">
-                                    <a href="follow.php" class="nav-link">
-                                        <i class="nav-icon fas fa-check-square"></i>
-                                        <p>
-                                            ติดตามสถานะ               
-                                        </p>
-                                    </a>
-                                </li> -->
+                           
                                 <li class="nav-item">
                                     <a href="chart.php" class="nav-link">                                     
                                         <i class="nav-icon fas fa-chart-bar"></i>
                                         <p>
-                                            กราฟประเมิน                                          
+                                            ผลประเมิน                                          
                                         </p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="feedback.php" class="nav-link">
-                                        <i class="nav-icon fas fa-table"></i>
+                                        <i class="nav-icon fas  fa-comment"></i>
+                                       
                                         <p>
                                             feedback
                                             <!-- <i class="fas fa-angle-left right"></i> -->
                                         </p>
                                     </a>
                                 </li>
-
+                                <li class="nav-item">
+                                    <a href="history_feedback.php" class="nav-link">
+                                        <i class="nav-icon fas fad fa-history"></i>
+                                        <p>
+                                            ประวัติส่งfeedback             
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="history_estimate.php" class="nav-link">
+                                        <i class="nav-icon fas fad fa-history"></i>
+                                        <p>
+                                            ประวัติการประเมิน            
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <form action="edi_profile.php">
+                                    <a href="edit_profile.php?id_member=<?php echo $value['member_id'] ?>" class="nav-link">
+                                        <i class="nav-icon fas fa-edit"></i>
+                                       
+                                        <p>
+                                            แก้ไขข้อมูลส่วนตัว           
+                                        </p>
+                                    </a>
+                                    </form>
+                                </li>
                                 <li class="nav-item">
                                 <a href="../../logout.php" class="nav-link">
                                         <i class="nav-icon far fa-circle text-info"></i>

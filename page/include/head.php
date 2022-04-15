@@ -1,12 +1,4 @@
-<?php 
-  session_start(); 
 
-  if (!isset($_SESSION["name"])) {
-
-  	header('location: ../../login.php');
-  }
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -46,7 +38,6 @@
     <link rel="stylesheet" href="../../assets/bootstrap/template/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="../../assets/bootstrap/template/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 
-
     <!-- Select2 -->
     <link rel="stylesheet" href="../../assets/bootstrap/template/plugins/select2/css/select2.min.css">
     <link rel="stylesheet" href="../../assets/bootstrap/template/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
@@ -70,6 +61,19 @@
     <link rel="stylesheet" href="../../assets/bootstrap/template/plugins/dropzone/min/dropzone.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="../../assets/bootstrap/template/dist/css/adminlte.min.css">
+
+    <!-- font -->
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Crimson+Pro"> -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Mitr:wght@500&display=swap');
+    </style>
+    <style>
+        body {
+            font-family: 'Mitr', sans-serif;
+            /* font-size: 48px; */
+            font-weight: 100;
+        }
+    </style>
 
     <style type="text/css">
         /* Chart.js */
@@ -153,8 +157,8 @@
     <script src="../../assets/bootstrap/template/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
     <!-- AdminLTE App -->
     <script src="../../assets/bootstrap/template/dist/js/adminlte.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="../../assets/bootstrap/template/dist/js/demo.js"></script>
+    <!-- AdminLTE for demo purposes
+    <script src="../../assets/bootstrap/template/dist/js/demo.js"></script> -->
 
     <!-- Summernote -->
     <script src="../../assets/bootstrap/template/plugins/summernote/summernote-bs4.min.js"></script>

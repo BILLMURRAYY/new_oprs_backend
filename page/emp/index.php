@@ -1,4 +1,8 @@
 <?php include("../include/head.php"); ?>
+<?php
+require_once("../service/condb.php");
+
+?>
 
 <head>
     <style>
@@ -31,11 +35,11 @@
             justify-content: center;
             overflow: hidden;
             transition: 0.35s;
-            z-index: 1;       
+            z-index: 1;
             border-radius: 50px;
             box-shadow: 0 17px 26px -9px rgba();
             transition: all 0.3s ease;
-           
+
 
         }
 
@@ -46,14 +50,13 @@
             box-shadow: 0 13px 26px -9px rgba(0.2, 0.7);
             transform: translateY(3px);
         }
-        
     </style>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
 
-        <?php include("../include/header.php"); ?>
+        <?php include("nav.php"); ?>
 
         <?php include("../include/sidebar_emp.php"); ?>
 
@@ -75,42 +78,85 @@
                     <div class="card-body">
 
                         <table id="example1" class="table table-bordered table-striped">
-                            <!-- <div class="row">
-                                <div class="col-sm-12 col-md-6">
-                                    <div  id="example1" class="dt-buttons btn-group flex-wrap"> <button class="btn btn-secondary buttons-copy buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>Copy</span></button> <button class="btn btn-secondary buttons-csv buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>CSV</span></button> <button class="btn btn-secondary buttons-excel buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>Excel</span></button> <button class="btn btn-secondary buttons-pdf buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>PDF</span></button> <button class="btn btn-secondary buttons-print" tabindex="0" aria-controls="example1" type="button"><span>Print</span></button> </div>
-                                </div>
-                                <div class="col-sm-12 col-md-6">
-                                    <div id="example1" class="dataTables_filter"><label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="example1"></label></div>
-                                </div>
-                            </div> -->
+
                             <thead>
                                 <tr>
                                     <th>ลำดับ</th>
                                     <th>วันที่ส่ง</th>
                                     <th>หัวข้อ</th>
-                                    <th>แก้ไข</th>
                                     <th>ดู</th>
                                     <th>ลบ</th>
                                 </tr>
                             </thead>
 
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>12/04/2565</td>
-                                    <td>รายงานเล่มที่ 1 </td>
-                                    <td> <a href="edit_report.php" class="btn btn-info"><i class="far fa-edit"></i></a></td>
-                                    <td> <a href="view_report.php" class="btn btn-warning"><i class="fas fa-eye"></i></a></td>
-                                    <td><a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a></td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>12/04/2565</td>
-                                    <td>ไอที</td>
-                                    <td> <a href="edit_report.php" class="btn btn-info"><i class="far fa-edit"></i></a></td>
-                                    <td> <a href="view_report.php" class="btn btn-warning"><i class="fas fa-eye"></i></a></td>
-                                    <td><a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a></td>
-                                </tr>
+                                <?php
+
+                                // $result = $conn->prepare("SELECT * FROM department");
+                                // $result->execute(); //
+                                // $row = $result->fetch(PDO::FETCH_BOTH);
+                                // ! กำหนดค่า session
+                                $department = 'หัวหน้าคณบดี';
+                                // $_SESSION["member_id"] = 1;
+                                $member_id = 3;
+
+                                // $department = 'รองคณบดีฝ่ายบริหาร';
+                                // $_SESSION["member_id"] = 2;
+
+                                $result = "SELECT * FROM send_report 
+            -- inner JOIN member
+            -- on member.member_id = send_report.member_send_id
+            -- inner join department
+            -- on department.department_id = member.department_id
+            WHERE member_send_id = $member_id
+            ORDER BY send_report_id DESC";
+                                $query = mysqli_query($condb, $result);
+
+                                $rows = mysqli_fetch_all($query, MYSQLI_ASSOC);
+                                // echo "<pre>";
+                                // print_R($rows);
+                                // echo "</pre>";
+
+
+                                $count = 1;
+                                foreach ($rows as $value) {
+
+                                ?>
+                                    <tr>
+                                        <td><?php echo $count++ ?></td>
+                                        <td><?php echo $value['date'] ?></td>
+
+                                        <?php
+                                        $report_id = $value['report_id'];
+                                        $report_id = explode(",", $report_id);
+                                        $header = [];
+                                        foreach ($report_id as $value2) {
+                                            $result2 = "SELECT header FROM report WHERE report_id = $value2";
+                                            // echo $result2;
+                                            $query2 = mysqli_query($condb, $result2);
+                                            $rows2 = mysqli_fetch_all($query2, MYSQLI_ASSOC);
+                                            // echo "<pre>";
+                                            // print_R($rows2);
+                                            // echo "</pre>";
+                                            foreach ($rows2 as $value3) {
+                                                // echo $value2['header'];
+                                                array_push($header, $value3['header']);
+                                            }
+                                        }
+                                        // print_r($header); 
+                                        $header2 = implode(",", $header);
+                                        // echo $header2;            
+                                        // exit();
+                                        ?>
+
+
+                                        <td><?php echo $header2 ?></td>
+                                        <td align="center"><button class="btn btn-warning"><a href="view_report.php?report_id=<?php echo $value['report_id'] ?>&department_receive=<?php echo $value['department_receive'] ?>"><i class="fas fa-eye"></i></a></button></td>
+                                        <td><a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a></td>
+
+
+                                    </tr>
+                                <?php } ?>
                             </tbody>
 
                             <tfoot>
@@ -118,7 +164,6 @@
                                     <th>ลำดับ</th>
                                     <th>วันที่ส่ง</th>
                                     <th>หัวข้อ</th>
-                                    <th>แก้ไข</th>
                                     <th>ดู</th>
                                     <th>ลบ</th>
                                 </tr>

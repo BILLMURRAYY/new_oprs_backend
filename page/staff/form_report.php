@@ -1,13 +1,16 @@
+<?php session_start(); ?> 
 <?php include("../include/head.php"); ?>
+<?php include("../service/check_login_page.php"); ?>
 
 <head>
     <!-- add -->
 
     <script src="../../assets/js/form_add.js"></script>
     <!-- include summernote css/js-->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.2.0/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.2.0/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-    <link href="../../assets/js/dist/summernote.css" rel="stylesheet">
+    <!-- <link href="../../assets/js/dist/summernote.css" rel="stylesheet"> -->
+    
 
     <style>
         .contain {
@@ -26,7 +29,7 @@
     <script>
         var counter = 0;
 
-        function init() {
+        function inits() {
             document.getElementById('moreFields').onclick = moreFields;
             moreFields();
 
@@ -71,19 +74,19 @@
                         <!-- /.card-header -->
                         <form id="postForm" action="back_add_report.php" method="POST" enctype="multipart/form-data" onsubmit="return postForm()">
 
-                            <div class="card-body" id="report_form" style="display: none;">
+                            <div class="card-body" id="report_form" style="display: block;">
                                 <div class="card-body">
                                     <div class="form-group row">
                                         <label for="" class="col-sm-2 col-form-label">ชื่อหัวข้อรายงาน :</label>
                                         <div class="col-sm-10">
-                                            <input name="header[]" type="text" class="form-control" id="" placeholder="">
+                                            <input name="header[]" type="text" class="form-control" id="" placeholder="" required>
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <label for="" class="col-sm-2 col-form-label">รายละเอียดการปฎิบัติงาน:</label>
                                         <div class="col-sm-10">
-                                            <textarea class="form-control" name="detail[]" id="exampleFormControlTextarea1" rows="5"></textarea>
+                                            <textarea class="form-control" name="detail[]" id="exampleFormControlTextarea1" rows="5" required></textarea>
 
                                         </div>
 
@@ -93,7 +96,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">สถานที่ปฎิบัติงาน :</label>
                                         <div class="col-sm-4">
-                                            <select name="workplace[]" class="select2 form-control" style="width: 100%;">
+                                            <select name="workplace[]" class="select2 form-control" style="width: 100%;" required>
                                                 <option value="สำนักงาน">สำนักงาน</option>
                                                 <option value="บ้าน">นอกสถานที่</option>
                                             </select>
@@ -101,7 +104,7 @@
 
                                         <label class="col-sm-2 col-form-label">ความสำเร็จงาน :</label>
                                         <div class="col-sm-4" style="">
-                                            <select name="success[]" class="select2 form-control" style="width: 100%;">
+                                            <select name="success[]" class="select2 form-control" style="width: 100%;" required>
                                                 <option value="10">10 %</option>
                                                 <option value="20">20 %</option>
                                                 <option value="30">30 %</option>
@@ -121,11 +124,11 @@
                                         <label class="col-sm-2 col-form-label">วันที่เริ่มทำงาน :</label>
                                         <div class="input-group col-sm-10">
                                             <div class="input-group">
-                                                <input type="date" name="start_range[]" id="issueinput4" class="form-control" name="datefixed" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Date Fixed" data-original-title="" title="">
+                                                <input type="date" name="start_range[]" id="issueinput4" class="form-control" name="datefixed" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Date Fixed" data-original-title="" title="" required>
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text">ถึง</i></span>
                                                 </div>
-                                                <input type="date" name="end_range[]" id="issueinput4" class="form-control" name="datefixed" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Date Fixed" data-original-title="" title="">
+                                                <input type="date" name="end_range[]" id="issueinput4" class="form-control" name="datefixed" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Date Fixed" data-original-title="" title="" required>
                                             </div>
                                         </div>
                                     </div>
@@ -163,7 +166,7 @@
                                     </div>
                                 <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> บันทึกรายงาน</button>
 
-                                <div class="btn btn-info " id="moreFields">
+                                <div class="btn btn-info " id="moreFields" onclick="inits()">
                                     <i class="fas fa-plus-circle"></i>
                                     เพิ่มรายงาน
                                 </div>
@@ -247,6 +250,7 @@ $('textarea[name="content"]').html($('#summernote').code());
             format: 'LT'
         });
     </script>
+    <?php include("../include/footer.php"); ?>
 
 
 </body>

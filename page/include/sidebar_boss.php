@@ -14,11 +14,16 @@
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
               <div class="image">
-              <img src="../../assets/bootstrap/template/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+              <?php
+                  $sql = "SELECT img FROM member WHERE member_id = '".$_SESSION["member_id"]."'";
+                  $query0 = mysqli_query($condb, $sql);
+                  $rows0 = mysqli_fetch_array($query0, MYSQLI_ASSOC);
+                ?>
+              <img src="../../assets/images/<?php echo $rows0['img'] ?>" class="img-circle elevation-2" alt="User Image">
               </div>
               <div class="info">
                 <a href="#" class="d-block"><?php echo $_SESSION["member_name"] ?></a>
-                <span style="color: white;">(คณบดี)</span>
+                <span style="color: white;">(<?php echo  $_SESSION["department_name"] ;?>)</span>
 
               </div>
             </div>
@@ -54,25 +59,15 @@
                                 </li>
                                 
 
-                                <li class="nav-item">
-                                    <a href="estimate.php" class="nav-link">
-                                    <i class="nav-icon fas fal fa-table"></i>
-<p>
-                                            ประเมินผล
-                                            <!-- <i class="right fas fa-angle-left"></i> -->
-                                        </p>
-                                    </a>
-                                </li>
-
-                                <li class="nav-item">
+                                <!-- <li class="nav-item">
                                     <a href="feedback.php" class="nav-link">
                                     <i class="nav-icon fas  fa-comment"></i>
                                         <p>
                                             feedback
-                                            <!-- <i class="fas fa-angle-left right"></i> -->
+                                            <i class="fas fa-angle-left right"></i>
                                         </p>
                                     </a>
-                                </li>
+                                </li> -->
                                 <li class="nav-item">
                                     <a href="history_feedback.php" class="nav-link">
                                     <i class="nav-icon fas fad fa-history"></i>
@@ -91,6 +86,15 @@
                                         </p>
                                     </a>
                                 </li>
+                                <!-- <li class="nav-item">
+                                    <a href="estimate.php" class="nav-link">
+                                    <i class="nav-icon fas fal fa-table"></i>
+<p>
+                                            ประเมินผล
+                                            <i class="right fas fa-angle-left"></i>
+                                        </p>
+                                    </a>
+                                </li> -->
                                 <li class="nav-item">
                                     <a href="edit_profile.php" class="nav-link">
                                     <i class="nav-icon far fas fa-edit"></i>

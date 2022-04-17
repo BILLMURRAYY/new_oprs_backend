@@ -1,4 +1,6 @@
+<?php session_start(); ?> 
 <?php include("../include/head.php"); ?>
+<?php include("../service/check_login_page.php"); ?>
 <?php require_once("../service/condb.php"); ?>
 
 <head>
@@ -100,6 +102,7 @@
             </div>
         </div>
     </div>
+    <?php include("../include/footer.php"); ?>
 
     <script>
         $(function() {

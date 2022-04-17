@@ -1,6 +1,29 @@
+<?php session_start(); ?> 
 <?php include("../include/head.php"); ?>
+<?php include("../service/check_login_page.php"); ?>
 <?php require_once("../service/condb.php"); ?>
+<?php
+    // $x= $_GET['x'];
+    // if(isset($_GET['x'])){
+    //     echo"<script>const Toast = Swal.mixin({
+    //         toast: true,
+    //         position: 'top-end',
+    //         showConfirmButton: false,
+    //         timer: 3000,
+    //         timerProgressBar: true,
+    //         didOpen: (toast) => {
+    //             toast.addEventListener('mouseenter', Swal.stopTimer)
+    //             toast.addEventListener('mouseleave', Swal.resumeTimer)
+    //         }
+    //         })
+    
+    //         Toast.fire({
+    //         icon: 'success',
+    //         title: 'Signed in successfully'
+    //         })</script>";
+    // }
 
+?>
 <head>
     <style>
         .contain {
@@ -24,6 +47,7 @@
             text-align: center;
         }
     </style>
+    
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -59,7 +83,7 @@
                                     <th>แผนก</th>
                                     <th>หัวข้อ</th>
                                     <th>ดู</th>
-                                    <th>ลบ</th>
+                                    <!-- <th>ลบ</th> -->
                                 </tr>
                             </thead>
 
@@ -70,8 +94,8 @@
                                 // $result->execute(); //
                                 // $row = $result->fetch(PDO::FETCH_BOTH);
                                 // !!!!!!!!!!! กำหนดค่า session
-                                $department = 'หัวหน้าคณบดี';
-                                $_SESSION["member_id"] = 2;
+                                $department = $_SESSION["department_name"];
+                                // $_SESSION["member_id"] = 2;
 
                                 // $department = 'รองคณบดีฝ่ายบริหาร';
                                 // $_SESSION["member_id"] = 3;
@@ -124,9 +148,9 @@
                                         // exit();
                                         ?>
                                         <td><?php echo $header2; ?></td>
-                                        <td align="center"><button class="btn btn-warning"><a href="view_feedback.php?report_id=<?php echo $value['report_id'] ?>&member_send_name=<?php echo $value['first_name'] . " " . $value['last_name'] ?>&member_send_id=<?php echo $value['member_send_id'] ?>&send_report_id=<?php echo $value['send_report_id'] ?>"><i class="fas fa-eye"></i></a></button></td>
+                                        <td align="center"><a href="view_feedback.php?report_id=<?php echo $value['report_id'] ?>&member_send_name=<?php echo $value['first_name'] . " " . $value['last_name'] ?>&member_send_id=<?php echo $value['member_send_id'] ?>&send_report_id=<?php echo $value['send_report_id'] ?>"><button class="btn btn-warning"><i class="fas fa-eye"></i></button></a></td>
 
-                                        <td><a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a></td>
+                                        <!-- <td><a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a></td> -->
 
                                     </tr>
                                 <?php } ?>
@@ -150,7 +174,7 @@
                                     <th>แผนก</th>
                                     <th>หัวข้อ</th>
                                     <th>แก้ไข</th>
-                                    <th>ลบ</th>
+                                    <!-- <th>ลบ</th> -->
                                 </tr>
                             </tfoot>
                         </table>
@@ -160,16 +184,17 @@
             </div>
         </div>
     </div>
-
+    <?php include("../include/footer.php"); ?>
     <script>
         $(function() {
             $("#example1").DataTable({
                 "responsive": true,
                 "lengthChange": true,
                 "autoWidth": true,
-                "paging": false,
+                "paging": true,
                 "ordering": true,
                 "info": false,
+                "autoWidth": false,
                 "buttons": ["copy", "excel", "print"]
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
             $('#example2').DataTable({
@@ -182,5 +207,27 @@
                 "autoWidth": false
             });
         });
+
+        
     </script>
+    <script>
+        // const Toast = Swal.mixin({
+        // toast: true,
+        // position: 'top-end',
+        // showConfirmButton: false,
+        // timer: 3000,
+        // timerProgressBar: true,
+        // didOpen: (toast) => {
+        //     toast.addEventListener('mouseenter', Swal.stopTimer)
+        //     toast.addEventListener('mouseleave', Swal.resumeTimer)
+        // }
+        // })
+
+        // Toast.fire({
+        // icon: 'success',
+        // title: 'Signed in successfully'
+        // })
+    </script>
+    
+
 </body>

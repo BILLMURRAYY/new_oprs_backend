@@ -41,9 +41,9 @@
                         <div>
                             <h3 class="card-title">ประวัติการประเมินรายงาน</h3>
                         </div>
-                        <!-- <div style="text-align: right;">
-                            <button type="button" class="btn btn-success text-right "><a href="form_report.php"><span class="fas fa-plus-circle"></span> เพิ่มรายงาน</a></button>
-                        </div> -->
+                        <div style="text-align: right;">
+                        <a href="estimate.php"><button type="button" class="btn btn-success text-right "><span class="fas fa-plus-circle"></span> ประเมินผล</button></a>
+                        </div>
                     </div>
 
 
@@ -74,9 +74,9 @@
                                 // $department_id = '1';
                                 // $_SESSION["member_id"] = 1;
 
-                                $department = 'หัวหน้าคณบดี';
-                                $member_id = '2';
-                                $_SESSION["member_id"] = 2;
+                                // $department = 'หัวหน้าคณบดี';
+                                $member_id = $_SESSION["member_id"];
+                                // $_SESSION["member_id"] = 2;
 
                                 // $department = 'รองคณบดีฝ่ายบริหาร';
                                 // $department_id = '3';
@@ -121,7 +121,7 @@
                                         ?>
                                             <td><?php echo $value2['first_name'] . " " . $value2['last_name'] ?></td>
                                             <td><?php echo $value2['department_name'] ?></td>
-                                            <td align="center"><button class="btn btn-warning"><a href="view_his_estimate.php?feedback_id=<?php echo $value['estimate_id'] ?>&member_send_name=<?php echo $value2['first_name'] . " " . $value2['last_name'] ?>&member_receive_id=<?php echo $value['member_receive_id'] ?>"><i class="fas fa-eye"></i></a></button></td>
+                                            <td align="center"><a href="view_his_estimate.php?estimate_id=<?php echo $value['estimate_id'] ?>&member_send_name=<?php echo $value2['first_name'] . " " . $value2['last_name'] ?>&member_receive_id=<?php echo $value['member_receive_id'] ?>"><button class="btn btn-warning"><i class="fas fa-eye"></i></button></a></td>
                                             <!-- <td align="center"><button><a href="#">Detail</a></button></td> -->
                                         <?php
                                         }
@@ -147,6 +147,8 @@
             </div>
         </div>
     </div>
+    <?php include("../include/footer.php"); ?>
+
 
     <script>
         $(function() {
@@ -170,4 +172,5 @@
             });
         });
     </script>
+
 </body>

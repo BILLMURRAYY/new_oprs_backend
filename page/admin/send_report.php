@@ -1,11 +1,14 @@
+<?php session_start(); ?> 
 <?php include("../include/head.php"); ?>
+<?php include("../service/check_login_page.php"); ?>
 <?php
-require_once("../../condb.php");
+require_once("../service/condb.php");
 
 $count = 1;
-$result = "SELECT * FROM member 
-           inner join department
-           on department.department_id = member.department_id";
+// $result = "SELECT * FROM member 
+//            inner join department
+//            on department.department_id = member.department_id";
+$result = "SELECT * FROM department";
 $query = mysqli_query($condb, $result);
 $rows = mysqli_fetch_all($query, MYSQLI_ASSOC);
 
@@ -76,12 +79,12 @@ $count = 1;
                             <h3 class="card-title">จัดการรายงานผล</h3>
                         </div>
                         <div style="text-align: right;">
-                            <button type="button" class="btn b_add text-right "><a href="form_add_depart.php"><span class="fas fa-plus-circle"></span> เพิ่มการจัดส่งรายงาน</a></button>
+                        <a href="form_add_depart.php"><button type="button" class="btn b_add text-right "><span class="fas fa-plus-circle"></span> เพิ่มการจัดส่งรายงาน</button></a>
 
                             </a>
                         </div>
                     </div>
-                    <div class="card-body  ">
+                    <!-- <div class="card-body  ">
                         <div class="card-tools">
                             <div class="input-group input-group">
                                 <input type="text" class="form-control" placeholder="ค้นหาข้อมูล">
@@ -92,7 +95,7 @@ $count = 1;
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
                     <!-- /.card-header -->
                     <div class="card-body">
@@ -120,8 +123,8 @@ $count = 1;
                                         <td><?php echo $value['level'] ?></td>
                                         <td><?php echo $value['flow_report'] ?></td>
                                         <td><?php echo $value['flow_estimate'] ?></td>
-                                        <td> <a href="edit_depart.php?id_depart=<?php echo $value['department_id'] ?>" class="btn btn-info"><i class="far fa-edit"></i>แก้ไข</a></td>
-                                        <td><a href="back_del_depart.php?id_depart=<?php echo $value['department_id'] ?>" class="btn btn-danger"><i class="fas fa-trash"></i>ลบ</a></td>
+                                        <td> <a href="edit_depart.php?department_id=<?php echo $value['department_id'] ?>" class="btn btn-info"><i class="far fa-edit"></i>แก้ไข</a></td>
+                                        <td><a href="back_del_depart.php?department_id=<?php echo $value['department_id'] ?>" class="btn btn-danger"><i class="fas fa-trash"></i>ลบ</a></td>
                                     </tr>
                                 <?php } ?>
 
@@ -154,17 +157,15 @@ $count = 1;
     </div>
 
     <!-- /.content-wrapper -->
-    <footer class="main-footer">
-
-    </footer>
+    <?php include("../include/footer.php"); ?>
 
     <script>
         $(function() {
             $("#example1").DataTable({
                 "responsive": true,
                 "paging": true,
-                "lengthChange": false,
-                "searching": false,
+                "lengthChange": true,
+                "searching": true,
                 "ordering": true,
                 "info": false,
                 "autoWidth": false

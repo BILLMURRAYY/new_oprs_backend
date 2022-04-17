@@ -1,10 +1,12 @@
+<?php session_start(); ?> 
 <?php include("../include/head.php"); ?>
+<?php include("../service/check_login_page.php"); ?>
 
 <?php
 
 $id_member = $_GET['id_member'];
 
-require_once("../../condb.php");
+require_once("../service/condb.php");
 $sqli = "SELECT * FROM member 
 INNER JOIN department
 ON department.department_id = member.department_id
@@ -148,6 +150,7 @@ $resulti = mysqli_query($condb, $sqli);
             </div>
         </div>
     </div>
+    <?php include("../include/footer.php"); ?>
     <script language="Javascript">
         function chkpsw(form) {
             password1 = form.pass1.value;

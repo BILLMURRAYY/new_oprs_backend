@@ -1,14 +1,16 @@
+<?php session_start(); ?> 
 <?php include("../include/head.php"); ?>
+<?php include("../service/check_login_page.php"); ?>
 <?php
 
-require_once("../../condb.php");
+require_once("../service/condb.php");
 
-$id_member = $_GET['id_member'];
+$member_id = $_GET['member_id'];
 
 $sqli = "SELECT * FROM member 
          INNER JOIN department
          ON department.department_id = member.department_id
-         WHERE member.member_id = $id_member";
+         WHERE member.member_id = $member_id";
 
 $resulti = mysqli_query($condb, $sqli);
 
@@ -59,8 +61,8 @@ $count = 1;
 
                     foreach ($resulti as $valuei) {
                     ?>
-                        <form action="back_update_member.php" id="" method="post" onSubmit="return chkpsw(this)">
-                            <input type="hidden" name="member_id" value="<?php echo $id_member ?>">
+                        <form action="back_update_member.php" id="" method="post" enctype="multipart/form-data" onSubmit="return chkpsw(this)">
+                            <input type="hidden" name="member_id" value="<?php echo $member_id ?>">
 
                             <div class="card-body">
 
@@ -124,11 +126,15 @@ $count = 1;
                                     <input type="password" class="form-control" name="pass2" id="m_pass2" placeholder="กรอกรหัสผ่านอีกครั้ง" disabled>
                                 </div>
 
+                                <label>ไฟล์รูปภาพ</label>
                                 <div class="form-group">
-                                    <label>ไฟล์รูปภาพ</label>
+                                    <br>
+                                    ภาพเก่า <br>
+                                    <img src="../../assets/images/<?php echo $valuei['img']?>" width="300px">
+                                    <br>
                                     <div class="input-group">
                                         <!-- <div class="custom-file"> -->
-                                        <input type="file" name="m_Img" class="form-control" id="m_Img" accept="image/*">
+                                        <input type="file" name="img" class="form-control" id="m_Img" accept="image/*">
                                         <!-- <label class="" for="exampleInputFile">ใส่รูปภาพ (นามสกุลไฟล์รูปภาพ .jpg และ .png)</label> -->
                                         <!-- </div> -->
                                         <!-- <div class="input-group-append">
@@ -148,6 +154,7 @@ $count = 1;
             </div>
         </div>
     </div>
+    <?php include("../include/footer.php"); ?>
 
     <script>
         $(function() {

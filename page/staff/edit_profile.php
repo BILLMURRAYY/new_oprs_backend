@@ -1,14 +1,17 @@
+<?php session_start(); ?> 
 <?php include("../include/head.php"); ?>
+<?php include("../service/check_login_page.php"); ?>
 <?php
 require_once("../service/condb.php");
 
 
-$id_member = $_GET['id_member'];
+// $member_id = $_GET['id_member'];
+$member_id = $_SESSION['member_id'];
 
 $sqli = "SELECT * FROM member 
          INNER JOIN department
          ON department.department_id = member.department_id
-         WHERE member.member_id = $id_member";
+         WHERE member.member_id = $member_id";
 
 $resulti = mysqli_query($condb, $sqli);
 
@@ -16,11 +19,9 @@ $sql = "SELECT * FROM department ORDER BY department_id asc";
 $result = mysqli_query($condb, $sql);
 $count = 1;
 ?>
-?>
+
 
 <head>
-
-
     <style>
         .contain {
             padding: 25px;
@@ -43,7 +44,6 @@ $count = 1;
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
-
     <div class="wrapper">
         <?php include("nav.php"); ?>
         <?php include("../include/sidebar_staff.php"); ?>
@@ -60,14 +60,14 @@ $count = 1;
 
                     foreach ($resulti as $valuei) {
                     ?>
-                        <form action="back_update_member.php" id="" method="post" onSubmit="return chkpsw(this)">
-                            <input type="hidden" name="member_id" value="<?php echo $id_member ?>">
+                        <form action="back_update_member.php" id="" method="post" onSubmit="return chkpsw(this)" enctype="multipart/form-data">
+                            <input type="hidden" name="member_id" value="<?php echo $member_id ?>">
 
                             <div class="card-body">
 
                                 <div class="form-group">
                                     <label>แผนก</label>
-                                    <select id="m_position" name="id_depart" class="select2 form-control" style="width: 100%;" required>
+                                    <select id="m_position" name="id_depart" class="select2 form-control" style="width: 100%;" disabled>
                                         <option value="<?php echo $valuei['department_id'] ?>"><?php echo $valuei['department_name'] ?></option>
                                         <?php
                                         foreach ($result as $row) {
@@ -114,22 +114,26 @@ $count = 1;
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">อีเมล</label>
-                                    <input type="email" class="form-control" name="email" id="m_email" value="<?php echo $valuei['email'] ?>" placeholder="กรอกอีเมล" required>
+                                    <input type="email" class="form-control" name="email" id="m_email" value="<?php echo $valuei['email'] ?>" placeholder="กรอกอีเมล" disabled>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">รหัสผ่าน</label>
-                                    <input type="password" class="form-control" name="pass1" id="m_pass" placeholder="กรอกรหัสผ่าน" disabled>
+                                    <input type="password" class="form-control" name="pass1" id="m_pass" placeholder="กรอกรหัสผ่าน" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">ยืนยันรหัสรหัสผ่านอีกครั้ง</label>
-                                    <input type="password" class="form-control" name="pass2" id="m_pass2" placeholder="กรอกรหัสผ่านอีกครั้ง" disabled>
+                                    <input type="password" class="form-control" name="pass2" id="m_pass2" placeholder="กรอกรหัสผ่านอีกครั้ง" required>
                                 </div>
 
+                                <label>ไฟล์รูปภาพ</label>
                                 <div class="form-group">
-                                    <label>ไฟล์รูปภาพ</label>
+                                <br>
+                                    ภาพเก่า <br>
+                                    <img src="../../assets/images/<?php echo $valuei['img']?>" width="300px">
+                                    <br>
                                     <div class="input-group">
                                         <!-- <div class="custom-file"> -->
-                                        <input type="file" name="m_Img" class="form-control" id="m_Img" accept="image/*">
+                                        <input type="file" name="img" class="form-control" id="m_Img" accept="image/*">
                                         <!-- <label class="" for="exampleInputFile">ใส่รูปภาพ (นามสกุลไฟล์รูปภาพ .jpg และ .png)</label> -->
                                         <!-- </div> -->
                                         <!-- <div class="input-group-append">
@@ -155,5 +159,6 @@ $count = 1;
             $('.select2').select2()
         });
     </script>
+    <?php include("../include/footer.php"); ?>
 
 </body>

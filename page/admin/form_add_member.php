@@ -1,7 +1,9 @@
+<?php session_start(); ?> 
 <?php include("../include/head.php"); ?>
+<?php include("../service/check_login_page.php"); ?>
 <!-- <?php include("sql_select.php"); ?> -->
 <?php
-require_once("../../condb.php");
+require_once("../service/condb.php");
 
 $sql = "SELECT * FROM department ORDER BY department_id asc";
 $result = mysqli_query($condb, $sql);
@@ -51,7 +53,7 @@ $count = 1;
 
                             <div class="form-group">
                                 <label>แผนก</label>
-                                <select id="m_position" name="id_depart" class="select2" style="width: 100%;" required>
+                                <select id="m_position" name="department_id" class="select2" style="width: 100%;" required>
                                 <?php foreach ($result as $row) {
                                         if ($row['department_name']) { ?>
                                             <option value="<?php echo $row["department_id"] ?>"><?php echo $row["department_name"] ?></option>
@@ -77,14 +79,14 @@ $count = 1;
                                     <div class="col-md-5" data-select2-id="56">
                                         <div class="form-group" data-select2-id="55">
                                             <label>ชื่อ</label>
-                                            <input type="text" name="f_name" class="form-control" required placeholder="กรอกชื่อจริง" value="" minlength="2">
+                                            <input type="text" name="first_name" class="form-control" required placeholder="กรอกชื่อจริง" value="" minlength="2">
                                         </div>
                                     </div>
 
                                     <div class="col-md-5" data-select2-id="56">
                                         <div class="form-group" data-select2-id="55">
                                             <label>นามสกุล</label>
-                                            <input type="text" name="l_name" class="form-control" required placeholder="กรอกนามสกุล" value="" minlength="2">
+                                            <input type="text" name="last_name" class="form-control" required placeholder="กรอกนามสกุล" value="" minlength="2">
 
                                         </div>
                                     </div>
@@ -92,7 +94,7 @@ $count = 1;
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">เบอร์โทรศัพท์</label>
-                                <input type="text" class="form-control" name="phone" id="m_tell" placeholder="กรอกเบอร์โทรศัพท์" required>
+                                <input type="text" class="form-control" name="tel" id="m_tell" placeholder="กรอกเบอร์โทรศัพท์" required>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">อีเมล</label>
@@ -111,7 +113,7 @@ $count = 1;
                                 <label>ไฟล์รูปภาพ</label>
                                 <div class="input-group">
                                     <!-- <div class="custom-file"> -->
-                                    <input type="file" name="m_Img" class="form-control" id="m_Img" accept="image/*">
+                                    <input type="file" name="img" class="form-control" id="m_Img" accept="image/*">
                                     <!-- <label class="" for="exampleInputFile">ใส่รูปภาพ (นามสกุลไฟล์รูปภาพ .jpg และ .png)</label> -->
                                     <!-- </div> -->
                                     <!-- <div class="input-group-append">
@@ -130,6 +132,7 @@ $count = 1;
             </div>
         </div>
     </div>
+    <?php include("../include/footer.php"); ?>
     <script language="Javascript">
         function chkpsw(form) {
             password1 = form.pass1.value;

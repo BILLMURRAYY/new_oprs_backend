@@ -1,4 +1,6 @@
+<?php session_start(); ?> 
 <?php include("../include/head.php"); ?>
+<?php include("../service/check_login_page.php"); ?>
 <?php
 require_once("../service/condb.php");
 
@@ -69,7 +71,7 @@ require_once("../service/condb.php");
                             <h3 class="card-title">รายงานผลการปฎิบัติงาน</h3>
                         </div>
                         <div style="text-align: right;">
-                            <button class="btn b_add text-right "><a class="t_add" href="form_report.php" style="color: white;"><span class="fas fa-plus-circle"></span> เพิ่มรายงาน</a></button>
+                        <a class="t_add" href="form_report.php" style="color: white;"><button class="btn b_add text-right "><span class="fas fa-plus-circle"></span> เพิ่มรายงาน</button></a>
                         </div>
                     </div>
 
@@ -85,7 +87,7 @@ require_once("../service/condb.php");
                                     <th>วันที่ส่ง</th>
                                     <th>หัวข้อ</th>
                                     <th>ดู</th>
-                                    <th>ลบ</th>
+                                    <!-- <th>ลบ</th> -->
                                 </tr>
                             </thead>
 
@@ -96,20 +98,20 @@ require_once("../service/condb.php");
                                 // $result->execute(); //
                                 // $row = $result->fetch(PDO::FETCH_BOTH);
                                 // ! กำหนดค่า session
-                                $department = 'หัวหน้าคณบดี';
+                                // $department = 'หัวหน้าคณบดี';
                                 // $_SESSION["member_id"] = 1;
-                                $member_id = 3;
+                                // $member_id = 3;
 
                                 // $department = 'รองคณบดีฝ่ายบริหาร';
                                 // $_SESSION["member_id"] = 2;
 
                                 $result = "SELECT * FROM send_report 
-            -- inner JOIN member
-            -- on member.member_id = send_report.member_send_id
-            -- inner join department
-            -- on department.department_id = member.department_id
-            WHERE member_send_id = $member_id
-            ORDER BY send_report_id DESC";
+                                -- inner JOIN member
+                                -- on member.member_id = send_report.member_send_id
+                                -- inner join department
+                                -- on department.department_id = member.department_id
+                                WHERE member_send_id = ".$_SESSION["member_id"]."
+                                ORDER BY send_report_id DESC";
                                 $query = mysqli_query($condb, $result);
 
                                 $rows = mysqli_fetch_all($query, MYSQLI_ASSOC);
@@ -152,9 +154,9 @@ require_once("../service/condb.php");
 
                                         <td><?php echo $header2 ?></td>
                                         <!-- <td align="center"><button class="btn btn-warning"><a href="view_report.php?report_id=<?php echo $value['report_id'] ?>&department_receive=<?php echo $value['department_receive'] ?>"><i class="fas fa-eye"></i></a></button></td> -->
-                        <td align="center"><button class="btn btn-warning"><a href="view_report.php?report_id=<?php echo $value['report_id'] ?>&department_receive=<?php echo $value['department_receive'] ?>"><i class="fas fa-eye"></i></a></button></td>
+                        <td align="center"><a href="view_report.php?report_id=<?php echo $value['report_id'] ?>&department_receive=<?php echo $value['department_receive'] ?>"><button class="btn btn-warning"><i class="fas fa-eye"></i></button></a></td>
                                         
-                                        <td><a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a></td>
+                                        <!-- <td><a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a></td> -->
 
 
                                     </tr>
@@ -167,7 +169,7 @@ require_once("../service/condb.php");
                                     <th>วันที่ส่ง</th>
                                     <th>หัวข้อ</th>
                                     <th>ดู</th>
-                                    <th>ลบ</th>
+                                    <!-- <th>ลบ</th> -->
                                 </tr>
                             </tfoot>
                         </table>
@@ -177,7 +179,8 @@ require_once("../service/condb.php");
             </div>
         </div>
     </div>
-
+    <?php include("../include/footer.php"); ?>
+    
 
     <script>
         $(function() {
@@ -185,9 +188,10 @@ require_once("../service/condb.php");
                 "responsive": true,
                 "lengthChange": true,
                 "autoWidth": true,
-                "paging": false,
+                "paging": true,
                 "ordering": true,
                 "info": false,
+                "autoWidth": false,
                 "buttons": ["copy", "excel", "print"]
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
             $('#example2').DataTable({
@@ -201,4 +205,5 @@ require_once("../service/condb.php");
             });
         });
     </script>
+
 </body>

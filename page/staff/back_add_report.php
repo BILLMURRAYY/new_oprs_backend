@@ -9,8 +9,8 @@ require_once("../service/condb.php");
 
 
 // !!!! กำหนด session
-$member_id = 3;
-$department_id = 3;
+$member_id = $_SESSION['member_id'];
+$department_id = $_SESSION['department_id'];
 
 // $header = ['header_0','header_1','header_2','header_3','header_4','header_5'];
 // $detail = ['detail_0','detail_1','detail_2','detail_3','detail_4','detail_5'];

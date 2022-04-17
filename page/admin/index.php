@@ -1,6 +1,8 @@
+<?php session_start(); ?> 
 <?php include("../include/head.php"); ?>
+<?php include("../service/check_login_page.php"); ?>
 <?php
-require_once("../../condb.php");
+require_once("../service/condb.php");
 
 $count = 1;
 $result = "SELECT * FROM member 
@@ -79,7 +81,7 @@ $count = 1;
                             <h3 class="card-title">ข้อมูลสมาชิก</h3>
                         </div>
                         <div style="text-align: right;">
-                            <button type="button" class="btn b_add text-right "><a href="form_add_member.php"><span class="fas fa-plus-circle"></span> เพิ่มสมาชิก</a></button>
+                        <a href="form_add_member.php"><button type="button" class="btn b_add text-right "><span class="fas fa-plus-circle"></span> เพิ่มสมาชิก</button></a>
                         </div>
                     </div>
 
@@ -99,12 +101,12 @@ $count = 1;
                             <thead>
                                 <tr>
                                     <th>ลำดับ</th>
-                                    <th>รูปภาพ</th>
-                                    <th>ชื่อ</th>
-                                    <th>นามสกุล</th>
-                                    <th>แผนก</th>
-                                    <th>สิทธิ์การเข้าถึง</th>
-                                    <th>รีเซต</th>
+                                    <th>ชื่อ - นามสกุล</th>
+                                    <th>Email</th>
+                                    <th>Tel</th>
+                                    <th>Department</th>
+                                    <th>Level</th>
+                                    <th>รีเซตรหัสผ่าน</th>
                                     <th>แก้ไข</th>
                                     <th>ลบ</th>
                                 </tr>
@@ -120,23 +122,26 @@ $count = 1;
                                         <td><?php echo $value['tel'] ?></td>
                                         <td><?php echo $value['department_name'] ?></td>
                                         <td><?php echo $value['level'] ?></td>
-                                        <td><a href="repass.php?id_member=<?php echo $value['member_id'] ?>" class="btn btn-warning"><i class="far fa-edit"></i>เปลี่ยนรหัสผ่าน</a></td>
-                                        <td> <a href="edit_member.php?id_member=<?php echo $value['member_id'] ?>" class="btn btn-info"><i class="far fa-edit"></i>แก้ไข</a></td>
-                                        <td><a href="back_del_member.php?id_member=<?php echo $value['member_id'] ?>" class="btn btn-danger"><i class="fas fa-trash"></i>ลบ</a></td>
+                                        <td><a href="repass.php?id_member=<?php echo $value['member_id'] ?>" class="btn btn-warning"><i class="far fa-edit"></i></a></td>
+                                        <td> <a href="edit_member.php?member_id=<?php echo $value['member_id'] ?>" class="btn btn-info"><i class="far fa-edit"></i></a></td>
+                                        <td><a href="back_del_member.php?member_id=<?php echo $value['member_id'] ?>" class="btn btn-danger"><i class="fas fa-trash"></i></a></td>
                                     </tr>
                                 <?php } ?>
+                                <!-- เปลี่ยนรหัสผ่าน -->
+                                <!-- แก้ไข -->
+                                <!-- ลบ -->
 
                             </tbody>
 
                             <tfoot>
                                 <tr>
                                     <th>ลำดับ</th>
-                                    <th>รูปภาพ</th>
-                                    <th>ชื่อ</th>
-                                    <th>นามสกุล</th>
-                                    <th>แผนก</th>
-                                    <th>สิทธิ์การเข้าถึง</th>
-                                    <th>รีเซต</th>
+                                    <th>ชื่อ - นามสกุล</th>
+                                    <th>Email</th>
+                                    <th>Tel</th>
+                                    <th>Department</th>
+                                    <th>Level</th>
+                                    <th>รีเซตรหัสผ่าน</th>
                                     <th>แก้ไข</th>
                                     <th>ลบ</th>
                                 </tr>
@@ -157,9 +162,10 @@ $count = 1;
     </div>
 
     <!-- /.content-wrapper -->
-    <footer class="main-footer">
+    <?php include("../include/footer.php"); ?>
+    <!-- <footer class="main-footer">
 
-    </footer>
+    </footer> -->
 
     <script>
         $(function() {
@@ -167,9 +173,10 @@ $count = 1;
                 "responsive": true,
                 "lengthChange": true,
                 "autoWidth": true,
-                "paging": false,
+                "paging": true,
                 "ordering": true,
                 "info": false,
+                "autoWidth": false,
                 "buttons": ["copy", "excel", "print"]
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
             $('#example2').DataTable({

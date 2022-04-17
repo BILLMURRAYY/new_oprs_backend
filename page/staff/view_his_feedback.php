@@ -1,4 +1,6 @@
+<?php session_start(); ?> 
 <?php include("../include/head.php"); ?>
+<?php include("../service/check_login_page.php"); ?>
 <?php
 require_once("../service/condb.php");
 ?>
@@ -87,8 +89,10 @@ require_once("../service/condb.php");
                                         <!-- <img class="img-circle img-bordered-sm" src="" alt="user image"> -->
                                         <span class="">วันที่ส่ง : <?php echo $values['date']; ?></span>
                                     </div>
-                                    <div class="form-control">
-                                        <p>
+                                    <br>
+                                    <div class="col">
+
+                                        <p> <span>Detail :</span>
                                             <?php echo $values['detail']; ?>
                                         </p>
                                     </div>
@@ -104,9 +108,6 @@ require_once("../service/condb.php");
         </div>
         <!-- /.col -->
         <!--  -->
-    </div>
-    </div>
-    </div>
     </div>
 
     <script>
@@ -131,4 +132,6 @@ require_once("../service/condb.php");
             });
         });
     </script>
+    <?php include("../include/footer.php"); ?>
+
 </body>

@@ -1,5 +1,6 @@
-<?php session_start(); ?>
+<?php session_start(); ?> 
 <?php include("../include/head.php"); ?>
+<?php include("../service/check_login_page.php"); ?>
 <?php require_once("../service/condb.php"); ?>
 <head>
     <style>
@@ -49,7 +50,7 @@
                     <!-- /.card-header -->
                     <div class="card-body">
 
-                        <table id="example2" class="table table-bordered table-striped">
+                        <table id="example1" class="table table-bordered table-striped">
 
                             <thead>
                                 <tr>
@@ -74,9 +75,9 @@
                                 // $department_id = '1';
                                 // $_SESSION["member_id"] = 1;
 
-                                $department = 'หัวหน้าคณบดี';
-                                $member_id = '2';
-                                $_SESSION["member_id"] = 2;
+                                // $department = 'หัวหน้าคณบดี';
+                                $member_id = $_SESSION["member_id"];
+                                // $_SESSION["member_id"] = 2;
 
                                 // $department = 'รองคณบดีฝ่ายบริหาร';
                                 // $department_id = '3';
@@ -128,7 +129,7 @@
                                         ?>
                                         <td><?php echo $value['header'] ?></td>
 
-                                        <td align="center"><button class="btn btn-warning"><a href="view_his_feedback.php?feedback_id=<?php echo $value['feedback_id'] ?>&member_send_name=<?php echo $value['first_name'] . " " . $value['last_name'] ?>&member_receive_id=<?php echo $value['member_receive_id'] ?>"><i class="fas fa-eye"></i></a></button></td>
+                                        <td align="center"><a href="view_his_feedback.php?feedback_id=<?php echo $value['feedback_id'] ?>&member_send_name=<?php echo $value['first_name'] . " " . $value['last_name'] ?>&member_receive_id=<?php echo $value['member_receive_id'] ?>"><button class="btn btn-warning"><i class="fas fa-eye"></i></button></a></td>
                                         <!-- <td align="center"><button><a href="#">Detail</a></button></td> -->
                                     </tr>
                                 <?php } ?>
@@ -158,9 +159,10 @@
                 "responsive": true,
                 "lengthChange": true,
                 "autoWidth": true,
-                "paging": false,
+                "paging": true,
                 "ordering": true,
                 "info": false,
+                "autoWidth": false,
                 "buttons": ["copy", "excel", "print"]
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
             $('#example2').DataTable({
@@ -174,4 +176,6 @@
             });
         });
     </script>
+    <?php include("../include/footer.php"); ?>
+
 </body>

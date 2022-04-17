@@ -1,4 +1,6 @@
+<?php session_start(); ?> 
 <?php include("../include/head.php"); ?>
+<?php include("../service/check_login_page.php"); ?>
 <?php
 require_once("../service/condb.php");
 ?>
@@ -49,10 +51,10 @@ require_once("../service/condb.php");
 
                     <!--  -->
                     <?php
-$feedback_id = $_GET['feedback_id'];
-$member_send_name = $_GET['member_send_name'];
-// $member_receive_id = $_GET['member_receive_id'];
-$member_send_id = $_GET['member_send_id'];
+                    $feedback_id = $_GET['feedback_id'];
+                    $member_send_name = $_GET['member_send_name'];
+                    // $member_receive_id = $_GET['member_receive_id'];
+                    $member_send_id = $_GET['member_send_id'];
                     // echo "<pre>";
                     // print_R($_GET);
                     // echo "</pre>";
@@ -77,7 +79,7 @@ $member_send_id = $_GET['member_send_id'];
                         <div class="card-body">
                             <div class="callout callout-info">
 
-                                <h5>ชื่อผู้ส่ง :<?php echo $member_send_name ?></h5>
+                                <h5>ชื่อผู้ส่ง : <?php echo $member_send_name ?></h5>
                                 <span class="">วันที่ส่ง : <?php echo $values['date']; ?></span>
                     </br></br>
                                 <div class="post clearfix">
@@ -86,7 +88,7 @@ $member_send_id = $_GET['member_send_id'];
                                        
                                     </div>
                                     
-                                    <span>รายละเอียดข้อความ <p class="form-control"><?php echo $values['detail']; ?>/p></span>
+                                    <p><span>รายละเอียดข้อความ : <?php echo $values['detail']; ?></span></p>
                                     
                                         
                                   
@@ -101,12 +103,9 @@ $member_send_id = $_GET['member_send_id'];
             </div>
             <!-- /.card -->
         </div>
-        <!-- /.col -->
-        <!--  -->
-    </div>
-    </div>
-    </div>
-    </div>
+        
+    
+    
 
     <script>
         $(function() {
@@ -130,4 +129,6 @@ $member_send_id = $_GET['member_send_id'];
             });
         });
     </script>
+        <?php include("../include/footer.php"); ?>
+
 </body>

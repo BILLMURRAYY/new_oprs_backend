@@ -1,4 +1,6 @@
+<?php session_start(); ?> 
 <?php include("../include/head.php"); ?>
+<?php include("../service/check_login_page.php"); ?>
 <?php require_once("../service/condb.php"); ?>
 
 <head>
@@ -124,7 +126,7 @@
                                         // exit();
                                         ?>
                                         <td><?php echo $header2; ?></td>
-                                        <td align="center"><button class="btn btn-warning"><a href="view_feedback.php?report_id=<?php echo $value['report_id'] ?>&member_send_name=<?php echo $value['first_name'] . " " . $value['last_name'] ?>&member_send_id=<?php echo $value['member_send_id'] ?>&send_report_id=<?php echo $value['send_report_id'] ?>"><i class="fas fa-eye"></i></a></button></td>
+                                        <td align="center"><a href="view_feedback.php?report_id=<?php echo $value['report_id'] ?>&member_send_name=<?php echo $value['first_name'] . " " . $value['last_name'] ?>&member_send_id=<?php echo $value['member_send_id'] ?>&send_report_id=<?php echo $value['send_report_id'] ?>"><button class="btn btn-warning"><i class="fas fa-eye"></i></button></a></td>
 
                                         <td><a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a></td>
 

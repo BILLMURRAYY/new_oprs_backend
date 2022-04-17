@@ -1,9 +1,9 @@
 <?php
 
-require_once("../../condb.php");  //ไฟล์เชื่อมต่อกับ database ที่เราได้สร้างไว้ก่อนหน้าน้ี
+require_once("../service/condb.php");  //ไฟล์เชื่อมต่อกับ database ที่เราได้สร้างไว้ก่อนหน้าน้ี
 
 
-$member_id = $_GET["id_member"];
+$member_id = $_GET["member_id"];
 $sql = "DELETE FROM member
 WHERE member_id = $member_id ";
 $query = mysqli_query($condb,$sql);

@@ -1,11 +1,13 @@
+<?php session_start(); ?> 
 <?php include("../include/head.php"); ?>
+<?php include("../service/check_login_page.php"); ?>
 <?php
 
-$id_depart = $_GET['id_depart'];
-require_once("../../condb.php");
+require_once("../service/condb.php");
+$department_id= $_GET['department_id'];
 
 $sqli = "SELECT * FROM department
-WHERE department_id = $id_depart";
+WHERE department_id = $department_id";
 
 $resulti = mysqli_query($condb, $sqli);
 
@@ -82,13 +84,14 @@ $count = 1;
                     foreach ($resulti as $valuei) {
                     ?>
                         <form action="back_update_depart.php" method="post">
-                            <input type="hidden" name="id" value="<?php echo $id_depart ?>">
+                            <input type="hidden" name="department_id" value="<?php echo $department_id ?>">
 
                             <div class="card-body">
 
                                 <div class="form-group">
+                                    
                                     <label for="exampleInputEmail1">ชื่อแผนก</label>
-                                    <input value="<?php echo $valuei['department_name'] ?>" name="department" type="input" class="form-control" id="depart" placeholder=" " required>
+                                    <input value="<?php echo $valuei['department_name'] ?>" name="department_name" type="input" class="form-control" id="depart" placeholder=" " required>
                                 </div>
 
                                 <div class="form-group ">
@@ -109,7 +112,7 @@ $count = 1;
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>ส่งข้อมูลรายงาน</label>
-                                            <select class="form-control select2" name="flow_report[]" multiple="multiple" data-placeholder="" style="width: 100%;">
+                                            <select class="form-control select2" name="flow_report[]" multiple="multiple" data-placeholder="" style="width: 100%;" required>
                                                 <option value="<?php echo $valuei['flow_report'] ?>"><?php echo $valuei['flow_report'] ?></option>
 
                                                 <?php
@@ -127,7 +130,7 @@ $count = 1;
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>ส่งข้อมูลประเมิน </label>
-                                            <select class="form-control select2" name="flow_estimate[]" id="all" data-select="false" multiple="multiple" style="width: 100%;">
+                                            <select class="form-control select2" name="flow_estimate[]" id="all" data-select="false" multiple="multiple" style="width: 100%;" required>
                                                 <option value="<?php echo $valuei['flow_estimate'] ?>"><?php echo $valuei['flow_estimate'] ?></option>
                                                 <?php
 
@@ -154,7 +157,7 @@ $count = 1;
             </div>
         </div>
     </div>
-
+    <?php include("../include/footer.php"); ?>
     <script>
         $(function() {
             $('.select2').select2()

@@ -19,7 +19,9 @@
     <link rel="stylesheet" href="assets/bootstrap/template/dist/css/adminlte.min.css">
     <!-- Bootstrap Color Picker -->
     <link rel="stylesheet" href="assets/bootstrap/template/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
-
+    <!-- SweetAlert2 -->
+    <script src="assets/bootstrap/template/plugins/sweetalert2/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="assets/bootstrap/template/plugins/sweetalert2/sweetalert2.min.css">
 </head>
 
 <style>
@@ -59,7 +61,7 @@
 
                     <form action="check_login.php" method="post">
                         <div class="input-group mb-3">
-                            <input type="email" name="email" class="form-control" placeholder="ชื่อผู้ใช้งาน">
+                            <input type="email" name="email" class="form-control" placeholder="ชื่อผู้ใช้งาน" required>
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-user"></span>
@@ -67,7 +69,7 @@
                             </div>
                         </div>
                         <div class="input-group mb-3">
-                            <input type="password" name="password" class="form-control" placeholder="รหัสผ่าน">
+                            <input type="password" name="password" class="form-control" placeholder="รหัสผ่าน" required>
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-lock"></span>
@@ -76,7 +78,7 @@
                         </div>
 
                         <div class="social-auth-links text-center mt-2 ">
-                            <button type="submit" class="btn btn-block btn-info btn-lg">
+                            <button type="submit" class="btn btn-block btn-info btn-lg" onclick="executeExample('mixin')">
                                 <i class="fas fa-door-open"></i> เข้าสู่ระบบ
                             </button>
                         </div>
@@ -103,6 +105,24 @@
     <!-- AdminLTE App -->
     <script src="assets/bootstrap/template/dist/js/adminlte.min.js"></script>
 
+    <!-- <script>
+       const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+        })
+
+        Toast.fire({
+        icon: 'success',
+        title: 'Signed in successfully'
+        })
+    </script> -->
 </body>
 
 </html>

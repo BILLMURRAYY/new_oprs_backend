@@ -1,6 +1,6 @@
-<?php session_start(); ?>
-
+<?php session_start(); ?> 
 <?php include("../include/head.php"); ?>
+<?php include("../service/check_login_page.php"); ?>
 <?php require_once("../service/condb.php"); ?>
 
 <head>
@@ -57,7 +57,7 @@
 
 
                     <!-- /.card-header -->
-                    <div class="card-body  ">
+                    <!-- <div class="card-body  ">
                         <div class="card-tools">
                             <div class="input-group">
                                 <input type="search" class="form-control form-control-lg" id="myInput" placeholder="ค้นหาข้อมูล">
@@ -68,10 +68,11 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <div class="table-responsive mailbox-messages">
-                        <table class="table table-hover table-striped" id="myTable">
+                    <!-- <div class="table-responsive mailbox-messages"> -->
+                    <div class="card-body">
+                        <table class="table table-hover table-striped" id="example1" >
                             <thead>
                                 <tr>
                                     <!-- <th><button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="far fa-square"></i></button></th> -->
@@ -94,9 +95,9 @@
                                 // $department = 'หัวหน้าคณบดี';
                                 // $_SESSION["member_id"] = 1;
 
-                                $department = 'รองคณบดีฝ่ายบริหาร';
-                                $department_id = 3;
-                                $_SESSION["member_id"] = 3;
+                                // $department = 'รองคณบดีฝ่ายบริหาร';
+                                $department_id = $_SESSION["department_id"];
+                                // $_SESSION["member_id"] = 3;
 
                                 //? Select FROM send_feedback  , member , departmen 
                                 $result = "SELECT * FROM `send_feedback`
@@ -140,7 +141,7 @@
                                             <td><?php echo $value2['department_name'] ?></td>
                                             <td><?php echo $value['header'] ?></td>
                                             
-                                            <td align="center"><button class="btn btn-warning"><a href="read_feedback.php?feedback_id=<?php echo $value['feedback_id'] ?>&member_send_name=<?php echo $value2['first_name'] . " " . $value2['last_name'] ?>&member_send_id=<?php echo $value['member_send_id'] ?>"><i class="fas fa-eye"></i></a></button></td>
+                                            <td align="center"><a href="read_feedback.php?feedback_id=<?php echo $value['feedback_id'] ?>&member_send_name=<?php echo $value2['first_name'] . " " . $value2['last_name'] ?>&member_send_id=<?php echo $value['member_send_id'] ?>"><button class="btn btn-warning"><i class="fas fa-eye"></i></button></a></td>
                                         <?php
                                         }
                                         ?>
@@ -159,6 +160,7 @@
                         </table>
 
                     </div>
+                    <!-- </div> -->
 
 
 
@@ -168,7 +170,8 @@
             </div>
         </div>
     </div>
-    </div>
+    <?php include("../include/footer.php"); ?>
+
 
     <!-- table -->
     <script>
@@ -177,9 +180,10 @@
                 "responsive": true,
                 "lengthChange": true,
                 "autoWidth": true,
-                "paging": false,
+                "paging": true,
                 "ordering": true,
                 "info": false,
+                "autoWidth": false,
                 "buttons": ["copy", "excel", "print"]
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
             $('#example2').DataTable({
@@ -236,4 +240,5 @@
             });
         });
     </script>
+
 </body>

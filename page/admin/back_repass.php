@@ -1,7 +1,7 @@
 <?php
 
 //1. เชื่อมต่อ database: 
-require_once("../../condb.php");  //ไฟล์เชื่อมต่อกับ database ที่เราได้สร้างไว้ก่อนหน้าน้ี
+require_once("../service/condb.php");  //ไฟล์เชื่อมต่อกับ database ที่เราได้สร้างไว้ก่อนหน้าน้ี
   //ไฟล์เชื่อมต่อกับ database ที่เราได้สร้างไว้ก่อนหน้าน้ี
 $member_id = $_POST['member_id'];
 // $depart = $_POST['id_depart']; //รับค่าไฟล์จากฟอร์ม	
@@ -12,6 +12,7 @@ $member_id = $_POST['member_id'];
 // $email = $_POST['email']; //รับค่าไฟล์จากฟอร์ม	
 $pass1 = $_POST['pass1']; //รับค่าไฟล์จากฟอร์ม	
 $pass2 = $_POST['pass2']; //รับค่าไฟล์จากฟอร์ม
+$pass2 =md5($pass2);
 // $fileupload = $_FILES['m_Img']; //รับค่าไฟล์จากฟอร์ม	
 // echo "<pre>";
 // print_r($_POST);

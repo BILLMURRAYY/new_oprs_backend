@@ -1,4 +1,6 @@
+<?php session_start(); ?> 
 <?php include("../include/head.php"); ?>
+<?php include("../service/check_login_page.php"); ?>
 <?php require_once("../service/condb.php"); ?>
 
 
@@ -111,9 +113,10 @@
 
                                                             <div class="form-group row">
                                                                 <label class="col-sm-2 col-form-label">รายละเอียดงาน :</label>
-                                                                <div class="col-10 form-control">
-                                                                    <?php echo $values['detail']; ?>
-                                                                </div>
+                                                                <div class="col-10"><?php echo $values['detail']; ?></div>
+                                                                <!-- <textarea class="col-10 form-control">
+                                                                    
+                                                                </textarea> -->
                                                             </div>
 
 
@@ -131,7 +134,7 @@
 
                                                             <div class="form-group row">
                                                                 <label class="col-sm-2 col-form-label">ปัญหาที่พบ :</label>
-                                                                <div class="col-10 form-control">
+                                                                <div class="col-10 ">
                                                                     <?php echo $values['problem']; ?>
                                                                 </div>
                                                             </div>

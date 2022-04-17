@@ -16,7 +16,7 @@
 <!-- header -->
 
 
-<body class="hold-transition sidebar-mini layout-fixed">
+<!-- <body class="hold-transition sidebar-mini layout-fixed"> -->
 <!-- Preloader -->
 
   <!-- Navbar -->
@@ -74,9 +74,8 @@
   </nav>
   <!-- /.navbar -->
 
-  </nav>
 
 
-</body>
+<!-- </body> -->
 
-<!-- <img src="../../assets/images/<?php echo $_SESSION['m_Img']; ?>" class="img-circle" style="max-width: 28px; max-hight:28px;" alt="User Image" /> -->
+<!-- <img src="../../assets/images/<?php //echo $_SESSION['m_Img']; ?>" class="img-circle" style="max-width: 28px; max-hight:28px;" alt="User Image" /> -->

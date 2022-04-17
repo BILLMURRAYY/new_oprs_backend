@@ -2,14 +2,14 @@
 <?php
 require_once("../service/condb.php");
 
-$count = 1;
-$result = "SELECT * FROM member 
-           inner join department
-           on department.department_id = member.department_id";
-$query = mysqli_query($condb, $result);
-$rows = mysqli_fetch_all($query, MYSQLI_ASSOC);
+// $count = 1;
+// $result = "SELECT * FROM member 
+//            inner join department
+//            on department.department_id = member.department_id";
+// $query = mysqli_query($condb, $result);
+// $rows = mysqli_fetch_array($query, MYSQLI_ASSOC);
 
-$count = 1;
+// $count = 1;
 
 ?>
 <body class="sidebar-mani layout-fixed sidebar-closed sidebar-collapse " style="height: auto;">
@@ -21,25 +21,31 @@ $count = 1;
         </a>
 
         <!-- Sidebar -->
-        <div class="sidebar os-host os-theme-light os-host-overflow os-host-overflow-y os-host-resize-disabled os-host-transition os-host-scrollbar-horizontal-hidden">
+        <div class="sidebar">
+        <!-- <div class="sidebar os-host os-theme-light os-host-overflow os-host-overflow-y os-host-resize-disabled os-host-transition os-host-scrollbar-horizontal-hidden"> -->
             <!-- <div class="os-resize-observer-host observed">
                 <div class="os-resize-observer" style="left: 0px; right: auto;"></div>
             </div>
             <div class="os-size-auto-observer observed" style="height: calc(100% + 1px); float: left;">
                 <div class="os-resize-observer"></div>
             </div> -->
-            <div class="os-content-glue" style="margin: 0px -8px; width: 249px; height: 664px;"></div>
-            <div class="os-padding">
-                <div class="os-viewport os-viewport-native-scrollbars-invisible" style="overflow-y: scroll;">
-                    <div class="os-content" style="padding: 0px 8px; height: 100%; width: 100%;">
+            <!-- <div class="os-content-glue" style="margin: 0px -8px; width: 249px; height: 664px;"></div> -->
+            <!-- <div class="os-padding"> -->
+                <!-- <div class="os-viewport os-viewport-native-scrollbars-invisible" style="overflow-y: scroll;"> -->
+                    <!-- <div class="os-content" style="padding: 0px 8px; height: 100%; width: 100%;"> -->
                         <!-- Sidebar user panel (optional) -->
                         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                            <?php
+                            $sql = "SELECT img FROM member WHERE member_id = '".$_SESSION["member_id"]."'";
+                            $query0 = mysqli_query($condb, $sql);
+                            $rows0 = mysqli_fetch_array($query0, MYSQLI_ASSOC);
+                            ?>
                             <div class="image">
-                                <img src="../../assets/bootstrap/template/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                                <img src="../../assets/images/<?php echo $rows0['img'] ?>" class="img-circle elevation-2" alt="User Image">
                             </div>
                             <div class="info">
                                 <a href="#" class="d-block"><?php echo  $_SESSION["member_name"] ;?></a>
-                                <span style="color: white;">(หัวหน้า)</span>
+                                <span style="color: white;">(<?php echo  $_SESSION["department_name"] ;?>)</span>
                             </div>
                         </div>
 
@@ -87,25 +93,6 @@ $count = 1;
                                 </li>
 
                                 <li class="nav-item">
-                                    <a href="estimate.php" class="nav-link">
-                                        <i class="nav-icon fas fal fa-table"></i>
-                                       
-                                        <p>
-                                            ประเมินผล
-                                            <!-- <i class="right fas fa-angle-left"></i> -->
-                                        </p>
-                                    </a>
-                                </li>
-                           
-                                <li class="nav-item">
-                                    <a href="chart.php" class="nav-link">                                     
-                                        <i class="nav-icon fas fa-chart-bar"></i>
-                                        <p>
-                                            ผลประเมิน                                          
-                                        </p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
                                     <a href="feedback.php" class="nav-link">
                                         <i class="nav-icon fas  fa-comment"></i>
                                        
@@ -123,6 +110,17 @@ $count = 1;
                                         </p>
                                     </a>
                                 </li>
+                                <!-- <li class="nav-item">
+                                    <a href="estimate.php" class="nav-link">
+                                        <i class="nav-icon fas fal fa-table"></i>
+                                       
+                                        <p>
+                                            ประเมินผล
+                                            <i class="right fas fa-angle-left"></i>
+                                        </p>
+                                    </a>
+                                </li> -->
+                           
                                 <li class="nav-item">
                                     <a href="history_estimate.php" class="nav-link">
                                         <i class="nav-icon fas fad fa-history"></i>
@@ -132,15 +130,20 @@ $count = 1;
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <form action="edi_profile.php">
-                                    <a href="edit_profile.php?id_member=<?php echo $value['member_id'] ?>" class="nav-link">
-                                        <i class="nav-icon fas fa-edit"></i>
-                                       
+                                    <a href=" estimate_value.php" class="nav-link">                                     
+                                        <i class="nav-icon fas fa-chart-bar"></i>
                                         <p>
-                                            แก้ไขข้อมูลส่วนตัว           
+                                            ผลประเมิน                                          
                                         </p>
                                     </a>
-                                    </form>
+                                </li>
+                                <li class="nav-item">
+                                    <!-- <form action="edit_profile.php"> -->
+                                    <a href="edit_profile.php?id_member=<?php echo $_SESSION["member_id"] ?>" class="nav-link">
+                                        <i class="nav-icon fas fa-edit"></i>
+                                        <p>แก้ไขข้อมูลส่วนตัว</p>
+                                    </a>
+                                    <!-- </form> -->
                                 </li>
                                 <li class="nav-item">
                                 <a href="../../logout.php" class="nav-link">
@@ -151,9 +154,9 @@ $count = 1;
                             </ul>
                         </nav>
                         <!-- /.sidebar-menu -->
-                    </div>
-                </div>
-            </div>
+                    <!-- </div> -->
+                <!-- </div> -->
+            <!-- </div> -->
             <div class="os-scrollbar os-scrollbar-horizontal os-scrollbar-unusable os-scrollbar-auto-hidden">
                 <div class="os-scrollbar-track">
                     <div class="os-scrollbar-handle" style="width: 100%; transform: translate(0px, 0px);"></div>
@@ -164,7 +167,7 @@ $count = 1;
                     <div class="os-scrollbar-handle" style="height: 48.933%; transform: translate(0px, 0px);"></div>
                 </div>
             </div>
-            <div class="os-scrollbar-corner"></div>
+            <!-- <div class="os-scrollbar-corner"></div> -->
         </div>
         <!-- /.sidebar -->
     </aside>

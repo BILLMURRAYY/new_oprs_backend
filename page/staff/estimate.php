@@ -99,9 +99,9 @@ require_once("../service/condb.php");
                                         <?php
 
                                         // !!!!!!!!!!! กำหนดค่า session
-                                        $department = 'หัวหน้าคณบดี';
+                                        // $department = 'หัวหน้าคณบดี';
                                         // $_SESSION["department_id"]
-                                        $department_id  = 2;
+                                        $department_id  = $_SESSION["department_id"];
 
                                         $result = "SELECT * FROM department 
                                                 -- inner JOIN member
@@ -157,7 +157,6 @@ require_once("../service/condb.php");
             </div>
         </div>
     </div>
-    </div>
     <!-- bs-custom-file-input -->
     <script src="../../assets/bootstrap/template/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 
@@ -172,4 +171,6 @@ require_once("../service/condb.php");
             $('.select2').select2()
         });
     </script>
+    <?php include("../include/footer.php"); ?>
+
 </body>

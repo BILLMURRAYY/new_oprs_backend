@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 13, 2022 at 05:49 PM
+-- Generation Time: Apr 17, 2022 at 10:36 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -42,19 +42,19 @@ CREATE TABLE `department` (
 INSERT INTO `department` (`department_id`, `department_name`, `level`, `flow_report`, `flow_estimate`) VALUES
 (1, 'admin', 'admin', 'หัวหน้าคณบดี', ''),
 (2, 'หัวหน้าคณบดี', 'boss', 'รองคณบดีฝ่ายบริหาร', 'admin,รองคณบดีฝ่ายบริหาร'),
-(3, 'รองคณบดีฝ่ายบริหาร', 'staff', 'หัวหน้าคณบดี', 'หัวหน้าคณบดี'),
-(4, 'รองคณบดีฝ่ายวิชาการและวิเทศสัมพันธ์', 'staff', '', ''),
-(5, 'รองคณบดีฝ่ายวิจัยและประกันคุณภาพการศึกษา', 'staff', '', ''),
-(6, 'หัวหน้าสำนักงานคณบดี', 'staff', '', ''),
-(7, 'กลุ่มงานบริหารและพัฒนาบุคคลกร', 'staff', '', ''),
-(8, 'หน่วยบุคคล', 'employee', '', ''),
-(9, 'หน่วยสารบรรณ', 'employee', '', ''),
-(10, 'กลุ่มงานคลังและพัสดุ', 'staff', '', ''),
-(11, 'หน่วยการเงินและบัญชี', 'employee', '', ''),
-(12, 'หน่วยพัสดุและครุภัณฑ์', 'employee', '', ''),
-(13, 'กลุ่มงานอาคารสถานที่และยานพาหนะ', 'staff', '', ''),
-(14, 'หน่วยอาคารสถานที่และบริหาร', 'employee', '', ''),
-(15, 'หน่วยพัฒนาสิ่งแวดล้อม', 'employee', '', ''),
+(3, 'รองคณบดีฝ่ายบริหาร', 'staff', 'หัวหน้าคณบดี', 'หัวหน้าสำนักงานคณบดี,ศูนย์วิจัยและพัฒนาทางศิลปศาสตร์ประยุกต์'),
+(4, 'รองคณบดีฝ่ายวิชาการและวิเทศสัมพันธ์', 'staff', 'หัวหน้าคณบดี', 'หัวหน้าสำนักงานคณบดี,ศูนย์วิจัยและพัฒนาทางศิลปศาสตร์ประยุกต์'),
+(5, 'รองคณบดีฝ่ายวิจัยและประกันคุณภาพการศึกษา', 'staff', 'หัวหน้าคณบดี', 'หัวหน้าสำนักงานคณบดี,ศูนย์วิจัยและพัฒนาทางศิลปศาสตร์ประยุกต์'),
+(6, 'หัวหน้าสำนักงานคณบดี', 'staff', 'หัวหน้าคณบดี,รองคณบดีฝ่ายบริหาร,รองคณบดีฝ่ายวิชาการและวิเทศสัมพันธ์,รองคณบดีฝ่ายวิจัยและประกันคุณภาพการศึกษา', 'กลุ่มงานบริหารและพัฒนาบุคคลกร,กลุ่มงานคลังและพัสดุ,กลุ่มงานอาคารสถานที่และยานพาหนะ,กลุ่มงานนโยบายและแผน,กลุ่มงานอาคารสถานที่และยานพาหนะ,กลุ่มงานงนาประกันคุณภาพการศึกษา'),
+(7, 'กลุ่มงานบริหารและพัฒนาบุคคลกร', 'staff', 'หัวหน้าคณบดี,รองคณบดีฝ่ายบริหาร,รองคณบดีฝ่ายวิชาการและวิเทศสัมพันธ์,รองคณบดีฝ่ายวิจัยและประกันคุณภาพการศึกษา,หัวหน้าสำนักงานคณบดี', 'หน่วยบุคคล,หน่วยสารบรรณ'),
+(8, 'หน่วยบุคคล', 'employee', 'หัวหน้าคณบดี,รองคณบดีฝ่ายบริหาร,รองคณบดีฝ่ายวิชาการและวิเทศสัมพันธ์,รองคณบดีฝ่ายวิจัยและประกันคุณภาพการศึกษา,หัวหน้าสำนักงานคณบดี,กลุ่มงานบริหารและพัฒนาบุคคลกร', ''),
+(9, 'หน่วยสารบรรณ', 'employee', 'หัวหน้าคณบดี,รองคณบดีฝ่ายบริหาร,รองคณบดีฝ่ายวิชาการและวิเทศสัมพันธ์,รองคณบดีฝ่ายวิจัยและประกันคุณภาพการศึกษา,หัวหน้าสำนักงานคณบดี,กลุ่มงานบริหารและพัฒนาบุคคลกร', ''),
+(10, 'กลุ่มงานคลังและพัสดุ', 'staff', 'หัวหน้าคณบดี,รองคณบดีฝ่ายบริหาร,รองคณบดีฝ่ายวิชาการและวิเทศสัมพันธ์,รองคณบดีฝ่ายวิจัยและประกันคุณภาพการศึกษา,หัวหน้าสำนักงานคณบดี', 'หน่วยการเงินและบัญชี,หน่วยพัสดุและครุภัณฑ์'),
+(11, 'หน่วยการเงินและบัญชี', 'employee', 'หัวหน้าคณบดี,รองคณบดีฝ่ายบริหาร,รองคณบดีฝ่ายวิชาการและวิเทศสัมพันธ์,รองคณบดีฝ่ายวิจัยและประกันคุณภาพการศึกษา,หัวหน้าสำนักงานคณบดี,กลุ่มงานคลังและพัสดุ', ''),
+(12, 'หน่วยพัสดุและครุภัณฑ์', 'employee', 'หัวหน้าคณบดี,รองคณบดีฝ่ายบริหาร,รองคณบดีฝ่ายวิชาการและวิเทศสัมพันธ์,รองคณบดีฝ่ายวิจัยและประกันคุณภาพการศึกษา,หัวหน้าสำนักงานคณบดี,กลุ่มงานคลังและพัสดุ', ''),
+(13, 'กลุ่มงานอาคารสถานที่และยานพาหนะ', 'staff', 'หัวหน้าคณบดี,รองคณบดีฝ่ายบริหาร,รองคณบดีฝ่ายวิชาการและวิเทศสัมพันธ์,รองคณบดีฝ่ายวิจัยและประกันคุณภาพการศึกษา,หัวหน้าสำนักงานคณบดี', 'หน่วยอาคารสถานที่และบริหาร,หน่วยพัฒนาสิ่งแวดล้อม'),
+(14, 'หน่วยอาคารสถานที่และบริหาร', 'employee', 'หัวหน้าคณบดี,รองคณบดีฝ่ายบริหาร,รองคณบดีฝ่ายวิชาการและวิเทศสัมพันธ์,รองคณบดีฝ่ายวิจัยและประกันคุณภาพการศึกษา,หัวหน้าสำนักงานคณบดี,กลุ่มงานอาคารสถานที่และยานพาหนะ', ''),
+(15, 'หน่วยพัฒนาสิ่งแวดล้อม', 'employee', 'หัวหน้าคณบดี,รองคณบดีฝ่ายบริหาร,รองคณบดีฝ่ายวิชาการและวิเทศสัมพันธ์,รองคณบดีฝ่ายวิจัยและประกันคุณภาพการศึกษา,หัวหน้าสำนักงานคณบดี,กลุ่มงานอาคารสถานที่และยานพาหนะ', ''),
 (16, 'กลุ่มงานนโยบายและแผน', 'staff', '', ''),
 (17, 'หน่วยแผนและงบประมาณ', 'employee', '', ''),
 (18, 'หน่วยยุทธศาสตร์และการประเมินผล', 'employee', '', ''),
@@ -69,7 +69,7 @@ INSERT INTO `department` (`department_id`, `department_name`, `level`, `flow_rep
 (27, 'ศูนย์วิจัยและพัฒนาทางศิลปศาสตร์ประยุกต์', 'staff', '', ''),
 (28, 'หน่วยส่งเสริมและพัฒนางานวิจัย', 'employee', '', ''),
 (29, 'กลุ่มวิจัย', 'employee', '', ''),
-(30, 'กลุ่มงานคลังและพัสดุa', 'admin', '', '');
+(30, 'กลุ่มงานคลังและพัสดุw', 'admin', 'หัวหน้าคณบดี', '');
 
 -- --------------------------------------------------------
 
@@ -94,7 +94,19 @@ CREATE TABLE `estimate` (
 
 INSERT INTO `estimate` (`estimate_id`, `K`, `M`, `U`, `T`, `N`, `B`, `detail`) VALUES
 (1, '5,5,4', '3,4,5', '3,3,4', '5,2,4', '3,4,5', '3,4,4', 'feedback'),
-(2, '1,1,1', '1,1,1', '1,1,1', '1,1,1', '1,1,1', '1,1,1', 'qwertyuhgc');
+(2, '1,1,1', '1,1,1', '1,1,1', '1,1,1', '1,1,1', '1,1,1', 'qwertyuhgc'),
+(3, '1,1,1', '1,1,1', '1,1,1', '1,1,1', '1,1,1', '1,1,1', ''),
+(4, '1,1,1', '1,1,1', '1,1,1', '1,1,1', '1,1,1', '1,1,1', ''),
+(5, '1,1,1', '1,1,1', '1,1,1', '1,1,1', '1,1,1', '1,1,1', ''),
+(6, '1,1,1', '1,1,1', '1,1,1', '1,1,1', '1,1,1', '1,1,1', ''),
+(7, '1,1,1', '1,1,1', '1,1,1', '1,1,1', '1,1,1', '1,1,1', ''),
+(8, '1,1,1', '1,1,1', '1,1,1', '1,1,1', '1,1,1', '1,1,1', ''),
+(9, '1,1,1', '1,1,1', '1,1,1', '1,1,1', '1,1,1', '1,1,1', ''),
+(10, '1,1,1', '1,1,1', '1,1,1', '1,1,1', '1,1,1', '1,1,1', ''),
+(11, '1,1,1', '1,1,1', '1,1,1', '1,1,1', '1,1,1', '1,1,1', ''),
+(12, '1,1,1', '1,1,1', '1,1,1', '1,1,1', '1,1,1', '1,1,1', ''),
+(13, '5,5,5', '5,4,5', '5,5,5', '5,5,5', '5,4,5', '5,5,3', 'wwww'),
+(14, '5,5,5', '5,5,5', '5,5,5', '5,5,5', '5,5,5', '5,5,5', 'Good Job!');
 
 -- --------------------------------------------------------
 
@@ -122,7 +134,9 @@ INSERT INTO `feedback` (`feedback_id`, `header`, `detail`, `date`) VALUES
 (6, 'detailtest3', 'test2', '2022-04-06 14:57:25'),
 (7, 'detailtest3', 'test2', '2022-04-06 14:57:25'),
 (8, 'detailtest3', 'test3', '2022-04-06 14:58:06'),
-(9, 'test2', 'fdhgfjgglijhmk.njh', '2022-04-11 14:20:07');
+(9, 'test2', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae unde animi eveniet rem, qui atque odio cupiditate tempore iste soluta iusto inventore aut consequatur debitis eum dicta amet. Suscipit assumenda molestias quaerat, sequi eos odit, iusto similique eligendi doloremque nobis natus. Iusto, quo eaque saepe nostrum mollitia, qui ex dolores, non eius beatae odio architecto quibusdam magni quos nobis vitae repellendus sapiente doloribus. Minima iusto, excepturi ullam maiores, et cumque voluptates aut eum consequatur pariatur, qui magnam iure laudantium voluptatem. Eaque reiciendis veritatis fugit repellat et modi ipsam cupiditate voluptatibus nam suscipit nemo, architecto totam sequi delectus! Laudantium, veniam maiores.', '2022-04-16 20:03:58'),
+(10, 'detailtest2', 'qqqqqqqq', '2022-04-16 09:04:47'),
+(11, 'detailtest1', 'treewq', '2022-04-16 09:35:02');
 
 -- --------------------------------------------------------
 
@@ -147,13 +161,13 @@ CREATE TABLE `member` (
 --
 
 INSERT INTO `member` (`member_id`, `prefix`, `first_name`, `last_name`, `tel`, `email`, `password`, `img`, `department_id`) VALUES
-(1, 'นาย', 'Ally', 'Aagaard', '0800000000', 'admin@gmail.com', '11111', '2022041140990953.png', 1),
-(2, 'นาย', 'Joe', 'คณบดี', '0800000000', 'boss@gmail.com', '1111', '', 2),
-(3, 'นาง', 'Time', 'รองคณบดี', '0800000000', 'staff@gmail.com', '11111', '', 3),
-(4, 'นาย', 'Bill', 'Murray', '0800000000', 'emp@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', '', 10),
+(1, 'นาย', 'Ally', 'Aagaard', '0800000000', 'admin@gmail.com', 'b0baee9d279d34fa1dfd71aadb908c3f', '202204162126674538.png', 1),
+(2, 'นาย', 'Joe', 'คณบดี', '0800000000', 'boss@gmail.com', 'b0baee9d279d34fa1dfd71aadb908c3f', '202204178703077.png', 2),
+(3, 'นาง', 'Time', 'รองคณบดี', '0800000000', 'staff@gmail.com', 'b0baee9d279d34fa1dfd71aadb908c3f', '20220418846889713.jpg', 3),
+(4, 'นาย', 'Bill', 'Murray', '0800000000', 'emp@gmail.com', 'b0baee9d279d34fa1dfd71aadb908c3f', '', 10),
 (5, 'นาย', 'test2', 'lastname', '0800000000', 'emp1@gmail.com', 'b0baee9d279d34fa1dfd71aadb908c3f', '', 1),
-(6, 'นาย', 'test1', 'lastname', '0800000000', 'emp2@gmail.com', 'b0baee9d279d34fa1dfd71aadb908c3f', '20220411444106198.png', 1),
-(7, 'นาย', 'test3', 'lastname', '0800000000', 'emp3@gmail.com', 'b0baee9d279d34fa1dfd71aadb908c3f', '', 8),
+(6, 'นาย', 'test1', 'lastname', '0800000000', 'emp2@gmail.com', 'b0baee9d279d34fa1dfd71aadb908c3f', '20220417706541494.png', 5),
+(7, 'นาย', 'test3', 'lastname', '0800000000', 'emp3@gmail.com', 'b0baee9d279d34fa1dfd71aadb908c3f', '202204171493277586.png', 8),
 (8, 'นาย', 'test1', 'lastname', '0800000000', 'emp4@gmail.com', 'b0baee9d279d34fa1dfd71aadb908c3f', '', 16),
 (9, 'นาย', 'test1', 'lastname', '0800000000', 'emp5@gmail.com', 'b0baee9d279d34fa1dfd71aadb908c3f', '2022041137314397', 14),
 (10, 'นางสาว', 'test1', 'lastname', '0800000000', 'emp6@gmail.com', 'b0baee9d279d34fa1dfd71aadb908c3f', '202204111604388118', 23),
@@ -162,7 +176,9 @@ INSERT INTO `member` (`member_id`, `prefix`, `first_name`, `last_name`, `tel`, `
 (13, 'นางสาว', 'test1', 'lastname', '0800000000', 'emp9@gmail.com', 'b0baee9d279d34fa1dfd71aadb908c3f', '', 1),
 (14, 'นาย', 'test1', 'lastname', '0800000000', 'emp10@gmail.com', 'b0baee9d279d34fa1dfd71aadb908c3f', '20220411111297099.png', 1),
 (15, 'นาย', 'test1', 'lastname', '0800000000', 'emp11@gmail.com', 'b0baee9d279d34fa1dfd71aadb908c3f', '', 1),
-(16, 'นางสาว', 'test1', 'lastname', '0800000000', 'emp12@gmail.com', 'b59c67bf196a4758191e42f76670ceba', '202204111092004299.jpg', 18);
+(16, 'นางสาว', 'test1', 'lastname', '0800000000', 'emp12@gmail.com', 'b59c67bf196a4758191e42f76670ceba', '202204111092004299.jpg', 18),
+(18, 'นาย', 'test1', 'lastname', '0800000000', 'admin2@gmail.com', 'b0baee9d279d34fa1dfd71aadb908c3f', '20220416354753575.png', 1),
+(19, 'นาย', 'bill', 'murray', '0800000000', 'employee@gmail.com', 'b0baee9d279d34fa1dfd71aadb908c3f', '20220418360854466.jpg', 8);
 
 -- --------------------------------------------------------
 
@@ -178,7 +194,7 @@ CREATE TABLE `report` (
   `success` int(11) NOT NULL,
   `working_range_start` date NOT NULL,
   `working_range_end` date NOT NULL,
-  `problem` varchar(255) NOT NULL,
+  `problem` longtext NOT NULL,
   `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -226,9 +242,17 @@ INSERT INTO `report` (`report_id`, `header`, `detail`, `workplace`, `success`, `
 (37, 'test1', 'test1', 'สำนักงาน', 10, '2022-04-12', '2022-04-13', '', '2022-04-11 10:38:46'),
 (38, 'test1', 'test1', 'สำนักงาน', 10, '2022-04-11', '2022-04-12', 'test1', '2022-04-11 14:19:30'),
 (39, 'test2', 'test2', 'สำนักงาน', 10, '2022-04-13', '2022-04-13', '', '2022-04-11 14:19:30'),
-(40, 'test3', 'test3', 'สำนักงาน', 10, '2022-04-06', '2022-04-12', '', '2022-04-11 14:19:30'),
+(40, 'test3', 'test3', 'สำนักงาน', 40, '2022-04-06', '2022-04-12', '', '2022-04-17 08:07:34'),
 (41, 'test1', 'q', 'สำนักงาน', 10, '2022-04-13', '2022-04-13', '', '2022-04-12 17:08:04'),
-(42, 'test2', 'we', 'สำนักงาน', 10, '2022-04-06', '2022-04-14', '', '2022-04-12 17:10:52');
+(42, 'test2', 'we', 'สำนักงาน', 10, '2022-04-06', '2022-04-14', '', '2022-04-12 17:10:52'),
+(43, '', '', 'สำนักงาน', 10, '0000-00-00', '0000-00-00', '', '2022-04-15 19:01:44'),
+(44, 'gg', '', 'สำนักงาน', 10, '0000-00-00', '0000-00-00', '', '2022-04-15 19:01:44'),
+(45, 'react', 'test detail', 'สำนักงาน', 10, '2022-04-16', '2022-04-17', '', '2022-04-15 19:05:56'),
+(46, 'หัวข้อที่1 ', 'ทำงาน', 'บ้าน', 80, '2022-04-11', '2022-04-15', '', '2022-04-16 07:06:03'),
+(47, 'หัวข้อที่2', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae unde animi eveniet rem, qui atque odio cupiditate tempore iste soluta iusto inventore aut consequatur debitis eum dicta amet. Suscipit assumenda molestias quaerat, sequi eos odit, iusto similique eligendi doloremque nobis natus. Iusto, quo eaque saepe nostrum mollitia, qui ex dolores, non eius beatae odio architecto quibusdam magni quos nobis vitae repellendus sapiente doloribus. Minima iusto, excepturi ullam maiores, et cumque voluptates aut eum consequatur pariatur, qui magnam iure laudantium voluptatem. Eaque reiciendis veritatis fugit repellat et modi ipsam cupiditate voluptatibus nam suscipit nemo, architecto totam sequi delectus! Laudantium, veniam maiores.', 'สำนักงาน', 10, '2022-04-15', '2022-04-16', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae unde animi eveniet rem, qui atque odio cupiditate tempore iste soluta iusto inventore aut consequatur debitis eum dicta amet. Suscipit assumenda molestias quaerat, sequi eos odit, iusto similique eligendi doloremque nobis natus. Iusto, quo eaque saepe nostrum mollitia, qui ex dolores, non eius beatae odio architecto quibusdam magni quos nobis vitae repellendus sapiente doloribus. Minima iusto, excepturi ullam maiores, et cumque voluptates aut eum consequatur pariatur, qui magnam iure laudantium voluptatem. Eaque reiciendis veritatis fugit repellat et modi ipsam cupiditate voluptatibus nam suscipit nemo, architecto totam sequi delectus! Laudantium, veniam maiores.', '2022-04-16 19:16:47'),
+(48, 'header1', 'test emp', 'บ้าน', 80, '2022-04-11', '2022-04-15', '', '2022-04-17 20:11:26'),
+(49, 'header2', 'test emp2', 'สำนักงาน', 100, '2022-04-11', '2022-04-15', '', '2022-04-17 20:11:26'),
+(50, 'header3', 'test emp3', 'สำนักงาน', 60, '2022-04-11', '2022-04-15', '', '2022-04-17 20:11:26');
 
 -- --------------------------------------------------------
 
@@ -249,8 +273,17 @@ CREATE TABLE `send_estimate` (
 --
 
 INSERT INTO `send_estimate` (`send_estimate_id`, `member_send_id`, `member_receive_id`, `date`, `estimate_id`) VALUES
-(3, 2, 3, '2022-04-07 14:31:54', 1),
-(4, 2, 1, '2022-04-11 14:28:02', 2);
+(3, 2, 3, '2022-04-17 09:48:26', 1),
+(4, 2, 3, '2022-04-17 09:48:27', 2),
+(5, 2, 2, '2022-04-17 10:07:16', 3),
+(6, 2, 2, '2022-04-17 10:43:12', 4),
+(10, 3, 2, '2022-04-17 10:48:15', 8),
+(11, 3, 2, '2022-04-17 10:48:49', 9),
+(12, 3, 2, '2022-04-17 10:49:09', 10),
+(13, 3, 2, '2022-04-17 10:49:29', 11),
+(14, 3, 2, '2022-04-17 10:49:36', 12),
+(15, 3, 2, '2022-04-17 10:50:26', 13),
+(16, 2, 3, '2022-04-17 19:16:24', 14);
 
 -- --------------------------------------------------------
 
@@ -273,7 +306,9 @@ CREATE TABLE `send_feedback` (
 INSERT INTO `send_feedback` (`send_feedback_id`, `member_send_id`, `member_receive_id`, `date`, `feedback_id`) VALUES
 (1, 1, 3, '2022-04-06 14:58:06', 8),
 (2, 2, 3, '2022-04-06 16:36:23', 7),
-(3, 2, 3, '2022-04-11 14:25:31', 9);
+(3, 2, 3, '2022-04-11 14:25:31', 9),
+(4, 3, 2, '2022-04-16 09:04:47', 10),
+(5, 2, 2, '2022-04-16 09:35:02', 11);
 
 -- --------------------------------------------------------
 
@@ -297,7 +332,7 @@ CREATE TABLE `send_report` (
 INSERT INTO `send_report` (`send_report_id`, `member_send_id`, `department_receive`, `file`, `date`, `report_id`) VALUES
 (1, 2, 'รองคณบดีฝ่ายบริหาร', '', '2022-04-06 11:03:59', '1,2'),
 (2, 3, 'หัวหน้าคณบดี', '', '2022-04-06 11:05:08', '3'),
-(3, 3, 'หัวหน้าคณบดี', '', '2022-04-08 08:01:10', '4,5,6,7,8'),
+(3, 2, 'รองคณบดีฝ่ายบริหาร', '', '2022-04-17 07:57:19', '4,5,6,7,8'),
 (4, 3, 'หัวหน้าคณบดี', '202204101073484711.png', '2022-04-09 17:15:29', '9'),
 (5, 3, 'หัวหน้าคณบดี', '20220410392011136.pdf', '2022-04-09 17:23:26', '10,11'),
 (6, 3, 'หัวหน้าคณบดี', '', '2022-04-09 17:30:41', '12'),
@@ -328,7 +363,12 @@ INSERT INTO `send_report` (`send_report_id`, `member_send_id`, `department_recei
 (31, 3, 'หัวหน้าคณบดี', '', '2022-04-11 10:38:46', '37'),
 (32, 3, 'หัวหน้าคณบดี', '202204112096785664.pdf', '2022-04-11 14:19:30', '38,39,40'),
 (33, 3, 'หัวหน้าคณบดี', '', '2022-04-12 17:08:04', '41'),
-(34, 3, 'หัวหน้าคณบดี', '', '2022-04-12 17:10:52', '42');
+(34, 3, 'หัวหน้าคณบดี', '', '2022-04-12 17:10:52', '42'),
+(35, 3, 'หัวหน้าคณบดี', '', '2022-04-15 19:01:44', '43,44'),
+(36, 3, 'หัวหน้าคณบดี', '', '2022-04-15 19:05:56', '45'),
+(37, 3, 'หัวหน้าคณบดี', '', '2022-04-16 07:06:03', '46'),
+(38, 3, 'หัวหน้าคณบดี', '202204162025325056.pdf', '2022-04-16 07:07:36', '47'),
+(39, 19, 'หัวหน้าคณบดี,รองคณบดีฝ่ายบริหาร,รองคณบดีฝ่ายวิชาการและวิเทศสัมพันธ์,รองคณบดีฝ่ายวิจัยและประกันคุณภาพการศึกษา,หัวหน้าสำนักงานคณบดี,กลุ่มงานบริหารและพัฒนาบุคคลกร', '202204181604265433.pdf', '2022-04-17 20:16:03', '48,49,50');
 
 -- --------------------------------------------------------
 
@@ -480,43 +520,43 @@ ALTER TABLE `department`
 -- AUTO_INCREMENT for table `estimate`
 --
 ALTER TABLE `estimate`
-  MODIFY `estimate_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `estimate_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `feedback_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `feedback_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `report`
 --
 ALTER TABLE `report`
-  MODIFY `report_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `report_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `send_estimate`
 --
 ALTER TABLE `send_estimate`
-  MODIFY `send_estimate_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `send_estimate_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `send_feedback`
 --
 ALTER TABLE `send_feedback`
-  MODIFY `send_feedback_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `send_feedback_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `send_report`
 --
 ALTER TABLE `send_report`
-  MODIFY `send_report_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `send_report_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `test_report`
